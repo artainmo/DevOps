@@ -12,16 +12,16 @@
 GitLab is a single application that covers the whole DevOps lifecycle while allowing collaboration and ease of use. At its core it is a place to store repositories with git version control, however contrary to github it holds a lot of additional features.
 
 Here are some of the features it holds:
-* Manage containers and clusters such as [docker images](https://github.com/artainmo/WebDevelopment/tree/main/other/docker#Basics) or [kubernetes charts](https://github.com/artainmo/WebDevelopment/blob/main/other/kubernetes/README.md#helm).
-* Tools to facilitate the creation of [CI/CD pipelines](#CICD-pipelines).
-* It can [monitor](#monitoring) your code with Prometheus.
+* Manage containers and clusters such as [docker images](https://github.com/artainmo/DevOps/tree/main/docker#Basics) or [kubernetes charts](https://github.com/artainmo/DevOps/tree/main/kubernetes#helm).
+* Tools to facilitate the creation of [CI/CD pipelines](https://github.com/artainmo/DevOps#CICD-pipelines).
+* It can [monitor](https://github.com/artainmo/DevOps#Monitoring) your code with Prometheus.
 * Like github it also has features such as pull requests, view prior commits...
 * Organize code with for example labels.
 * Project management tools.
 * GitLab also allows the use of third party addons (integrations), making it extensible and providing even more features.<br>
 
 #### GitLab CI/CD Pipeline
-**GitLab CI/CD** includes a subset of GitLab's features that allow DevOps practices such as [continuous integration, continuous delivery, continuous deployment](#CICD-pipelines).<br>
+**GitLab CI/CD** includes a subset of GitLab's features that allow DevOps practices such as [continuous integration, continuous delivery, continuous deployment](https://github.com/artainmo/DevOps#CICD-pipelines).<br>
 Thus through a **GitLab pipeline** we can automatically build, test and deploy our software.<br>
 A GitLab pipeline is defined inside a file named '.gitlab-ci.yml' that lives at the root directory of a gitlab project.<br>
 A GitLab pipeline consists of Jobs (describes the tasks that need to be done) and Stages (defines the order in which jobs will be completed). Thus a gitlab pipeline consists of a set of instructions for a program to execute. The program that executes those instructions is called **GitLab Runner**, which can run on local host, VM or docker container.<br>
@@ -84,7 +84,7 @@ Apparently 'GitLab Agents' are able to synchorinize a running application with a
 
 #### GitLab Runner on Kubernetes
 'GitLab runner' executes [CI/CD pipeline instructions](#gitlab-cicd-pipeline).<br>
-'[helm](https://github.com/artainmo/WebDevelopment/blob/main/other/kubernetes/README.md#helm)' is a package manager for kubernetes that in this case allows us to install a GitLab runner made for Kubernetes.<br>
+'[helm](https://github.com/artainmo/DevOps/tree/main/kubernetes#helm)' is a package manager for kubernetes that in this case allows us to install a GitLab runner made for Kubernetes.<br>
 The GitLab runner is made for kubernetes because it uses the 'Kubernetes Executor', which allows each CI/CD pipeline instruction (job) to be run in its own pod, inside chosen namespace, those jobs will be able to use kubectl commands.
 
 ```
