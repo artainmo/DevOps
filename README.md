@@ -181,7 +181,7 @@ There are a variety of methods we can use in order to help resolve issues with e
 * We can be on the lookout for news of scheduled outages, vulnerabilities, or cancellations.
 * We can define fallback strategies for our external dependencies. If we detect that a dependency is not working, we might switch to a different dependency, or hide the functionality that depends on the failing service.
 
-To protect from malicious actors, see the [cybersecurity course](https://github.com/artainmo/WebDevelopment/tree/main/other/cybersecurity).
+To protect from malicious actors, see the [cybersecurity notes](https://github.com/artainmo/cybersecurity).
 
 Some important metrics that indicate a system’s resiliency include:
 * Uptime, or what percentage of the time is our system available.
