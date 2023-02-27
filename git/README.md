@@ -74,7 +74,7 @@ Markdown provides a lightweight syntax to style any text document so that it can
 Github allows to format written text in markdown, this is usually done in README.md files or any files with md or markdown as extension.<br>
 It is used to explain more about the project/repo.<br>
 Usually a repo at least has one README.md file but technically each directory in the repo can have one.<br>
-Here is a markdown cheatsheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+Here is a [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 ### Git branching
 See branching concept in github chapter.
@@ -149,7 +149,7 @@ The github command line interface (CLI) allows one to interact with issues and p
 
 Github actions can be used to automate certain tasks, such as using automated tests after a pull request or notify collaborators after a branch merged into the main. Github actions allow the creation of a CI/CD pipeline.
 
-An alternative to Github for managing git repositories that contains way more features, especially for DevOps, is [gitlab](https://github.com/artainmo/WebDevelopment/blob/main/other/DevOps/README.md#gitlab).
+An alternative to Github for managing git repositories that contains way more features, especially for DevOps, is [gitlab](https://github.com/artainmo/DevOps/tree/main/gitlab).
 
 ## Resources
 [Codecademy - Learn Git](https://www.codecademy.com/learn/learn-git) - 15h<br>
