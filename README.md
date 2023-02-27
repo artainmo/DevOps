@@ -14,11 +14,7 @@
     - [Cloud-infrastructure](#Cloud-infrastructure)
   - [Monitoring](#Monitoring)
   - [Resiliency](#Resiliency)
-  - [CI/CD pipelines](#CICD-pipelines) 
-- [Free tutorials](#Free-tutorials)
-  - [GitLab](#GitLab)
-    - [GitLab CI/CD Pipeline](#gitlab-cicd-pipeline)
-    - [GitLab Runner on Kubernetes](#GitLab-Runner-on-Kubernetes)
+  - [CI/CD pipelines](#CICD-pipelines)
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to DevOps
