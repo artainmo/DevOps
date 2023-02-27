@@ -442,21 +442,19 @@ Here are the different autoscaler types:
 
 ## Free tutorials
 ### Ancient related notes and projects...
-[Project ft_services](https://github.com/artainmo/ft_services/)<br>
-[Its related Notes](https://github.com/artainmo/ft_services/blob/master/notes.txt)
-
-Coming soon... The Inception-of-things project?
+Project [ft_services](https://github.com/artainmo/ft_services/) and its [related notes](https://github.com/artainmo/ft_services/blob/master/notes.txt).<br>
+Project [inception-of-things](https://github.com/artainmo/inception-of-things).
 
 ### Argo CD
 #### Introduction
-**Argo CD** is a declarative, GitOps [continuous delivery](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines) tool for Kubernetes.<br>
+**Argo CD** is a declarative, GitOps [continuous delivery](https://github.com/artainmo/DevOps#CICD-pipelines) tool for Kubernetes.<br>
 In computer science **declarative** programming is a style of building programs that expresses logic of computation without talking about its control flow. It may simplify writing parallel programs.<br>
-**GitOps** is a way of implementing [Continuous Deployment](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines) for applications. It consists of a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository. As a result creating changes in the repository will update the production environment automatically.
+**GitOps** is a way of implementing [Continuous Deployment](https://github.com/artainmo/DevOps#CICD-pipelines) for applications. It consists of a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository. As a result creating changes in the repository will update the production environment automatically.
 
-Basically Argo CD facilitates the creation of a [CI/CD pipeline](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines) within a kubernetes environment, by helping move code through different environments, starting from a development and ending with a production environment.
+Basically Argo CD facilitates the creation of a [CI/CD pipeline](https://github.com/artainmo/DevOps#CICD-pipelines) within a kubernetes environment, by helping move code through different environments, starting from a development and ending with a production environment.
 
-Argo CD follows the GitOps pattern of using Git repositories for defining the desired application state. In this repository kubernetes objects can be specified using [helm charts](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Helm), [plain .yaml files](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Create-Kubernetes-Objects), or other tools. Argo CD automates the deployment of the desired application states in the specified target environments.<br>
-Argo CD is implemented as a [kubernetes controller](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Kubernetes-Architecture), inside the kubernetes cluster, which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the Git repo). It synchronizes the live state with target state (defined in Git repo). Thus changes made in git repo are automatically mirrored inside the running application.
+Argo CD follows the GitOps pattern of using Git repositories for defining the desired application state. In this repository kubernetes objects can be specified using [helm charts](#Helm), [plain .yaml files](#Create-Kubernetes-Objects), or other tools. Argo CD automates the deployment of the desired application states in the specified target environments.<br>
+Argo CD is implemented as a [kubernetes controller](#Kubernetes-Architecture), inside the kubernetes cluster, which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the Git repo). It synchronizes the live state with target state (defined in Git repo). Thus changes made in git repo are automatically mirrored inside the running application.
 
 #### Getting started
 ##### Install Argo CD inside kubernetes namespace
@@ -488,7 +486,7 @@ Afterwards we can see the app's status like this `argocd app get <nameApp>`.<br>
 The application status is initially in 'OutOfSync' state since the application has yet to be deployed. To sync (deploy) the application, run: `argocd app sync <nameApp>`. This command retrieves the manifests from the repository and performs a kubectl apply of the manifests, meaning it creates the associated kubernetes objects. The app is now running.
 
 ##### Automate synchronization
-Finally, the main goal of Argo CD is to automatically synchronize the git repo with kubernetes' running app to allow [continuous delivery/deployment](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines). This is possible using the following commands:<br>
+Finally, the main goal of Argo CD is to automatically synchronize the git repo with kubernetes' running app to allow [continuous delivery/deployment](https://github.com/artainmo/DevOps#CICD-pipelines). This is possible using the following commands:<br>
 ```
 argocd app set <nameApp> --sync-policy automated #Once git repo is changed with new push, our running will-app will mirror that.
 argocd app set <nameApp> --auto-prune --allow-empty #If resources are removed in git repo those resources will also be removed inside our running will-app, even if that means the app becomes empty.
