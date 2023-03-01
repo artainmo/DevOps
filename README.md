@@ -21,7 +21,7 @@
 ### Introduction
 #### Deployment
 **Deployment** is the process of making software available to users.<br>
-Before the internet, this meant storing software on CD-ROMs, shipping them to users for them to manually download it. Today someone can simply access/download software from the internet
+Before the internet, this meant storing software on CD-ROMs, shipping them to users for them to manually download it. Today someone can simply access/download software from the internet.
 
 In the modern age of web applications, software is stored and executed on servers. Servers are computers that run software that can be accessed by another device (also known as the client), often via the internet.
 Servers require quite a bit of maintenance in order to be used by developers. They need to be purchased, have operating systems and various software installed on them.<br>
