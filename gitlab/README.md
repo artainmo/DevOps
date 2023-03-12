@@ -83,7 +83,7 @@ We can also define environment variables at top of file to be available in each 
 Apparently 'GitLab Agents' are able to synchorinize a running application with a repository. Thus they act similar as a 'deploy' job in a GitLab CI/CD pipeline.
 
 #### GitLab Runner on Kubernetes
-'GitLab runner' executes [CI/CD pipeline instructions](#gitlab-cicd-pipeline). However it is only necessary when using a 'local gitlab instance'. When using 'gitlab.com' the '.gitlab-ci.yml' is enough.<br>
+'GitLab runner' executes [CI/CD pipeline instructions](#gitlab-cicd-pipeline). However it is only necessary when using a 'local gitlab instance'. When using 'gitlab.com' the '.gitlab-ci.yml' is enough after validating your credit card.<br>
 '[helm](https://github.com/artainmo/DevOps/tree/main/kubernetes#helm)' is a package manager for kubernetes that in this case allows us to install a GitLab runner made for Kubernetes.<br>
 The GitLab runner is made for kubernetes because it uses the 'Kubernetes Executor', which allows each CI/CD pipeline instruction (job) to be run in its own pod, inside chosen namespace, those jobs will be able to use kubectl commands.
 
