@@ -25,7 +25,7 @@ A git project can be viewed as at least three parts:
 * `Repository`: where git permanently stores changes as different versions of the project
 
 `git status` can be used to check the made changes and if they are tracked by git or not.<br>
-In order for git to track the changes they have to be added to the staging area with the command `git add *`.<br>
+In order for git to track the changes, they have to be added to the staging area with the command `git add *`.<br>
 `*` refers to all contents in current and downstream directories but one can also indicate specific files.
 
 `git diff` allows to view differences between stagging area and working directory.
