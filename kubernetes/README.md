@@ -112,7 +112,7 @@ For production environments HA is recommended both on control-plane-nodes and on
 
 There are a variety of installation tools allowing us to deploy Kubernetes clusters on our local workstations, for learning and development purposes, such as: minikube, docker desktop (only in the case of containers made with docker), microK8s (for local and development but also cloud and production), K3S (lightweight Kubernetes cluster both for local and cloud).
 
-For automatically setting up a kubernetes cluster tools can be used such as; kubeadm (the officially supported tool), kubespray, kops and previously covered KaaS products.<br>
+For automatically setting up a kubernetes cluster, tools can be used such as; kubeadm (the officially supported tool), kubespray, kops and previously covered KaaS products.<br>
 However to manually set up a kubernetes cluster, here is a good resource ([Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)).
 
 #### Minikube - Installing local kubernetes clusters
@@ -122,7 +122,7 @@ Minikube is able to make changes in host environment, this is why we prefer to i
 For a learning environment the recommendations are that a Kubernetes node has 2 CPU cores (or virtual CPUs) at a minimum, at least 2 GB of RAM memory (with 4 - 6 GB of RAM recommended for optimal usage), and 20+ GB of disk storage space.<br>
 Following the nodes' provisioning phase, Minikube invokes kubeadm, to bootstrap the Kubernetes cluster components inside the previously provisioned nodes.
 
-Installion of minikube, and the external driver you choose to use, depend upon your operating system.
+Installation of minikube, and the external driver you choose to use, depend upon your operating system.
 
 In a terminal we can start Minikube with the `minikube start` command, that bootstraps a single-node cluster with the latest stable Kubernetes version release. It will select a default external driver based on what is available on host environment. It creates an object that describes our cluster, named profile, which can be used to relaunch the same cluster. To start a customized cluster the command can take additional flags.<br>
 The `minikube profile` command allows us to view the status of all our clusters.<br>
