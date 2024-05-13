@@ -25,7 +25,7 @@ Here are some of the features it holds:
 Thus through a **GitLab pipeline** we can automatically build, test and deploy our software.<br>
 A GitLab pipeline is defined inside a file named '.gitlab-ci.yml' that lives at the root directory of a gitlab project.<br>
 A GitLab pipeline consists of Jobs (describes the tasks that need to be done) and Stages (defines the order in which jobs will be completed). Thus a gitlab pipeline consists of a set of instructions for a program to execute. The program that executes those instructions is called **GitLab Runner**, which can run on local host, VM or docker container.<br>
-The CI/CD pipeline execution is triggered each time a commit pushed on the associated repository. 
+The CI/CD pipeline execution is triggered each time a commit is pushed on the associated repository. 
 
 On GitLab project repository, see left page and go to 'CI/CD -> Editor', than create a new pipeline.<br>
 Now a pipeline template has been generated you can edit. Let's look at it and understand it.
@@ -93,7 +93,7 @@ helm install --namespace <KUBERNETES_NAMESPACE_NAME> gitlab-runner -f <CONFIG_VA
 ```
 The <CONFIG_VALUES_FILE> should equal the path towards your 'values.yaml' configuration file. This file contains values that will be passed to the created chart.<br>
 Here we have as required config value 'gitlabUrl'. This value can simply equal 'gitlab.com' if you are not running a private GitLab server.<br>
-Second as required config value we have 'runnerRegistrationToken'. This value can be found in the gitlab repository you want to associate with a GitLab CI/CD pipeline. When on repo, go to (Settings -> CI/CD -> Runners), under 'Specific runners' you can find `Register the runner with this URL: <gitlabUrl>. And this registration token: <runnerRegistrationToken>.`.<br>
+Second as required config value we have 'runnerRegistrationToken'. This value can be found in the gitlab repository you want to associate with a GitLab CI/CD pipeline. When on repo, go to (Settings -> CI/CD -> Runners), under 'Specific runners' you can find 'Register the runner with this URL: \<gitlabUrl\>. And this registration token: \<runnerRegistrationToken\>.'.<br>
 Instead of using a 'values.yaml' file you can start the gitlab-runner like this.
 ```
 helm install --namespace <KUBERNETES_NAMESPACE_NAME> gitlab-runner \
