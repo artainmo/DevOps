@@ -118,14 +118,14 @@ In repository settings branch section, we can setup the rule consisting of forci
 In repository settings collaborators section, we can add new users and give them certain permissions.<br>
 GitHub Organizations provide its members a way to collaborate on multiple projects across multiple repositories.<br>
 
-Sometimes we have in our repository files that we know in advance we will never want to commit.<br>
+Sometimes we have in our repository, files that we know in advance we will never want to commit.<br>
 A .gitignore file can be created inside the repository to indicate which files should not be commited nor added to the stagging area.<br>
 Each line in .gitignore corresponds to a file, directory, or pattern (such as file extensions) we would like to ignore when staging.
 
 When wanting to delete files in repository locally but also in remote repository after push or merge, one has to explicitly remove it by using `git rm` instead of simply 'rm'.
 
 ### Collaborating with the github community
-Profiles can be followed to stay up-to-date with others work, having well-rounded profiles creates more legitimacy towards recruiters and when wanting to make contributions to open-source projects.<br>
+Profiles can be followed to stay up-to-date with others' work, having well-rounded profiles creates more legitimacy towards recruiters and when wanting to make contributions to open-source projects.<br>
 A well-rounded profile contains different projects, well-written READMEs, filled-out activity trackers.
 
 Github's seach feature can be used to explore other projects, developers or companies, this can be used as inspiration or to learn from others.
