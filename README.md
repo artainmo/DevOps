@@ -76,7 +76,7 @@ By fostering DevOps culture and following DevOps practices, teams can build and 
 Infrastructure is the set of hardware and software components used to develop, test, and deploy applications.
 
 #### Scalability 
-**Scalability** is a system’s ability to add resources to keep up with growing demand. When more more users begin using an application, infrastructure with great scalability will handle it without interrupting services. An infrastructure with poor scalability will likely cause slowdowns or disruptions.<br>
+**Scalability** is a system’s ability to add resources to keep up with growing demand. When more users begin using an application, infrastructure with great scalability will handle it without interrupting services. An infrastructure with poor scalability will likely cause slowdowns or disruptions.<br>
 Scalability can be achieved either through vertical scaling or horizontal scaling.
 * Vertical scaling means adding computing resources, such as increasing network speeds, storage, or RAM.
 * Horizontal scaling means adding more servers (or “nodes”) that each run the application. A tool called a “load balancer” then distributes the work across the many servers.
