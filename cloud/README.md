@@ -90,7 +90,25 @@ The shared responsibility model of AWS states that amazon is responsible for the
 
 ### EC2 instance storage
 Elastic Block Store (EBS) volume is the most important storage option in EC2. It allows to persist data even after termination of the instance. It can quickly be detached from one EC2 instance and attached to another one within the same AZ.<br>
-When creating an EBS we have the 'Delete on Termination' option that is activated by default for the root volume but not other volumes. Thus if you want to preserve the root volume after instance termination you need to deactivate this option.
+When creating an EBS we have the 'Delete on Termination' option that is activated by default for the root volume but not other volumes. Thus if you want to preserve the root volume after instance termination you need to deactivate this option.<br>
+It is possible to make EBS backups, also called snapshots. Those snapshots can also be copied to other AZs or regions to leverage the global infrastructure.
+
+Amazon machine image (AMI) represents a customization of an EC2 instance. Thus it contains pre-packaged customized software to boot the EC2 instance faster. They can be build for a specific region and be copied to other regions to leverage the global infrastructure.<br>
+Some AMIs are public and provided by AWS, but you can also create your own AMIs. You can also sell your AMIs on an AWS Marketplace AMI.
+
+EC2 Image Builder is a new service that can automate the creation of virtual machines or container images. It can automate the creation, maintenance and testing of EC2 AMIs.
+
+EBS volumes are network drives with good but limited performance. EC2 Instance Store can be used instead when needing a high-performance hardware disk with better I/O performance. Its storage is lost if it is stopped, thus EBS is better for long-term storage.
+
+Elastic File System (EFS) is a third storage type for EC2. It is a shared network file system (NFS) that you can mount to 100s of EC2. It only works with Linux EC2 instances and it works across multiple AZs.<br>
+EFS Infrequent Access (EFS-IA) is a storage class who is cost optimized for files you don't access daily. It is less expensive than EFS Standard. By enabling it, EFS will move infrequently accessed files to EFS-IA. A Lifestyle Policy can be enabled, indicating when to move unaccessed files to EFS-IA.
+
+Amazon FSx is a service to get third-party high-performance file systems on AWS. 'FSx for Windows File Server' is meant for Windows instances. 'FSx for Lustre' is used on Linux for high-performance computing such as machine-learning, analytics, video processing.
+
+The shared responsibility model of AWS states that amazon is responsible for the infrastructure, data replication and privacy while the client is responsible for creating backups/snapshots and encrypting data.
+
+### Elastic Load Balancing (ELB) & Auto Scaling Groups (ASG)
+
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
