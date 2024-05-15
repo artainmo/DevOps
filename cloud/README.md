@@ -125,8 +125,23 @@ Amazon S3 is at its core an infinite storage. It is used for storage and backup.
 Amazon S3 stores files/objects into directories/buckets. Buckets must have a globally unique name and is defined at the region level.<br>
 What we call objects are files who have a key. This key is the path of the file. The object value is the content of file body which can be everything you want but has a size limit of 5TB, if larger than that you must use 'multi-part upload'.
 
-S3 bucket policies are used for S3 security. They are JSON based and can be used to grant public access to the bucket, force object encryption, or to grant access to another account (Cross Account).<br>
+S3 bucket policies are used for S3 security. They are JSON based and can be used to grant public access to the bucket, force object encryption, or to grant access to another account (Cross Account).
 
+Versioning files in S3 enables for example updating of static websites. It protects against unintended deletes or faulty additions by being able to restore previous versions.
+
+Cross-region replication (CRR) and same-region replication (SRR), as the name implies is related to S3 replication through a different or the same region. S3 replication synchronizes buckets. Thus it duplicates a bucket and then updates it if new version of initial bucket is created.
+
+S3 has different storage classes. What differentiates them is that the more expensive ones return your stored data faster and/or more often.<br>
+It is possible to move between them manually or using S3 Lifecycle configurations.<br>
+Durability indicates how often data is lost and is similar between storage classes. Availability indicates how readily available a service is which in AWS usually is 99.99%.<br>
+The Standard storage class is general purpose.<br>
+The Infrequent Access storage class is for data that is less frequently accessed but when needed requires rapid access. It is cheaper than Standard storage class.<br>
+The Glacier storage class is low cost and meant for archiving/backup. You pay for storage and object retrieval. It has the 'Instant Retrieval' option and 'Flexible Retrieval' option with different retrieval time options of 5min to 12hours.<br>
+The last storage class is Intelligent-Tiering which allows you to automatically move between storage classes based on usage.
+
+Server-side encryption means that the uploaded file/object on S3 will get encrypted automatically by the server. Client-side encryption is when the user encrypts the file/object before uploading it. Both exist on AWS but by default server-side encryption is always on.
+
+IAM Access Analyzer is a monitoring feature to ensure that only intended people have access to S3 buckets. It works by analyzing the various related policies. It will indicate what buckets are publicly available or shared with whom.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
