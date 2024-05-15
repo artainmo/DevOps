@@ -108,6 +108,24 @@ Amazon FSx is a service to get third-party high-performance file systems on AWS.
 The shared responsibility model of AWS states that amazon is responsible for the infrastructure, data replication and privacy while the client is responsible for creating backups/snapshots and encrypting data.
 
 ### Elastic Load Balancing (ELB) & Auto Scaling Groups (ASG)
+In AWS, vertical scalability means increasing the size of the instance. By for example going from using t2.micro to using t2.large.<br>
+Horizontal scalability consists of increasing the number of instances in AWS. It implies the use of distributed systems. Horizontal scalability enables high availability which should consist of running an application in at least 2 AZs. Because if one AZ is down the other is still running.
+
+Scalability is the ability to accomodate a larger load by making the hardware stronger (scale up) or by adding nodes (scale out). Once a system is scalable, elasticity means that there will be some 'auto-scaling' so that the system can scale based on the load to match the demand and optimize costs.
+
+Load balancing allows elasticity by being a server that forwards internet traffic equally to multiple servers (EC2 instances) downstream. Thus it balances the traffic/load across multiple running instances of an application. It does health-checks an if one instance fails it can forward to other instances in other AZs making the application highly-available.<br>
+AWS provides as service the elastic load balancer (ELB), being a managed load balancer. Multiple types exist.<br>
+![Screen Shot 2024-05-15 at 13 29 04](https://github.com/artainmo/DevOps/assets/53705599/b7b86737-71cf-4973-b167-1a2a4d20c439)
+
+Website load can change over time. The goal of an ASG is to scale out (add EC2 instances) or scale in (remove EC2 instances) to match an increased or decreased load respectively. This comes with cost savings and can automatically replace unhealthy instances and connect new instances to the ELB.<br>
+Different scaling strategies exist, such as manual scaling or dynamic scaling. Dynamic scaling can be further divided into Step scaling whereby rules can be created about adding/removing units relative to used CPU, Target Tracking scaling where an average CPU usage should be maintained over time, Scheduled scaling which anticipates scaling needs based on usage patterns, and Predictive scaling that uses machine learning to predict future traffic and thus scaling needs.
+
+### Amazon S3
+Amazon S3 is at its core an infinite storage. It is used for storage and backup. You can also store and host static websites on it.<br>
+Amazon S3 stores files/objects into directories/buckets. Buckets must have a globally unique name and is defined at the region level.<br>
+What we call objects are files who have a key. This key is the path of the file. The object value is the content of file body which can be everything you want but has a size limit of 5TB, if larger than that you must use 'multi-part upload'.
+
+S3 bucket policies are used for S3 security. They are JSON based and can be used to grant public access to the bucket, force object encryption, or to grant access to another account (Cross Account).<br>
 
 
 ## Resources
