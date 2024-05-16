@@ -205,7 +205,9 @@ Elastic Container Registry (ECR) is used to store docker images so that they can
 
 When using the word 'serverless' it means the developers don't need to manage the servers anymore, instead they can just deploy code. It does not mean there are no servers, instead it means the client does not need to manage them.
 
-
+AWS Lambda is serverless and executes virtual functions to perform a task.<br>
+A common example is to use lambda for a serverless thumbnail creation service, where uploading an image into an S3 bucket will trigger a Lambda function that transforms the image into a thumbnail who is then pushed back into the S3 bucket.<br>
+You pay per lambda call and compute time duration.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
