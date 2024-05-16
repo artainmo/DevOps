@@ -154,5 +154,12 @@ For Snowball Edge you pay for device usage and data transfer out of AWS.
 
 AWS Storage Gateway is used to bridge on-premise data and cloud data in S3 when using a Hybrid Cloud. It allows on-premise to seamlessly use the AWS Cloud. It can be used for creating and restoring backups.
 
+### Databases & Analytics
+Storing data on disk as with EFS, EBS, EC2, Instance Store and S3 can have its limits. This is why you sometimes want to store data on a database where you can structure the data, build indexes for efficient database searches, and define relationships between datasets.<br>
+Relational databases enable linking datasets and the use of SQL queries.<br>
+NoSQL databases are non-relational and don't use SQL. It is flexible and scalable. Different types exist for optimization of specific data models.
+
+Amazon Relational Database Servive (RDS) is a managed service for the use of a SQL database in the cloud. We can also deploy own databases on EC2. But the advantage of RDS is that it is managed by Amazon.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
