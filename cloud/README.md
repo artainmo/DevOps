@@ -197,5 +197,15 @@ AWS Glue Data Catalog is a central repository to store structural and operationa
 
 Database migration service (DMS) is a service that migrates data from one database (DB) to another. DMS runs in an EC2 instance, extracts datas from the source DB and inserts it in the target database.
 
+### Other Compute Services: ECS, Lambda, Batch, Lightsail
+Docker is a software development platform to deploy apps in containers. With containers being virtual environments that run on an OS thus that do not manage own OS. By not managing own OS they are lightweight. Their utility lies in automating the creation of a particular environment which is defined in an image.<br>
+Elastic container service (ECS) launches docker containers in AWS EC2 instances. It integrates with the Application Load Balancer.<br>
+Fargate is also used to launch Docker containers on AWS but you don't need to provision the infrastructure (EC2 instances).<br>
+Elastic Container Registry (ECR) is used to store docker images so that they can be run by ECS or Fargate.
+
+When using the word 'serverless' it means the developers don't need to manage the servers anymore, instead they can just deploy code. It does not mean there are no servers, instead it means the client does not need to manage them.
+
+
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
