@@ -217,5 +217,14 @@ Lambda and Batch both execute functions/jobs. They differ in that Lambda has a t
 
 Amazon Lightsail gives access to virtual servers, storage, databases and networking in one place. The pricing is low and predictable. It is used because it is simpler than setting up separate services such as EC2, RDS, ELB and so on. Thus it is good for people with little cloud experience. It has high availability but no auto-scaling. It is good for simple applications, websites or dev/test environments.
 
+### Deployments & Managing Infrastructure at Scale
+CloudFormation is a declarative way of outlining your AWS infrastructure as code and build it.<br>
+A CloudFormation template can be visualized using the Application Composer service.
+
+AWS Cloud Development Kit (CDK) is a way of defining your cloud infrastructure via a familiar programming language such as javascript, python, Java. This code will then be compiled into a CloudFormation template. 
+
+When deploying an application on AWS we usually follow a 3-tier architecture. The user connects to a load balancer that can be in multiple availability zones. This load balancer will forward traffic to multiple EC2 instances who are managed by an ASG. Those EC2 instances are usually connected to a regular database like RDS and eventually also to a fast database like ElastiCache. Usually when searching data, first it will be searched in the fast chached database and afterwards in the regular database.<br>
+This architecture can be reproduced automatically using AWS Elastic Beanstalk. Which is a developer centric view of deploying an application on AWS. It is a PaaS because the client only needs to provide the code. Within Beanstalk a health agent is present on each EC2 instance and pushes metrics to CloudWatch.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
