@@ -143,5 +143,16 @@ Server-side encryption means that the uploaded file/object on S3 will get encryp
 
 IAM Access Analyzer is a monitoring feature to ensure that only intended people have access to S3 buckets. It works by analyzing the various related policies. It will indicate what buckets are publicly available or shared with whom.
 
+The shared responsibility model of AWS states that amazon is responsible for the infrastructure while the client is responsible for S3 versioning, bucket policies, replication setup and data encryption.
+
+AWS Snow Family represents a highly-secure, portable/offline device to collect and process data at the edge, and migrate data into and out of AWS.<br>
+The edge refers to a location where internet is limited to non-existent, this makes online data uploads and processing too slow to impossible. Examples are a truck on the road, ship on the sea, an underground mining station. This is why Snow Family devices are used to process data, and store data to upload in the actual S3 cloud later by shipping the device to it.<br>
+Edge computing is processing data while it is being created in an edge location.
+For data migration we have the following devices in ascending order of storage capacity, the Snowcone (8TB storage), Snowcone SSD (14TB), Snowball Edge (petabytes of storage) and Snowmobile (exabytes of storage). While for edge computing, only the Snowcone and Snowball Edge can be used.<br>
+AWS OpsHub is a software with a UI to use your AWS Snow Family device.<br>
+For Snowball Edge you pay for device usage and data transfer out of AWS.
+
+
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
