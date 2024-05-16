@@ -152,7 +152,7 @@ For data migration we have the following devices in ascending order of storage c
 AWS OpsHub is a software with a UI to use your AWS Snow Family device.<br>
 For Snowball Edge you pay for device usage and data transfer out of AWS.
 
-
+AWS Storage Gateway is used to bridge on-premise data and cloud data in S3 when using a Hybrid Cloud. It allows on-premise to seamlessly use the AWS Cloud. It can be used for creating and restoring backups.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
