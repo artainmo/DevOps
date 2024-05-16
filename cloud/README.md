@@ -162,5 +162,11 @@ NoSQL databases are non-relational and don't use SQL. It is flexible and scalabl
 Amazon Relational Database Servive (RDS) is a managed service for the use of a SQL database in the cloud. We can also deploy own databases on EC2. But the advantage of RDS is that it is managed by Amazon.<br>
 Amazon Aurora is a database technology who supports PostGreSQL and MySQL, because it is cloud optimized, performances on PostGreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora serverless has no management overhead and is useful for infrequent workloads.
 
+RDS Read Replicas can scale the read workload of your database.<br>
+Multi-AZ gives high availability by providing a replication of the database into another AZ.<br>
+Multi-Region creates Read Replicas across regions which is useful for disaster recovery and local performance for global reads.
+
+Amazon ElastiCache is used for managed Redis or Memcached databases. Those databases are cache-based. Caches have low latency but smaller storage capacity. Thus ElastiCache is fast but of smaller capacity like a RAM in a computer.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
