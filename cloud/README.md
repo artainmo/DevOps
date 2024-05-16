@@ -209,5 +209,15 @@ AWS Lambda is serverless and executes virtual functions to perform a task.<br>
 A common example is to use lambda for a serverless thumbnail creation service, where uploading an image into an S3 bucket will trigger a Lambda function that transforms the image into a thumbnail who is then pushed back into the S3 bucket.<br>
 You pay per lambda call and compute time duration.
 
+To build a serverless API with Lambda we need to expose the Lambda service as an API. This is why we need to expose it via an Amazon API Gateway. The client will then be able to communicate using the API to the API gateway which will proxy requests to the Lambda service.<br>
+This API Gateway is serverless and scalable. It supports RESTful and WebSocket APIs.
+
+AWS Batch is a scalable and managed batch processing service. It can run 100,000s of computing batch jobs on AWS. A batch job is a job with a start and end, thus it is not continuous. Batch jobs are defined as Docker images and run on ECS.<br>
+Lambda and Batch both execute functions/jobs. They differ in that Lambda has a time and disk space limit while batch has no such limits. However, Lambda is serverless while Batch relies on EC2.
+
+Amazon Lightsail gives access to virtual servers, storage, databases and networking in one place. The pricing is low and predictable. It is used because it is simpler than setting up separate services such as EC2, RDS, ELB and so on. Thus it is good for people with little cloud experience. It has high availability but no auto-scaling. It is good for simple applications, websites or dev/test environments.
+
+
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
