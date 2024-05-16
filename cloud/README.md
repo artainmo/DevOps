@@ -166,7 +166,7 @@ RDS Read Replicas can scale the read workload of your database.<br>
 Multi-AZ gives high availability by providing a replication of the database into another AZ.<br>
 Multi-Region creates Read Replicas across regions which is useful for disaster recovery and local performance for global reads.
 
-Amazon ElastiCache is used for managed Redis or Memcached databases. Those databases are cache-based. Caches have low latency but smaller storage capacity. Thus ElastiCache is fast but of smaller capacity like a RAM in a computer.
+Amazon ElastiCache is used for managed Redis or Memcached databases. Those databases are cache-based which we call in-memory database. Caches have low latency but smaller storage capacity. Thus ElastiCache is fast but of smaller capacity like a RAM in a computer.
 
 DynamoDB is a managed, NoSQL, highly-available database with replication across 3 AZs. It is a serverless database because AWS doesn't need to provision any servers. It can scale automatically and has low retrieval latency. It is a key-value database.<br>
 DynamoDB Accelerator (DAX) is a managed cache for DynamoDB. Thus as it uses cache it is 10X faster.<br>
@@ -192,7 +192,8 @@ The blockchain makes it possible to build applications where multiple parties ca
 Amazon Managed Blockchain is a managed service to join public blockchain networks or create your own private network. It is compatible with two blockchain frameworks, Hyperledger fabric and Ethereum.
 
 AWS Glue is a extract, transform and load (ETL) service. ETL is used to prepare and transform datasets. It is managed and serverless.<br>
-It is able to extract data from S3 buckets or databases to transform them and load them in another database to perform analytics.
+It is able to extract data from S3 buckets or databases to transform them and load them in another database to perform analytics.<br>
+AWS Glue Data Catalog is a central repository to store structural and operational metadata for all your data assets.
 
 Database migration service (DMS) is a service that migrates data from one database (DB) to another. DMS runs in an EC2 instance, extracts datas from the source DB and inserts it in the target database.
 
