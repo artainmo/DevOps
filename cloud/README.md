@@ -117,7 +117,7 @@ Load balancing allows elasticity by being a server that forwards internet traffi
 AWS provides as service the elastic load balancer (ELB), being a managed load balancer. Multiple types exist.<br>
 ![Screen Shot 2024-05-15 at 13 29 04](https://github.com/artainmo/DevOps/assets/53705599/b7b86737-71cf-4973-b167-1a2a4d20c439)
 
-Website load can change over time. The goal of an ASG is to scale out (add EC2 instances) or scale in (remove EC2 instances) to match an increased or decreased load respectively. This comes with cost savings and can automatically replace unhealthy instances and connect new instances to the ELB.<br>
+Website load can change over time. The goal of an ASG is to scale out (add EC2 instances) or scale in (remove EC2 instances) to match an increased or decreased load respectively. This comes with cost savings and can automatically replace unhealthy instances and connect new instances to the ELB. You can define a minimum and maximum number of running EC2 instances.<br>
 Different scaling strategies exist, such as manual scaling or dynamic scaling. Dynamic scaling can be further divided into Step scaling whereby rules can be created about adding/removing units relative to used CPU, Target Tracking scaling where an average CPU usage should be maintained over time, Scheduled scaling which anticipates scaling needs based on usage patterns, and Predictive scaling that uses machine learning to predict future traffic and thus scaling needs.
 
 ### Amazon S3
@@ -207,7 +207,7 @@ When using the word 'serverless' it means the developers don't need to manage th
 
 AWS Lambda is serverless and executes virtual functions to perform a task.<br>
 A common example is to use lambda for a serverless thumbnail creation service, where uploading an image into an S3 bucket will trigger a Lambda function that transforms the image into a thumbnail who is then pushed back into the S3 bucket.<br>
-You pay per lambda call and compute time duration.
+It integrates with all other AWS services and scales automatically. You pay per lambda call and compute time duration.
 
 To build a serverless API with Lambda we need to expose the Lambda service as an API. This is why we need to expose it via an Amazon API Gateway. The client will then be able to communicate using the API to the API gateway which will proxy requests to the Lambda service.<br>
 This API Gateway is serverless and scalable. It supports RESTful and WebSocket APIs.
@@ -216,8 +216,6 @@ AWS Batch is a scalable and managed batch processing service. It can run 100,000
 Lambda and Batch both execute functions/jobs. They differ in that Lambda has a time and disk space limit while batch has no such limits. However, Lambda is serverless while Batch relies on EC2.
 
 Amazon Lightsail gives access to virtual servers, storage, databases and networking in one place. The pricing is low and predictable. It is used because it is simpler than setting up separate services such as EC2, RDS, ELB and so on. Thus it is good for people with little cloud experience. It has high availability but no auto-scaling. It is good for simple applications, websites or dev/test environments.
-
-
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
