@@ -180,7 +180,21 @@ Amazon Athena is a serverless query service to perform analytics against S3 obje
 
 Amazon QuickSight is a serverless machine-learning-powered business intelligence service to create interactive dashboards of a database to visually represent the data.
 
+DocumentDB is a database technology who supports the NoSQL database MongoDB. MongoDB uses data in JSON format. It is managed and replicated across 3 AZs.
 
+Amazon Neptune is a managed graph database. A social network is an example of a graph dataset. It is available across 3 AZs with up to 15 read replicas.
+
+Amazon Timestream is a managed, fast, scalable and serverless time series database. Time series data is data who is evolving over time. It is 1000s times faster and 1/10<sup>th</sup> the cost of relational databases. It also has built-in time series analytics functions.
+
+Amazon Quantum Ledger Database (QLDB) holds a ledger which is a book recording financial transactions. It is managed, serverless, and has replications across 3 AZ. Entries are immutable as they cannot be removed or modified as do financial transactions. Data can be manipulated using SQL and performance is 2-3X better than common ledger blockchain frameworks. Contrary to Amazon Managed Blockchain there is no decentralization with QLDB.
+
+The blockchain makes it possible to build applications where multiple parties can execute transactions without the need for a trusted, central authority. The blockchain is decentralized.<br>
+Amazon Managed Blockchain is a managed service to join public blockchain networks or create your own private network. It is compatible with two blockchain frameworks, Hyperledger fabric and Ethereum.
+
+AWS Glue is a extract, transform and load (ETL) service. ETL is used to prepare and transform datasets. It is managed and serverless.<br>
+It is able to extract data from S3 buckets or databases to transform them and load them in another database to perform analytics.
+
+Database migration service (DMS) is a service that migrates data from one database (DB) to another. DMS runs in an EC2 instance, extracts datas from the source DB and inserts it in the target database.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
