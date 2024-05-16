@@ -168,5 +168,19 @@ Multi-Region creates Read Replicas across regions which is useful for disaster r
 
 Amazon ElastiCache is used for managed Redis or Memcached databases. Those databases are cache-based. Caches have low latency but smaller storage capacity. Thus ElastiCache is fast but of smaller capacity like a RAM in a computer.
 
+DynamoDB is a managed, NoSQL, highly-available database with replication across 3 AZs. It is a serverless database because AWS doesn't need to provision any servers. It can scale automatically and has low retrieval latency. It is a key-value database.<br>
+DynamoDB Accelerator (DAX) is a managed cache for DynamoDB. Thus as it uses cache it is 10X faster.<br>
+DynamoDB Global Tables make a DynamoDB table accessible with low latency in multiple regions.
+
+Redshift is a database type based on PostgreSQL that is in a warehouse. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP).
+
+Elastic MapReduce (EMR) helps create Hadoop clusters to analyze and process vast amounts of data. Those clusters can be made of 100s of EC2 instances. It is used for machine learning, web indexing, big data.
+
+Amazon Athena is a serverless query service to perform analytics against S3 objects. It uses standard SQL language. It is used for reporting and querying ELB Logs.
+
+Amazon QuickSight is a serverless machine-learning-powered business intelligence service to create interactive dashboards of a database to visually represent the data.
+
+
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
