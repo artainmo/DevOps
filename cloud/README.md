@@ -258,8 +258,9 @@ If a client makes a request to a CloudFront edge location, it will first search 
 
 S3 buckets are only linked to one region. Thus transferring data to it can be slow from certain locations. S3 Transfer Acceleration is used to accelerate global uploads and downloads into S3. This is done by uploading to a local edge location and subsequently let the edge location transfer the file via internal network to the S3 bucket.
 
-AWS Global Accelerator improves global application availability and performance via the AWS global network. 
+AWS Global Accelerator improves global application availability and performance via the AWS global network. It leverages the AWS internal network to optimize by 60% the route to your application. The application gets accessed through two static IPs we call Anycast IPs which redirect automatically to the correct edge location which will finally send the traffic to the application.
 
+Hybrid clouds have differing ways of dealing with the cloud infrastructure and on-premise infrastructure. AWS Outposts consists of 'server racks' that offer the same AWS infrastructure, services, APIs and tools to build your own applications on-premise just as in the cloud. This makes dealing with the cloud or on-premise infrastructures homogeneous and also facilitates migration of on-premise to cloud.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
