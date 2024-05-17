@@ -294,7 +294,10 @@ Cloud monitoring consists of overviewing our cloud performance.
 
 Amazon CloudWatch Metric provides metrics for every service in AWS. You can create own CloudWatch dashboard of metrics.<br>
 The Billing Metric is popular and reflects how much you have spent on AWS each month. Other important metrics are for our EC2 instances for examle, CPU utilization, status checks (verifies instance functions properly), network (to see how much network goes in and out of our instance). For our EBS volumes we can look at disk read/writes. For S3 buckets we can look at bucket size in bytes, number of objects and requests.<br>
-CloudWatch Alarms can be used to trigger notifications for any metric after it surpasses a certain treshold. 
+CloudWatch Alarms can be used to trigger notifications for any metric after it surpasses a certain treshold.
+
+When an application runs, it logs in a file what it is doing. Those log files can be collected and used when wanting to troubleshoot an application.<br>
+Amazon CloudWatch Logs collects those log files from various AWS services/applications. CloudWatch log agents can be used on EC2 instances or on-premise servers for them to create collectable log files.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
