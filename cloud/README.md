@@ -273,6 +273,13 @@ Next we have a multi-region architecture called Active-Passive which means we ha
 Another multi-region architecture is called Active-Active. Where each EC2 instance can take both writes and reads while replication is still present. This improves read and write latency but is more difficult to setup.
 
 ### Cloud Integration
+When we start deploying multiple applications, they will inevitable need to communicate with one another.<br>
+A synchronous communication consists of having one application communicate with another application in a direct way.<br>
+Asynchronous or event-based communication consists of an application not being in direct contact with another application, as a queue where the request of first application lies bridges the connection with other application that can read from that queue.<br>
+Synchronous communication can be problematic during sudden traffic spikes. In such a case it is better to decouple the application using a queue model like SQS or a pub/sub model like SNS. Those services can scale independently from our application.
+
+Amazon Simple Queue Service (SQS) allows application decoupling. It does this by using a queue that lies between first and second application. The first application will send data into the queue while the second application will extract those datas from the queue. Multiple applications can send into the queue and multiple applications can extract from the queue which allows for scaling.<br>
+First in first out (FIFO) is a way of ordering messages in the queue. With Amazon SQS FIFO Queues the messages will be in order. 
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
