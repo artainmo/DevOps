@@ -246,5 +246,19 @@ To use SSM we need to install the SSM agent onto our EC2 instances or on-premise
 SSM has a feature we call SSM Session Manager. It starts a secure shell on EC2 or on-premise servers without the need for SSH.<br>
 SSM Parameter Store allows secure storage of configurations and secrets on AWS such as API keys, passwords.
 
+### Leveraging the AWS Global Infrastructure
+A global application is an application deployed onto multiple AWS regions or edge locations. The advantage is decreased latency via local deployments being present. Another advantage is Disaster Recovery because if one region goes down, others are still available, this increases the availability of the application. A distributed global infrastructure is also harder to attack.<br>
+
+Route 53 is an AWS service that routes users to the closest deployment with least latency. It is a managed Domain Name System (DNS). DNS associates servers' IPs and URLs.<br>
+A web browser first makes a DNS request with an URL to Route 53. Route 53 will return the associated IP address. The web browser will then make its request to the IP address which will return an HTTP response.<br>
+Route 53 has different routing policies. The 'Simple Routing Policy' has no health checks and simply returns an IP when a URL gets sent to it. The 'Weighted Routing Policy' distributes traffic across multiple EC2 instances which is similar to load balancing and thus health checks are used. The 'Latency Routing Policy' makes users connect to the closest servers to minimize latency. The 'Failover Routing Policy' performs health checks on primary server and redirects traffic to the failover server if the primary server failed its health checks with the goal of handling disaster recovering.
+
+CloudFront replicates part of applications to edge locations to decrease latency. It will also cache common requests to decrease latency further.
+
+S3 Transfer Acceleration is used to accelerate global uploads and downloads into S3.
+
+AWS Global Accelerator improves global application availability and performance via the AWS global network.
+
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
