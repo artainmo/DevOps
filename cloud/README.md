@@ -299,7 +299,20 @@ CloudWatch Alarms can be used to trigger notifications for any metric after it s
 When an application runs, it logs in a file what it is doing. Those log files can be collected and used when wanting to troubleshoot an application.<br>
 Amazon CloudWatch Logs collects those log files from various AWS services/applications. CloudWatch log agents can be used on EC2 instances or on-premise servers for them to create collectable log files.
 
-Amazon EventBridge (formerly known as CloudWatch Events) allows reactions to events happening in AWS account. Using Cron Jobs you can react to events every x amount of time. Else we can create rules to react to a service doing something. Events happening from within AWS services are called 'Default Event Bus'. It is also possible to get events from AWS partners which we call 'Partner Event Bus'. Lastly, own custom applications can also send events which we call 'Custom Event Bus'.
+Amazon EventBridge (formerly known as CloudWatch Events) allows reactions to events happening in AWS account. Using Cron Jobs you can react to events every x amount of time. Else we can create rules to react to a service doing something.<br>
+Events happening from within AWS services are called 'Default Event Bus'. It is also possible to get events from AWS partners which we call 'Partner Event Bus'. Lastly, own custom applications can also send events which we call 'Custom Event Bus'.
+
+AWS CloudTrail is a service enabled by default that provides governance, compliance and audit for your AWS account. It gets the history of events/API-calls made within AWS account by the console, SDK, CLI, AWS services. Those logs can be sent to CloudWatch Logs or S3.
+
+Debugging on distributed systems is hard because log formats differ across applications and log analysis is hard. AWS X-Ray resolves this problem by providing a visual analysis of our applications.
+
+Amazon CodeGuru is a machine-learning-powered service for automated code reviews (CodeGuru Reviewer) and application performance recommendations (CodeGuru Profiler).
+
+AWS Health Dashboard consists of two parts, a Service History and your Account.<br>
+The Service History shows all regions' and services' health.<br>
+Your Account provides alerts and remediation guidance when AWS is experiencing events that may impact you. It provides a personalized view of the performance and availability of the AWS services you personally use.
+
+
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
