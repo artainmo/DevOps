@@ -287,5 +287,9 @@ The 'event publishers' only send messages to one SNS topic. While as many 'event
 
 Amazon Kinesis is a managed service to collect, process and analyze real-time streaming data at any scale.
 
+On-promise architectures don't use AWS services for application decoupling. They use open protocols like MQTT and others. When migrating to the cloud, instead of modifying the application for handling SQS or SNS, we can use Amazon MQ. It is only used by migrating companies that need to keep using open protocols as Amazon MQ has the downside of not being able to scale as much as SQS or SNS.
+
+ 
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
