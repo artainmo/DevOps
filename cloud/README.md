@@ -276,10 +276,16 @@ Another multi-region architecture is called Active-Active. Where each EC2 instan
 When we start deploying multiple applications, they will inevitable need to communicate with one another.<br>
 A synchronous communication consists of having one application communicate with another application in a direct way.<br>
 Asynchronous or event-based communication consists of an application not being in direct contact with another application, as a queue where the request of first application lies bridges the connection with other application that can read from that queue.<br>
-Synchronous communication can be problematic during sudden traffic spikes. In such a case it is better to decouple the application using a queue model like SQS or a pub/sub model like SNS. Those services can scale independently from our application.
+Synchronous communication can be problematic during sudden traffic spikes. In such a case it is better to decouple the application using a queue model like SQS or a pub/sub model like SNS or a data-streaming model like Amazon Kinesis. Those services can scale independently from our application.
 
 Amazon Simple Queue Service (SQS) allows application decoupling. It does this by using a queue that lies between first and second application. The first application will send data into the queue while the second application will extract those datas from the queue. Multiple applications can send into the queue and multiple applications can extract from the queue which allows for scaling.<br>
-First in first out (FIFO) is a way of ordering messages in the queue. With Amazon SQS FIFO Queues the messages will be in order. 
+First in first out (FIFO) is a way of ordering messages in the queue. With Amazon SQS FIFO Queues the messages will be in order.
+
+Amazon Simple Notification Service (SNS) is the second way to decouple our applications. It uses a pub/sub model.<br>
+![Screen Shot 2024-05-17 at 18 35 43](https://github.com/artainmo/DevOps/assets/53705599/1fc921d2-ccaa-469e-a1b3-6e50743d16a0)<br>
+The 'event publishers' only send messages to one SNS topic. While as many 'event subscribers' as we want can listen to the SNS topic notifications. Each subscriber to the topic will get all the messages.
+
+Amazon Kinesis is a managed service to collect, process and analyze real-time streaming data at any scale.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
