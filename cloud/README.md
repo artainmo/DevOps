@@ -256,9 +256,9 @@ Route 53 has different routing policies. The 'Simple Routing Policy' has no heal
 CloudFront is a Content Delivery Network (CDN). It replicates part of applications to edge locations to decrease latency. It will also cache common requests to decrease latency further. It has 216 points of presence representing edge locations globally.<br>
 If a client makes a request to a CloudFront edge location, it will first search if it has the response in the cache, if not it will retrieve the response in the origin instance and cache it locally for future similar requests.
 
-S3 Transfer Acceleration is used to accelerate global uploads and downloads into S3.
+S3 buckets are only linked to one region. Thus transferring data to it can be slow from certain locations. S3 Transfer Acceleration is used to accelerate global uploads and downloads into S3. This is done by uploading to a local edge location and subsequently let the edge location transfer the file via internal network to the S3 bucket.
 
-AWS Global Accelerator improves global application availability and performance via the AWS global network.
+AWS Global Accelerator improves global application availability and performance via the AWS global network. 
 
 
 ## Resources
