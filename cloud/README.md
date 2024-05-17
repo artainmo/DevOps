@@ -226,5 +226,23 @@ AWS Cloud Development Kit (CDK) is a way of defining your cloud infrastructure v
 When deploying an application on AWS we usually follow a 3-tier architecture. The user connects to a load balancer that can be in multiple availability zones. This load balancer will forward traffic to multiple EC2 instances who are managed by an ASG. Those EC2 instances are usually connected to a regular database like RDS and eventually also to a fast database like ElastiCache. Usually when searching data, first it will be searched in the fast chached database and afterwards in the regular database.<br>
 This architecture can be reproduced automatically using AWS Elastic Beanstalk. Which is a developer centric view of deploying an application on AWS. It is a PaaS because the client only needs to provide the code. Within Beanstalk a health agent is present on each EC2 instance and pushes metrics to CloudWatch.
 
+AWS CodeDeploy automatically deploys applications. It works both for EC2 instances and on-premises servers, thus it is a hybrid service.
+
+Before pushing application code to servers you need to store it somewhere. Usually in a git repository like Github. AWS has a competing product called CodeCommit.
+
+AWS CodeBuild allows to build code in the cloud. It compiles source code, run tests, and produce packages who are ready for deployment. In practice, CodeBuild will retrieve the code from CodeCommit, run defined scripts, build the code, to produce a ready to deploy artifact.<br>
+CodeBuild is managed, serverless, scalable and secure. You pay as you go.
+
+CodePipeline can be used to connect CodeCommit, CodeBuild and CodeDeploy. CodePipeline automates the steps necessary to push code to production. Those steps are to get the code, build it, test it, provision servers for it and deploy on those servers. It is basically used for CI/CD.
+
+Software packages have dependencies, meaning they depend on each other to be build. Artifact management refers to storing and retrieving those dependencies. AWS CodeArtifact is an artifact manager for software development. Developers and CodeBuild can then retrieve dependencies straight from CodeArtifact.
+
+AWS CodeStar is a unified UI to easily manage software development activities in one place. This is useful when needing to work with the different services used for CI/CD such as CodeCommit, CodeBuild, CodeDeploy, CodePipeline.<br>
+It can also be used to edit the code directly in the cloud using AWS Cloud9. AWS Cloud9 is a cloud integrated development environment (IDE), for writing, running and debugging code.
+
+AWS Systems Manager (SSM) helps you manage both EC2 and on-premise systems at scale, thus it is a Hybrid service. It gives operational insight about the state of the infrastructure, it automates patches, it runs commands across all servers and stores parameter configuration with the SSM Parameter Store.<br>
+To use SSM we need to install the SSM agent onto our EC2 instances or on-premise system.<br>
+SSM has a feature we call SSM Session Manager. It starts a secure shell on EC2 or on-premise servers without the need for SSH.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
