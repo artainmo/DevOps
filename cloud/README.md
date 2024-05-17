@@ -262,5 +262,13 @@ AWS Global Accelerator improves global application availability and performance 
 
 Hybrid clouds have differing ways of dealing with the cloud infrastructure and on-premise infrastructure. AWS Outposts consists of 'server racks' that offer the same AWS infrastructure, services, APIs and tools to build your own applications on-premise just as in the cloud. This makes dealing with the cloud or on-premise infrastructures homogeneous and also facilitates migration of on-premise to cloud.
 
+WaveLength Zones are infrastructure deployments embedded within the telecommunications providers' datacenters at the edge of 5G networks. It brings AWS services to the edge of the 5G networks. As a result those services will have low latency when accessed via the associated 5G network. Amazon Wavelength thus provides low latency to applications via 5G networks.
+
+AWS Local Zones allow you to place compute, storage, database, and other AWS services closer to end users to run latency-sensitive applications. It extends regions and AZs.
+
+An application deployed in a single region and single AZ is easy to setup but does not have high availability and neither low global latency. When in a single region but multiple AZs the availability is high but global latency still isn't low.<br>
+Next we have a multi-region architecture called Active-Passive which means we have two regions with each having one or multiple AZ. In one region our EC2 instance will be active which means users can both read and write to that instance. The EC2 instance in the other region is passive which means it has been replicated from the active region, can be read by users but writing to the instance is not possible. Active-Passive comes with improved global read latency but not global write latency.<br>
+Another multi-region architecture is called Active-Active. Where each EC2 instance can take both writes and reads while replication is still present. This improves read and write latency but is more difficult to setup.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
