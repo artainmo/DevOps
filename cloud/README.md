@@ -251,10 +251,12 @@ A global application is an application deployed onto multiple AWS regions or edg
 
 Route 53 is an AWS service that routes users to the closest deployment with least latency. It is a managed Domain Name System (DNS). DNS associates servers' IPs and URLs.<br>
 A web browser first makes a DNS request with an URL to Route 53. Route 53 will return the associated IP address. The web browser will then make its request to the IP address which will return an HTTP response.<br>
-Route 53 has different routing policies. The 'Simple Routing Policy' has no health checks and simply returns an IP when a URL gets sent to it. The 'Weighted Routing Policy' distributes traffic across multiple EC2 instances which is similar to load balancing and thus health checks are used. The 'Latency Routing Policy' makes users connect to the closest servers to minimize latency. The 'Failover Routing Policy' performs health checks on primary server and redirects traffic to the failover server if the primary server failed its health checks with the goal of handling disaster recovering.
+Route 53 has different routing policies. The 'Simple Routing Policy' has no health checks and simply returns an IP when a URL gets sent to it. The 'Weighted Routing Policy' distributes traffic across multiple EC2 instances which is similar to load balancing and thus health checks are used. The 'Latency Routing Policy' makes users connect to the closest servers to minimize latency. The 'Failover Routing Policy' performs health checks on primary server and redirects traffic to the failover server if the primary server failed its health checks with the goal of handling disaster recovering.<br>
+Route 53 has the following features, Domain Registration, DNS, Health Checks, Routing Policy.
 
 CloudFront is a Content Delivery Network (CDN). It replicates part of applications to edge locations to decrease latency. It will also cache common requests to decrease latency further. It has 216 points of presence representing edge locations globally.<br>
-If a client makes a request to a CloudFront edge location, it will first search if it has the response in the cache, if not it will retrieve the response in the origin instance and cache it locally for future similar requests.
+If a client makes a request to a CloudFront edge location, it will first search if it has the response in the cache, if not it will retrieve the response in the origin instance and cache it locally for future similar requests.<br>
+CloudFront protects against web attacks by using AWS WAF and AWS Shield.
 
 S3 buckets are only linked to one region. Thus transferring data to it can be slow from certain locations. S3 Transfer Acceleration is used to accelerate global uploads and downloads into S3. This is done by uploading to a local edge location and subsequently let the edge location transfer the file via internal network to the S3 bucket.
 
@@ -262,13 +264,15 @@ AWS Global Accelerator improves global application availability and performance 
 
 Hybrid clouds have differing ways of dealing with the cloud infrastructure and on-premise infrastructure. AWS Outposts consists of 'server racks' that offer the same AWS infrastructure, services, APIs and tools to build your own applications on-premise just as in the cloud. This makes dealing with the cloud or on-premise infrastructures homogeneous and also facilitates migration of on-premise to cloud.
 
-WaveLength Zones are infrastructure deployments embedded within the telecommunications providers' datacenters at the edge of 5G networks. It brings AWS services to the edge of the 5G networks. As a result those services will have low latency when accessed via the associated 5G network. Amazon Wavelength thus provides low latency to applications via 5G networks.
+WaveLength Zones are infrastructure deployments embedded within the telecommunications providers' datacenters at the edge of 5G networks. It brings AWS services to the edge of the 5G networks. As a result those services will have ultra-low latency when accessed via the associated 5G network. Amazon Wavelength thus provides low latency to applications via 5G networks.
 
 AWS Local Zones allow you to place compute, storage, database, and other AWS services closer to end users to run latency-sensitive applications. It extends regions and AZs.
 
 An application deployed in a single region and single AZ is easy to setup but does not have high availability and neither low global latency. When in a single region but multiple AZs the availability is high but global latency still isn't low.<br>
 Next we have a multi-region architecture called Active-Passive which means we have two regions with each having one or multiple AZ. In one region our EC2 instance will be active which means users can both read and write to that instance. The EC2 instance in the other region is passive which means it has been replicated from the active region, can be read by users but writing to the instance is not possible. Active-Passive comes with improved global read latency but not global write latency.<br>
 Another multi-region architecture is called Active-Active. Where each EC2 instance can take both writes and reads while replication is still present. This improves read and write latency but is more difficult to setup.
+
+### Cloud Integration
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
