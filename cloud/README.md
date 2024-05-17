@@ -218,15 +218,16 @@ Lambda and Batch both execute functions/jobs. They differ in that Lambda has a t
 Amazon Lightsail gives access to virtual servers, storage, databases and networking in one place. The pricing is low and predictable. It is used because it is simpler than setting up separate services such as EC2, RDS, ELB and so on. Thus it is good for people with little cloud experience. It has high availability but no auto-scaling. It is good for simple applications, websites or dev/test environments.
 
 ### Deployments & Managing Infrastructure at Scale
-CloudFormation is a declarative way of outlining your AWS infrastructure as code and build it.<br>
-A CloudFormation template can be visualized using the Application Composer service.
+CloudFormation is a declarative way of outlining your AWS infrastructure as code and build it. Declarations of the AWS resources are made in JSON or YAML and are called CloudFormation Templates.<br>
+A CloudFormation Template can be visualized using the Application Composer service.
 
 AWS Cloud Development Kit (CDK) is a way of defining your cloud infrastructure via a familiar programming language such as javascript, python, Java. This code will then be compiled into a CloudFormation template. 
 
 When deploying an application on AWS we usually follow a 3-tier architecture. The user connects to a load balancer that can be in multiple availability zones. This load balancer will forward traffic to multiple EC2 instances who are managed by an ASG. Those EC2 instances are usually connected to a regular database like RDS and eventually also to a fast database like ElastiCache. Usually when searching data, first it will be searched in the fast chached database and afterwards in the regular database.<br>
-This architecture can be reproduced automatically using AWS Elastic Beanstalk. Which is a developer centric view of deploying an application on AWS. It is a PaaS because the client only needs to provide the code. Within Beanstalk a health agent is present on each EC2 instance and pushes metrics to CloudWatch.
+This architecture can be reproduced automatically using AWS Elastic Beanstalk. Which is a developer centric view of deploying an application on AWS. It is a PaaS because the client only needs to provide the code. It is limited to certain programming languages or Docker. Within Beanstalk a health agent is present on each EC2 instance and pushes metrics to CloudWatch.<br>
+CloudFormation and Elastic Beanstalk are free of use, but you do pay for the resources created.
 
-AWS CodeDeploy automatically deploys applications. It works both for EC2 instances and on-premises servers, thus it is a hybrid service.
+AWS CodeDeploy automatically deploys or upgrades applications. It works both for EC2 instances and on-premises servers, thus it is a hybrid service.
 
 Before pushing application code to servers you need to store it somewhere. Usually in a git repository like Github. AWS has a competing product called CodeCommit.
 
@@ -242,7 +243,8 @@ It can also be used to edit the code directly in the cloud using AWS Cloud9. AWS
 
 AWS Systems Manager (SSM) helps you manage both EC2 and on-premise systems at scale, thus it is a Hybrid service. It gives operational insight about the state of the infrastructure, it automates patches, it runs commands across all servers and stores parameter configuration with the SSM Parameter Store.<br>
 To use SSM we need to install the SSM agent onto our EC2 instances or on-premise system.<br>
-SSM has a feature we call SSM Session Manager. It starts a secure shell on EC2 or on-premise servers without the need for SSH.
+SSM has a feature we call SSM Session Manager. It starts a secure shell on EC2 or on-premise servers without the need for SSH.<br>
+SSM Parameter Store allows secure storage of configurations and secrets on AWS such as API keys, passwords.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
