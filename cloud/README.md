@@ -344,6 +344,27 @@ AWS Client VPN establishes a connection using OpenVPN from own computer to priva
 If we have a serious infrastructure on AWS, the network topology can become complicated. Transit Gateway solves this problem by providing peering/connection between thousands of VPC and on-premises using a hub-and-spoke (star) connection.
 
 ### Security and Compliance
+AWS is responsible for the security of the cloud while customers of the security in the cloud. The client must for example configure the firewall and IAM in the cloud but also encrypt application data.
+![Screen Shot 2024-05-18 at 13 20 41](https://github.com/artainmo/DevOps/assets/53705599/124e785e-7b1d-4d03-ac8a-fce1689c7edb)
+
+A Distributed Denial-of-Service (DDoS) attack on our infrastructure is done by saturating/overwhelming our application server with requests. Those high volume requests occur via bots run on servers.<br>
+AWS Shield Standard protects against DDoS attacks, is activated for every AWS customer and is free.<br>
+Alternatively, AWS Shield Advanced offers premium DDoS protection is optional and costs $3000/month. With Shield Advanced AWS reimburses costs that incurred during a DDoS attack.<br>
+The web application firewall AWS WAF can also help protect against common web exploits by filtering requests based on rules. It can be deployed on Application Load Balancer, API Gateway and CloudFront.<br>
+CloudFront and Route 53 provide availability protection by using the global edge network.<br>
+When under attack you must be ready to scale and can use AWS Auto Scaling for that.
+
+AWS Network Firewall provide overall protection of VPCs.
+
+AWS Firewall Manager allows from one place management of all security rules in all accounts of an AWS Organization. It manages VPC Security Groups, WAF rules, AWS Shield Advanced, AWS Network Firewall and others.
+
+Penetration testing consists of attacking own infrastructure to test security. It can be done on AWS. However, certain attacks are prohibited such as DDoS, port flooding, protocol flooding, request flooding, DNS zone walking.
+
+In AWS we can find encryption at rest and encryption in transit.<br>
+Data at rest means it is stored on a physical device like a hard drive or S3 bucket. Data in transit means it is moving from one place to another, thus it is being transferred over the network.<br>
+Encryption keys are used to encrypt data in both rest and transit states.<br>
+AWS Key Management Service (KMS) is a service used to encrypt that manages the encryption keys automatically. CloudHSM is another encryption service that differs in that the users need to manage the encryption keys themselves, amazon only provides the dedicated hardware named Hardware Security Module (HSM).
+
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
