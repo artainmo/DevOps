@@ -321,6 +321,10 @@ For public IPs both IPv4 and IPv6 can be used. While IPv4 only allows for privat
 A VPC is a private network to deploy own resources, for example EC2 instances. One VPC is linked to one region, thus when using multiple regions you will also need multiple VPCs.<br>
 Within a VPC we can find Subnets which partitions own network inside own VPC. One Subnet is associated with one AZ and can launch EC2 instances. A public Subnet is accessible from the internet while a private Subnet is not. Route Tables are used to define access to the internet and between Subnets.<br>
 A VPC contains a CIDR Range which indicates the range of allowed IP addresses within the VPC.<br>
+Internet Gateways help our VPC instances connect with the internet. Public Subnets have a route to the internet gateway. NAT Gateways allow instances in Private Subnets to access the internet while remaining private.
+
+Network ACL (NACL) is a firewall which controls traffic from and to the Subnet. It can have 'allow' and 'deny' rules that include IP addresses.<br>
+Security Groups is a firewall that controls traffic to and from an EC2 instance. It can have 'allow' rules that include IP addresses and other security groups.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
