@@ -323,8 +323,8 @@ Within a VPC we can find Subnets which partitions own network inside own VPC. On
 A VPC contains a CIDR Range which indicates the range of allowed IP addresses within the VPC.<br>
 Internet Gateways help our VPC instances connect with the internet. Public Subnets have a route to the internet gateway. NAT Gateways allow instances in Private Subnets to access the internet while remaining private.
 
-Network ACL (NACL) is a firewall which controls traffic from and to the Subnet. It can have 'allow' and 'deny' rules that include IP addresses.<br>
-Security Groups is a firewall that controls traffic to and from an EC2 instance. It can have 'allow' rules that include IP addresses and other security groups.
+Network ACL (NACL) is a stateless firewall which controls traffic from and to the Subnet. It can have 'allow' and 'deny' rules that include IP addresses.<br>
+Security Groups is a stateful firewall that controls traffic to and from an EC2 instance or ENI. It can have 'allow' rules that include IP addresses and other security groups.
 
 Flow Logs capture information about IP traffic going into your interfaces. It helps monitor and troubleshoot connectivity issues.<br>
 We can have VPC Flow Logs, Subnet Flow Logs and Elastic Network Interface Flow Logs with the last one being related to EC2 instances. But we can also get network information from ELB, ElastiCache, RDS, Aurora...<br>
@@ -334,14 +334,16 @@ VPC Peering connects two VPCs privately using AWS' network to make them behave a
 
 VPC Endpoints enable us to connect to AWS services privately. By using a private network, security is enhanced and latency lowered.
 
-AWS PrivateLink is the most secure and scalable way of exposing a service to 1000s of VPCs. PrivateLink allows you to connect a service running within your VPC to other VPCs directly and privately.
+AWS PrivateLink is the most secure and scalable way of exposing a service to 1000s of VPCs. PrivateLink allows you to connect a service running within your VPC to other VPCs directly and privately. With it you can connect to a service in a third party VPC.
 
 A VPN is a connection between on-premise data center and VPC that is encrypted while going over the public internet. Site to Site VPN will connect an on-premise VPN to AWS. A Customer Gateway and Virtual Private Gateway are needed to establish a Site to Site VPN.<br>
 Alternatively, Direct Connect establishes a physical connection between on-premise infrastructure and AWS. This connection is private, secure and fast.
 
-AWS Client VPN establishes a connection using OpenVPN from own computer to private network in AWS and on-premises. It allows connection to own EC2 instances over a private IP. The VPN connection is established over the public internet.
+AWS Client VPN establishes a connection using OpenVPN from own computer to private network in AWS and on-premises. It allows connection to own EC2 instances over a private IP. The VPN connection is established over the public internet. Thus it provides an OpenVPN connection from own computer to own VPC.
 
-If we have a serious infrastructure on AWS, the network topology can become complicated. Transit Gateway solves this problem by providing peering between thousands of VPC and on-premises using a hub-and-spoke (star) connection.
+If we have a serious infrastructure on AWS, the network topology can become complicated. Transit Gateway solves this problem by providing peering/connection between thousands of VPC and on-premises using a hub-and-spoke (star) connection.
+
+### Security and Compliance
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
