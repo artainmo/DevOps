@@ -24,7 +24,7 @@ Private cloud are cloud services used by a single organization. While public clo
 
 Different types of cloud computing exist. Infrastructure as a service (IaaS) provides the hardware only, thus you can install your own OS and other programs on it. Platform as a service (PaaS) also provides the DevOps so the client is only responsible for the data and applications/code. Lastly, software as a service (SaaS) is a complete product that is run and managed by the service provider.<br>
 ![Screen Shot 2024-05-14 at 11 29 32](https://github.com/artainmo/DevOps/assets/53705599/73284c98-a2b2-4fd0-a10f-4f67f48d50b9)<br>
-'Amazon EC2' is an AWS service example of IaaS. 'Elastic Beanstalk' is an AWS service example of PaaS. Heroku is another service that provides PaaS. Many AWS services are SaaS, for example Rekognition for machine-learning provides a pre-trained model.
+'Amazon EC2' is an AWS service example of IaaS. 'Elastic Beanstalk' is an AWS service example of PaaS. Heroku is another service that provides PaaS. Many AWS services are SaaS, for example Rekognition for machine-learning (ML) provides a pre-trained model.
 
 ### AWS cloud overview
 In 2002 the cloud at amazon was internally launched. In 2003 they had the idea of sharing with others and in 2004 they launched their cloud publicly.<br>
@@ -344,7 +344,7 @@ AWS Client VPN establishes a connection using OpenVPN from own computer to priva
 If we have a serious infrastructure on AWS, the network topology can become complicated. Transit Gateway solves this problem by providing peering/connection between thousands of VPC and on-premises using a hub-and-spoke (star) connection.
 
 ### Security and Compliance
-AWS is responsible for the security of the cloud while customers of the security in the cloud. The client must for example configure the firewall and IAM in the cloud but also encrypt application data.
+AWS is responsible for the security of the cloud while customers of the security in the cloud. The client must for example configure the firewall and IAM in the cloud but also encrypt application data.<br>
 ![Screen Shot 2024-05-18 at 13 20 41](https://github.com/artainmo/DevOps/assets/53705599/124e785e-7b1d-4d03-ac8a-fce1689c7edb)
 
 A Distributed Denial-of-Service (DDoS) attack on our infrastructure is done by saturating/overwhelming our application server with requests. Those high volume requests occur via bots run on servers.<br>
@@ -365,6 +365,40 @@ Data at rest means it is stored on a physical device like a hard drive or S3 buc
 Encryption keys are used to encrypt data in both rest and transit states.<br>
 AWS Key Management Service (KMS) is a service used to encrypt that manages the encryption keys automatically. CloudHSM is another encryption service that differs in that the users need to manage the encryption keys themselves, amazon only provides the dedicated hardware named Hardware Security Module (HSM).
 
+AWS Certificate Manager (ACM) is a service that allows easy provision, management and deployment of SSL/TLS certificates. Those certificates provide in-flight encryption for HTTPS websites.
+
+AWS Secrets Manager is a service that stores secrets. And it can also force the secrets to change every x days.<br>
+It can integrate with Amazon RDS so that passwords are created automatically for this database service.<br>
+Secrets are encrypted using KMS.
+
+AWS Artifact is a portal that provides customers with on-demand access to AWS compliance documentation (reports) and AWS agreements. These can support internal audits within own company or compliance needs to show company is compliant when using AWS cloud.
+
+Amazon GuardDuty performs intelligent threat discovery to protect an AWS account. It uses ML algorithms and uses as data, CloudTrail Events Logs, DNS Logs, VPC Flow Logs and data from other optional services.<br>
+It is great at protecting against cryptocurrency attacks.<br>
+EventBridge rules can be setup to create an event in case of findings. This event can trigger a Lamda function or SNS to send notifications.
+
+Amazon Inspector is a service that runs automated security assessments for EC2 instances, container images pushed to ECR, Lambda functions.<br>
+Findings can be reported in AWS Security Hub and events of those findings can be created with Amazon Event Bridge.<br>
+It evaluates package vulnerabilities for EC2, ECR and Lambda. And network reachability for EC2 only.
+
+AWS Config helps with auditing and recording compliance of your AWS resources. It records configurations and changes over time. This configuration data can be stored in S3 and subsequently analyzed by Athena.<br>
+It is a per region service, but you can create multiple Config configurations and then aggregate all the results across regions.
+
+Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect sensitive data in AWS. It can alert users via EventBridge with SNS about sensitive data such as personally identifiable information (PII).
+
+AWS Security Hub is a central security tool to manage security across several AWS accounts and automate security checks. It uses an integrated dashboard to show current security and compliance status.<br>
+Services such as Config, GuardDuty, Inspector, Macie, IAM Access Analyzer, AWS Systems Manager, AWS Firewall Manager, AWS Health and AWS Partner Network Solutions, report on one dashboard in AWS Security Hub.<br>
+EventBridge can also be used to generate an event on the findings. Amazon Detective can be used to find the source of found issues.
+
+Amazon Detective analyzes, investigates and identifies the root cause of security issues using ML.<br>
+It automatically collects and processes events from VPC Flow Logs, CloudTrail, GuardDuty and creates a unified view.
+
+AWS Abuse is used to report AWS resources who are used for abusive or illegal purposes such as spams, port scanning, DDoS attacks, intrusion attemps, hosting illegal content, distribute malware.
+
+The root user is the account owner. It has access to all AWS services and resources. It is not recommended to use the root user. However, certain actions can only be performed by the root user. Such as changing account settings, view certain tax invoices, close the AWS account, restore IAM user permissions, change or cancel AWS Support plan, register as a seller in the Reserved Instance Marketplace, enable MFA on an S3 bucket, edit or delete an S3 bucket policy that includes an invalid VPC ID, sign up for GovCloud.
+
+IAM Access Analyzer is a service that is used to view which resources are shared externally.<br>
+You can define a Zone of Trust which refers to all AWS accounts that can be trusted for access. IAM Access Analyzer will report as findings anything outside the Zone of Trust that has access to own AWS services.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
