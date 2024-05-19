@@ -471,5 +471,14 @@ Cost Allocation Tags track AWS costs on a detailed level and groups them togethe
 We can generate AWS Cost and Usage Reports which will contain the most comprehensive set of AWS cost and usage data available. It lets you understand your bill and where charges are coming from.<br>
 Cost Explorer allows visualization and management of AWS costs and usage over time. It indicates the optimal Savings Plan and can forecast usage up to 1 year based on past usage.
 
+Billing Metric is stored in CloudWatch region us-east-1 and aggregates billing of all regions and thus indicates worldwide AWS costs. Billing Alarm can be used on top of Billing Metric to send an email notification when billing surpasses a certain treshold.<br>
+AWS Budgets sends alarms when costs or forecasted costs exceed the budget. Different types of budgets can be created, Usage, Cost, Reservation and Savings Plan.
+
+AWS Cost Anomaly Detection continuously monitors costs and usage using ML to detect unusual spends.
+
+Quotas refer to limits. AWS services contain limits/quotas. AWS Service Quotas notify via CloudWatch Alarms when close to a service's quota value treshold. Before the limit is reached you can request a quota increase or shutdown of resources.
+
+AWS Trusted Advisor gives a high level AWS account assessment. It will check certain things and advise on them. For example it will check if you have EBS public Snapshots/backups or RDS public Snapshots/backups or are you using the root account. To have a full set of checks you need a Business or Enterprise Support Plan which will also give you access to the AWS Support API.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
