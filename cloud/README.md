@@ -472,13 +472,20 @@ We can generate AWS Cost and Usage Reports which will contain the most comprehen
 Cost Explorer allows visualization and management of AWS costs and usage over time. It indicates the optimal Savings Plan and can forecast usage up to 1 year based on past usage.
 
 Billing Metric is stored in CloudWatch region us-east-1 and aggregates billing of all regions and thus indicates worldwide AWS costs. Billing Alarm can be used on top of Billing Metric to send an email notification when billing surpasses a certain treshold.<br>
-AWS Budgets sends alarms when costs or forecasted costs exceed the budget. Different types of budgets can be created, Usage, Cost, Reservation and Savings Plan.
+AWS Budgets is more advanced and sends alarms when costs or forecasted costs exceed the budget. Different types of budgets can be created, Usage, Cost, Reservation and Savings Plan.
 
 AWS Cost Anomaly Detection continuously monitors costs and usage using ML to detect unusual spends.
 
 Quotas refer to limits. AWS services contain limits/quotas. AWS Service Quotas notify via CloudWatch Alarms when close to a service's quota value treshold. Before the limit is reached you can request a quota increase or shutdown of resources.
 
 AWS Trusted Advisor gives a high level AWS account assessment. It will check certain things and advise on them. For example it will check if you have EBS public Snapshots/backups or RDS public Snapshots/backups or are you using the root account. To have a full set of checks you need a Business or Enterprise Support Plan which will also give you access to the AWS Support API.
+
+Different AWS Support Plans exist.<br>
+Basic Support Plan is free and gives access to 24x7 customer service, documentation and support forums. You also get access to AWS Personal Health Dashboard and 7 core AWS Trusted Advisor checks.<br>
+AWS Developer Support Plan also provides business hours email access to Cloud Support Associates. Response times will depend on severity of problem.<br>
+AWS Business Support Plan is intended to be used when having production workloads. It gives all Trusted Advisor checks and access to its API. It also provides 24x7 phone, email and chat access to Cloud Support Engineers. Response times are very short for production system impairments or downs.<br>
+AWS Enterprise On-Ramp Support Plan is intended when having production or business critical workloads. It gives additionally access to a pool of Technical Account Managers (TAMs). For account and billing best practices next to operations reviews it gives access to the Concierge Support Team. Response times are even shorter with business-critical system downs being responded in 30min.<br>
+The Enterprise Support Plan is intended when having mission critical workloads. It provides a designated TAM. Business-critical system downs are responded in 15min. 
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
