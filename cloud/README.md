@@ -426,5 +426,11 @@ Personalize can take data from S3 and the Personalize API for real-time data.
 
 Amazon Textract automatically extracts text, handwriting, and data from any scanned document using ML. You can even extract data even from forms and tables.
 
+### Account Management, Billing and Support
+AWS Organizations is a service that allows the management of multiple AWS accounts with the main account being the master account.<br>
+One benefit is consolidated billing, meaning across all accounts. Another benefit is discounts from aggregated usage. Reserved instances can be used across all the accounts of the organization. It also contains an API to automate AWS account creation. It also allows restriction of account privileges using Service Control Policies (SCP).<br>
+Organizational units (OU) represent a grouping of accounts. They can be nested in each other. The root OU for example contains all accounts and thus nested OUs.<br>
+SCP allows whitelisting or blacklisting IAM actions at the account or OU level but the master account it cannot affect. It applies to all Users and Roles of each account. SCP can be used to restrict access to certain services, or enforce PCI compliancy by disabling services.<br>
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
