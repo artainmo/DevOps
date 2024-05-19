@@ -441,5 +441,21 @@ AWS Resource Access Manager (AWS RAM) enables an account to share its resources 
 Users that are new to AWS have too many options and may create stacks that are not in line with the rest of the organization. AWS Service Catalog provides a self-service portal to launch a set of authorized products pre-defined by admins.<br>
 Thus the admins must create a collection of products with each product being a CloudFormation template. Afterwards they need to indicate who has access to launch what product. As a user, on Service Catalog, you will see the list of products you are allowed to use.
 
+AWS has 4 different pricing models:<br>
+** Pay as you go: Pay for what you use.<br>
+** Save when you reserve: Reservations are available for different services such as EC2 Reserved Instances and allow predictable pricing.<br>
+** Pay less by using more: Via volume-based discounts.<br>
+** Pay less as AWS grows: AWS tends to lower its prices as it grows.<br>
+Some services on AWS are free or free up to a certain point.<br>
+EC2 on-demand instances are paid per second or hour. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper. Spot instances are even cheaper and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand. Lastly, savings plan is an alternative to save on sustained usage.<br>
+Lambda is paid per call and duration.<br>
+ECS comes with no cost but runs on EC2 which comes with costs.<br>
+With Fargate we need to pay for each container its used CPU and memory as it does not run on EC2.<br>
+With S3 you pay for the amount and size of objects and the requests made in and out of S3. You also must pay for data transfer out of S3.<br>
+With EBS we have pricing based on the volume type and size. We also pay for backups/snapshots and data transferred out.<br>
+For the database service RDS we pay per hour for storage in GB. The price also differs based on the database's characteristics. You can purchase on-demand instances or reserved instances. Backups are free. Input and output requests come with a cost. Again outbound data transfer comes with a cost but inbound is free.<br>
+CloudFront's pricing differs across geographic regions. Number of requests are also billed.<br>
+Using private IPs instead of public IPs lowers costs and improves network performance. Staying in same AZ lowers costs too.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
