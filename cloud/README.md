@@ -485,7 +485,17 @@ Basic Support Plan is free and gives access to 24x7 customer service, documentat
 AWS Developer Support Plan also provides business hours email access to Cloud Support Associates. Response times will depend on severity of problem.<br>
 AWS Business Support Plan is intended to be used when having production workloads. It gives all Trusted Advisor checks and access to its API. It also provides 24x7 phone, email and chat access to Cloud Support Engineers. Response times are very short for production system impairments or downs.<br>
 AWS Enterprise On-Ramp Support Plan is intended when having production or business critical workloads. It gives additionally access to a pool of Technical Account Managers (TAMs). For account and billing best practices next to operations reviews it gives access to the Concierge Support Team. Response times are even shorter with business-critical system downs being responded in 30min.<br>
-The Enterprise Support Plan is intended when having mission critical workloads. It provides a designated TAM. Business-critical system downs are responded in 15min. 
+The Enterprise Support Plan is intended when having mission critical workloads. It provides a designated TAM. Business-critical system downs are responded in 15min.
+
+### Advanced Identity
+AWS Security Token Service (STS) enables you to create temporary, limited-privileges credentials to access AWS resources.
+
+Amazon Cognito provides identity for web/mobile application users. IAM users are for employees who need AWS access. Instead, web/mobile app clients can become a user in Cognito. Cognito manages web/mobile app users on AWS by creating a database of users.
+
+Microsoft Active Directory (AD) is a database of objects such as user accounts, computers, printers, file shares, security groups and is found in on-premises not AWS.<br>
+AWS does not have AD on it, however AD can be extended using AWS Directory Services.
+
+AWS IAM Identity Center (successor to AWS Single Sign-On) gives a single sign-on, one login for all the accounts in an AWS organization. It basically provides one access to multiple AWS accounts and applications. It works by providing a screen with all accounts after login where you can choose with what account to continue.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
