@@ -432,5 +432,14 @@ One benefit is consolidated billing, meaning across all accounts. Another benefi
 Organizational units (OU) represent a grouping of accounts. They can be nested in each other. The root OU for example contains all accounts and thus nested OUs.<br>
 SCP allows whitelisting or blacklisting IAM actions at the account or OU level but the master account it cannot affect. It applies to all Users and Roles of each account. SCP can be used to restrict access to certain services, or enforce PCI compliancy by disabling services.<br>
 
+Consolidated billing, combines the usage across all AWS accounts in the AWS Organization to share the volume pricing. This combined usage can lead to benefits on discounts. In the end the organization only gets one bill. Reserved instances can be shared across accounts.
+
+AWS Control Tower easily sets up and governs a secure and compliant multi-account AWS environment based on best practices. It automates the set up of AWS Organizations to organize accounts and implement SCPs.
+
+AWS Resource Access Manager (AWS RAM) enables an account to share its resources with another account. Meaning the other account will be able to access and thus modify it.
+
+Users that are new to AWS have too many options and may create stacks that are not in line with the rest of the organization. AWS Service Catalog provides a self-service portal to launch a set of authorized products pre-defined by admins.<br>
+Thus the admins must create a collection of products with each product being a CloudFormation template. Afterwards they need to indicate who has access to launch what product. As a user, on Service Catalog, you will see the list of products you are allowed to use.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
