@@ -457,5 +457,14 @@ For the database service RDS we pay per hour for storage in GB. The price also d
 CloudFront's pricing differs across geographic regions. Number of requests are also billed.<br>
 Using private IPs instead of public IPs lowers costs and improves network performance. Staying in same AZ lowers costs too.
 
+With Savings Plan, instead of reserving instances you just commit to spending a certain amount of money per hour for the next 1 or 3 years.<br>
+With the EC2 savings plan you commit to usage of individual instance families in a region.<br>
+With the compute savings plan you don't need to commit to an instance family, region or compute option (EC2, Fargate, Lambda). Thus it is flexible.<br>
+The Machine Learning Savings plan is for ML services such as SageMaker.
+
+AWS Compute Optimizer reduces costs and improves performance by recommending optimal AWS resources and resources' configurations for your workloads. It uses ML to analyze resources' configurations and their utilization CloudWatch metrics.
+
+AWS Pricing Calculator helps estimate costs in the cloud.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
