@@ -446,12 +446,12 @@ AWS has 4 different pricing models:<br>
 ** Save when you reserve: Reservations are available for different services such as EC2 Reserved Instances and allow predictable pricing.<br>
 ** Pay less by using more: Via volume-based discounts.<br>
 ** Pay less as AWS grows: AWS tends to lower its prices as it grows.<br>
-Some services on AWS are free or free up to a certain point.<br>
-EC2 on-demand instances are paid per second or hour. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper. Spot instances are even cheaper and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand. Lastly, savings plan is an alternative to save on sustained usage.<br>
+Some services on AWS are free or free up to a certain point. Free services include IAM, VPC, Consolidated Billing, and Elastic Beanstalk.<br>
+EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper. Spot instances are even cheaper and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
 Lambda is paid per call and duration.<br>
 ECS comes with no cost but runs on EC2 which comes with costs.<br>
 With Fargate we need to pay for each container its used CPU and memory as it does not run on EC2.<br>
-With S3 you pay for the amount and size of objects and the requests made in and out of S3. You also must pay for data transfer out of S3.<br>
+With S3 you pay for the amount and size of objects and the requests made in and out of S3. You also must pay for data transfer out of S3. But data transfer into S3 is free.<br>
 With EBS we have pricing based on the volume type and size. We also pay for backups/snapshots and data transferred out.<br>
 For the database service RDS we pay per hour for storage in GB. The price also differs based on the database's characteristics. You can purchase on-demand instances or reserved instances. Backups are free. Input and output requests come with a cost. Again outbound data transfer comes with a cost but inbound is free.<br>
 CloudFront's pricing differs across geographic regions. Number of requests are also billed.<br>
@@ -464,7 +464,7 @@ The Machine Learning Savings plan is for ML services such as SageMaker.
 
 AWS Compute Optimizer reduces costs and improves performance by recommending optimal AWS resources and resources' configurations for your workloads. It uses ML to analyze resources' configurations and their utilization CloudWatch metrics.
 
-AWS Pricing Calculator helps estimate costs in the cloud.
+AWS Pricing Calculator helps estimate costs in the cloud. It is useful both for people who have never used AWS and for those who want to expand their usage.
 
 AWS Billing Dashboard can be used to track costs in the cloud. The AWS Free Tier Dashboard shows the usage of each free tier.<br>
 Cost Allocation Tags track AWS costs on a detailed level and groups them together. Tags are used to organize resources by creating groups. Both AWS generated tags and user-defined tags can be used. Tag Editor is used to manage the tags.<br>
