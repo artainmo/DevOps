@@ -401,5 +401,30 @@ The root user is the account owner. It has access to all AWS services and resour
 IAM Access Analyzer is a service that is used to view which resources are shared externally.<br>
 You can define a Zone of Trust which refers to all AWS accounts that can be trusted for access. IAM Access Analyzer will report as findings anything outside the Zone of Trust that has access to own AWS services.
 
+### Machine Learning
+Amazon Rekognition automates image and video analysis with ML. It can detect and label objects, persons, text and other. It can recognize individuals via facial analysis and search, allowing user verification. It can also capture the path of people in a scene, which we call pathing, and can be useful for sport analysis.
+
+Amazon Transcribe automatically converts speech to text. It uses a deep learning process called automatic speech recognition (ASR). With redaction you can automatically remove PII.
+
+Amazon Polly turns text into speech using deep learning.
+
+Amazon Translate as the name indicates translates languages. It can localize content such as websites or applications and translate text for international users if necessary.
+
+Amazon Lex is the same technology that powers the Alexa device by Amazon. Using ASR it can convert speech to text and using NLP it can understand the text. It can be used to build chat and call center bots. It could also invoke Lambda function as a reaction to what it is being told.<br>
+Amazon Connect can be used to build a call center. It is a cloud-based virtual contact center that can receive calls and listen to those calls with Amazon Lex.
+
+Amazon Comprehend is a managed and serverless service used for NLP. It uses ML to find insights and relationships in text.
+
+Amazon SageMaker is a managed service for developers to build own ML models.
+
+Amazon Forecast is a managed service that uses ML to deliver accurate forecasts/predictions. The user only needs to upload his data to S3. Amazon Forecast will then use that data to produce a forecasting model.
+
+Amazon Kendra is a managed document search service powered by ML. It can extract answers from within a document. It can also learn from user feedback to promote preferred results which we call incremental learning.
+
+When buying a product on Amazon, personalized recommendations appear afterwards for the next product you may want to buy. Amazon Personalize is a managed service using ML to produce real-time personalized recommendations.<br>
+Personalize can take data from S3 and the Personalize API for real-time data.
+
+Amazon Textract automatically extracts text, handwriting, and data from any scanned document using ML. You can even extract data even from forms and tables.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
