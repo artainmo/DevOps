@@ -466,5 +466,10 @@ AWS Compute Optimizer reduces costs and improves performance by recommending opt
 
 AWS Pricing Calculator helps estimate costs in the cloud.
 
+AWS Billing Dashboard can be used to track costs in the cloud. The AWS Free Tier Dashboard shows the usage of each free tier.<br>
+Cost Allocation Tags track AWS costs on a detailed level and groups them together. Tags are used to organize resources by creating groups. Both AWS generated tags and user-defined tags can be used. Tag Editor is used to manage the tags.<br>
+We can generate AWS Cost and Usage Reports which will contain the most comprehensive set of AWS cost and usage data available. It lets you understand your bill and where charges are coming from.<br>
+Cost Explorer allows visualization and management of AWS costs and usage over time. It indicates the optimal Savings Plan and can forecast usage up to 1 year based on past usage.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
