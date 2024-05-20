@@ -536,7 +536,18 @@ AWS Application Discovery Service plans migration projects by gathering informat
 The first type is Agentless Discovery which gives information around virtual machines, configurations and performance history. Agent-based Discovery gives more updates and information from within the virtual machines. Resulting data can be viewed within AWS Migration Hub.<br>
 After collecting the data, AWS Application Migration Service (MGN) can be used to perform the migration. It works by running an AWS Replication Agent on any cloud to perform continuous replication into a staging environment in AWS Cloud, at one point staging can be moved to production which we call a cutover.
 
-AWS Migration Evaluator provides a clear baseline of what own organization is running today to know workloads which is important information when wanting to migrate and form a migration plan. Agentless Collector needs to be installed on-premise to gather data, else data can be imported with other feature. This data is used to run the AWS Migration Evaluator which gives insights and indicates if migration is cost-effective to form a business case for migration to AWS. 
+AWS Migration Evaluator provides a clear baseline of what own organization is running today to know workloads which is important information when wanting to migrate and form a migration plan. Agentless Collector needs to be installed on-premise to gather data, else data can be imported with other feature. This data is used to run the AWS Migration Evaluator which gives insights and indicates if migration is cost-effective to form a business case for migration to AWS.
+
+AWS Migration Hub is a central location to collect servers' and applications' inventory data for the assessment, planning and tracking of migrations to AWS. This accelerates migration to AWS. It is integrated with services such as Application Migration Service and Database Migration Service.<br>
+AWS Migration Hub Orchestrator is a sub-feature that provides pre-built templates to save time and effort migrating enterprise apps.
+
+AWS Fault Injection Simulator (FIS) is a managed service for running fault injection experiments on AWS workloads. It is based on chaos engineering which refers to stressing an application via disruptive events to observe how it responds and implement improvements.
+
+AWS Step Functions builds a serverless visual workflow to orchestrate Lambda functions. It also has some internal features such as sequencing, parallel functions, conditions, timeouts, error handling... Next to lambda functions, it also integrates with EC2, ECS, on-premises servers, API Gateways, SQS queues... The possibility also exists to implement a human approval step. Use cases are order fulfillment, data processing, web applications or any workflow.
+
+AWS Ground Station is a managed service that allows control of satellite communications, process data, and scale own satellite operations. It allows satellite data downloads to AWS VPC within seconds. The use cases are weather forecasting, surface imaging, communications and video broadcasts.
+
+Amazon Pinpoint is a scalable, inbound and outbound, marketing and communication service. It supports email, SMS, push notifications and in-app messaging. With it you can create campaigns using message templates, delivery schedules and targeted segments. Receiving replies is possible.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
