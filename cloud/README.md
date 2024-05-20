@@ -597,5 +597,10 @@ CAF has 4 Tranformation Phases.<br>
 &nbsp;&nbsp;&nbsp;** Launch builds and delivers pilot initiatives in production and demonstrates incremental business value.<br>
 &nbsp;&nbsp;&nbsp;** Scale expands the pilot initiatives.
 
+Right sizing is the process of matching instance types and sizes to your workload performance and capacity requirements at the lowest possible cost. Because scaling is easy in the cloud it is best to always start small.<br>
+After instances are deployed it is possible to continuously look at opportunities to eliminate or downsize them by evaluating usage metrics which would lower costs.
+
+AWS Ecosystem 
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
