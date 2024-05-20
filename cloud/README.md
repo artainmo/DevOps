@@ -557,6 +557,9 @@ The six pillars of Well Architected Framework are, operational excellence, secur
 
 Operational Excellence is the first pillar. It refers to the ability to run and monitor systems to deliver business value and to continually improve supporting processes and procedures.<br>
 Use infrastructure/operations as code, which is an associated design principle. CloudFormation can be used for that. Also make small changes at a time so that if failure occurs they are reversible. Refine operations procedures frequently and ensure team members are familiar with it. Anticipate and learn from failure. Implement observability for actionable insights.
+
+Security includes the ability to protect information, systems, and assets through risk assessments and mitigation strategies while delivering business value.<br>
+As a design principle implement a strong identity foundation. Meaning, user account management should be centralized, reliance on long-term credentials should be reduced, IAM users should have least amount of privileges. Traceability should be enabled. Every layer should be secured, like edge network, VPC, subnet, load balancer, inctance, OS, application. Automate security best practices. Reduce direct access to data or need for manual data processing. Run incident response simulations and use tools to detect, investigate and recover.
  
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
