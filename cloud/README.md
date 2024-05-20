@@ -523,5 +523,14 @@ It performs continuous replication of servers into an AWS staging environment. T
 
 AWS DataSync moves large data amounts from on-premises to AWS by running an AWS DataSync Agent in on-premise. Replication/synchronization tasks can be scheduled hourly, daily, weekly. The replication tasks are incremental after the first full load.
 
+7 cloud migration strategies exist:<br>
+** Retire, is the first strategy that consists of deactivating services you don't need which reduces the surface area for attacks and saves costs.<br>
+** Retain, consists of not migrating yet. Thus you retain the resources on-premises for reasons such as security, data compliance, performance or unresolved dependencies.<br>
+** Relocate, moves app from on-premises to the cloud or move EC2 to a different VPC, AWS account or AWS region.<br>
+** Rehost, is a simple migration that consists of re-hosting an application/database/data on AWS. Machines are migrated to AWS Cloud. AWS Application Migration Service allows to do that.<br>
+** Replatform, consists of leveraging some cloud optimization without changing the core architecture. For example by migrating application to Elastic Beanstalk or database to RDS.<br>
+** Repurchase, consists of moving to different product while moving to the cloud. Usually move to a SaaS platform. Expensive but fast.<br>
+** Refactor / Re-architect, consists of changing application architecture using cloud native features. A monolithic application could be transformed to micro-services.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
