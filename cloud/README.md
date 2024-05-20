@@ -560,6 +560,12 @@ Use infrastructure/operations as code, which is an associated design principle. 
 
 Security includes the ability to protect information, systems, and assets through risk assessments and mitigation strategies while delivering business value.<br>
 As a design principle implement a strong identity foundation. Meaning, user account management should be centralized, reliance on long-term credentials should be reduced, IAM users should have least amount of privileges. Traceability should be enabled. Every layer should be secured, like edge network, VPC, subnet, load balancer, inctance, OS, application. Automate security best practices. Reduce direct access to data or need for manual data processing. Run incident response simulations and use tools to detect, investigate and recover.
+
+Reliability is the ability of a system to recover from infrastructure or service disruptions, scale resources to meet demands, and mitigate disruptions such as misconfigurations or transient network issues.<br>
+As design principle, test recovery procedures and automatically recover from failure. Scale horizontally to increase system availability. Use auto-scaling instead of guessing capacity.
+
+Performance efficiency includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.<br>
+As design principle, advanced technologies should be used. Going global should take minutes. Use serverless architecture to avoid the burden of managing servers. Be aware of all AWS services and don't be afraid to experiment.
  
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
