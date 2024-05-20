@@ -442,10 +442,10 @@ Users that are new to AWS have too many options and may create stacks that are n
 Thus the admins must create a collection of products with each product being a CloudFormation template. Afterwards they need to indicate who has access to launch what product. As a user, on Service Catalog, you will see the list of products you are allowed to use.
 
 AWS has 4 different pricing models:<br>
-** Pay as you go: Pay for what you use.<br>
-** Save when you reserve: Reservations are available for different services such as EC2 Reserved Instances and allow predictable pricing.<br>
-** Pay less by using more: Via volume-based discounts.<br>
-** Pay less as AWS grows: AWS tends to lower its prices as it grows.<br>
+&nbsp;&nbsp;&nbsp;** Pay as you go: Pay for what you use.<br>
+&nbsp;&nbsp;&nbsp;** Save when you reserve: Reservations are available for different services such as EC2 Reserved Instances and allow predictable pricing.<br>
+&nbsp;&nbsp;&nbsp;** Pay less by using more: Via volume-based discounts.<br>
+&nbsp;&nbsp;&nbsp;** Pay less as AWS grows: AWS tends to lower its prices as it grows.<br>
 Some services on AWS are free or free up to a certain point. Free services include IAM, VPC, Consolidated Billing, and Elastic Beanstalk.<br>
 EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper. Spot instances are even cheaper and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
 Lambda is paid per call and duration.<br>
@@ -524,13 +524,13 @@ It performs continuous replication of servers into an AWS staging environment. T
 AWS DataSync moves large data amounts from on-premises to AWS by running an AWS DataSync Agent in on-premise. Replication/synchronization tasks can be scheduled hourly, daily, weekly. The replication tasks are incremental after the first full load.
 
 7 cloud migration strategies exist:<br>
-** Retire, is the first strategy that consists of deactivating services you don't need which reduces the surface area for attacks and saves costs.<br>
-** Retain, consists of not migrating yet. Thus you retain the resources on-premises for reasons such as security, data compliance, performance or unresolved dependencies.<br>
-** Relocate, moves app from on-premises to the cloud or move EC2 to a different VPC, AWS account or AWS region.<br>
-** Rehost, is a simple migration that consists of re-hosting an application/database/data on AWS. Machines are migrated to AWS Cloud. AWS Application Migration Service allows to do that.<br>
-** Replatform, consists of leveraging some cloud optimization without changing the core architecture. For example by migrating application to Elastic Beanstalk or database to RDS.<br>
-** Repurchase, consists of moving to different product while moving to the cloud. Usually move to a SaaS platform. Expensive but fast.<br>
-** Refactor / Re-architect, consists of changing application architecture using cloud native features. A monolithic application could be transformed to micro-services.
+&nbsp;&nbsp;&nbsp;** Retire, is the first strategy that consists of deactivating services you don't need which reduces the surface area for attacks and saves costs.<br>
+&nbsp;&nbsp;&nbsp;** Retain, consists of not migrating yet. Thus you retain the resources on-premises for reasons such as security, data compliance, performance or unresolved dependencies.<br>
+&nbsp;&nbsp;&nbsp;** Relocate, moves app from on-premises to the cloud or move EC2 to a different VPC, AWS account or AWS region.<br>
+&nbsp;&nbsp;&nbsp;** Rehost, is a simple migration that consists of re-hosting an application/database/data on AWS. Machines are migrated to AWS Cloud. AWS Application Migration Service allows to do that.<br>
+&nbsp;&nbsp;&nbsp;** Replatform, consists of leveraging some cloud optimization without changing the core architecture. For example by migrating application to Elastic Beanstalk or database to RDS.<br>
+&nbsp;&nbsp;&nbsp;** Repurchase, consists of moving to different product while moving to the cloud. Usually move to a SaaS platform. Expensive but fast.<br>
+&nbsp;&nbsp;&nbsp;** Refactor / Re-architect, consists of changing application architecture using cloud native features. A monolithic application could be transformed to micro-services.
 
 AWS Application Discovery Service plans migration projects by gathering information about on-premises data centers. It will gather server utilization data and map dependencies.<br>
 The first type is Agentless Discovery which gives information around virtual machines, configurations and performance history. Agent-based Discovery gives more updates and information from within the virtual machines. Resulting data can be viewed within AWS Migration Hub.<br>
@@ -550,7 +550,7 @@ AWS Ground Station is a managed service that allows control of satellite communi
 Amazon Pinpoint is a scalable, inbound and outbound, marketing and communication service. It supports email, SMS, push notifications and in-app messaging. With it you can create campaigns using message templates, delivery schedules and targeted segments. Receiving replies is possible.
 
 ### AWS Architecting and Ecosystem
-Here we will cover the Well Architected Framework which consists of advice on architecture.<br>
+Here we will cover the Well-Architected Framework which consists of advice on architecture.<br>
 Good practice is to use auto-scaling instead of trying to guess capacity. Test systems at production scale. Automation can make architectural experimentation easier. Make architectural choices based on data.<br>
 A design principle is for resources to be disposable, by having backups for example. Loose coupling is recommended and consists of using micro-services instead of a monolith. Think in services, not servers, avoid only using EC2, try to use managed services too.<br>
 The six pillars of Well Architected Framework are, operational excellence, security, reliability, performance efficiency, cost optimization, sustainability.
@@ -572,6 +572,27 @@ As design principle, pay only for what you use. Use CloudWatch to measure if res
 
 Sustainability focuses on minimizing the environmental impacts of running cloud workloads.<br>
 As design principle, understand own impact. Establish sustainability goals. Maximize the utilization of running services to be energy efficient. Adopt new hardware/software over time. Use managed services to share infrastructure. Reduce the amount of energy or resources required to use services and the need for cutomers to upgrade devices.
- 
+
+AWS Well-Architected Tool enables review of architecture in relation to the previously covered 6 pillars to adopt architectural best practices.
+
+AWS Customer Carbon Footprint Tool is used to track, measure, review and forecast carbon emissions generated from AWS usage. Helps meet sustainability goals.
+
+AWS Cloud Adoption Framework (CAF) is an ebook and not a service. It helps build and execute a comprehensive plan for digital transformation through innovative use of AWS. Thus how to transform by leveraging the cloud. It is based on best practices and lessons learned from 1000s of customers.<br>
+CAF identifies organizational capabilities for successful cloud transformations. CAF groups its capabilities in 6 perspectives, Business, People, Governance, Platform, Security, and Operations.<br>
+Within those 6 perspectives we can make distinction between Business capabilities which refer to the Business, People and Governance perspectives and the Technical capabilites which refer to Platform, Security and Operations perspectives.<br>
+&nbsp;&nbsp;&nbsp;** The Business Perspective helps ensure that cloud investments accelerate own digital transformation ambitions and business outcomes.<br>
+&nbsp;&nbsp;&nbsp;** The People Perspective serves as a bridge between technology and business. Via the people, focus is set on culture, organizational structure, leadership and workforce to help organizations evolve to a culture of continuous growth and learning.<br>
+&nbsp;&nbsp;&nbsp;** The Governance Perspective helps orchestrate cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks.<br>
+&nbsp;&nbsp;&nbsp;** The Platform Perspective helps build an enterprise-grade, scalable, hybrid cloud platform to modernize existing workloads and implement new cloud-native solutions.<br>
+&nbsp;&nbsp;&nbsp;** The Security Perspective helps achieve the confidentiality, integrity and availability of data and cloud workloads.<br>
+&nbsp;&nbsp;&nbsp;** The Operations Perspective helps ensure cloud services are delivered at a level that meets own business needs.<br>
+As Transformation Domains we have Technology, Process, Organization and Product, to help drive business outcomes.<br>
+&nbsp;&nbsp;&nbsp;** Technology refers to using the cloud to migrate and modernize legacy infrastructure, applications, data and analytics platforms.<br>
+&nbsp;&nbsp;&nbsp;** Process refers to digitizing, automating and optimizing own business operations. Leveraging data and ML.<br>
+&nbsp;&nbsp;&nbsp;** Organization refers to reimagining operating model. By re-organizing teams and using methods to rapidly iterate and evolve.<br>
+&nbsp;&nbsp;&nbsp;** Product refers to reimagining own business model by creating new value propositions (products/services) and revenue models.<br>
+CAF has 4 Tranformation Phases.<br>
+&nbsp;&nbsp;&nbsp;** 
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
