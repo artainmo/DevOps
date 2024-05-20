@@ -536,5 +536,7 @@ AWS Application Discovery Service plans migration projects by gathering informat
 The first type is Agentless Discovery which gives information around virtual machines, configurations and performance history. Agent-based Discovery gives more updates and information from within the virtual machines. Resulting data can be viewed within AWS Migration Hub.<br>
 After collecting the data, AWS Application Migration Service (MGN) can be used to perform the migration. It works by running an AWS Replication Agent on any cloud to perform continuous replication into a staging environment in AWS Cloud, at one point staging can be moved to production which we call a cutover.
 
+AWS Migration Evaluator provides a clear baseline of what own organization is running today to know workloads which is important information when wanting to migrate and form a migration plan. Agentless Collector needs to be installed on-premise to gather data, else data can be imported with other feature. This data is used to run the AWS Migration Evaluator which gives insights and indicates if migration is cost-effective to form a business case for migration to AWS. 
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
