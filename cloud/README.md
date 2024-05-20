@@ -532,5 +532,9 @@ AWS DataSync moves large data amounts from on-premises to AWS by running an AWS 
 ** Repurchase, consists of moving to different product while moving to the cloud. Usually move to a SaaS platform. Expensive but fast.<br>
 ** Refactor / Re-architect, consists of changing application architecture using cloud native features. A monolithic application could be transformed to micro-services.
 
+AWS Application Discovery Service plans migration projects by gathering information about on-premises data centers. It will gather server utilization data and map dependencies.<br>
+The first type is Agentless Discovery which gives information around virtual machines, configurations and performance history. Agent-based Discovery gives more updates and information from within the virtual machines. Resulting data can be viewed within AWS Migration Hub.<br>
+After collecting the data, AWS Application Migration Service (MGN) can be used to perform the migration. It works by running an AWS Replication Agent on any cloud to perform continuous replication into a staging environment in AWS Cloud, at one point staging can be moved to production which we call a cutover.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
