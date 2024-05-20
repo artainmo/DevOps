@@ -600,7 +600,18 @@ CAF has 4 Tranformation Phases.<br>
 Right sizing is the process of matching instance types and sizes to your workload performance and capacity requirements at the lowest possible cost. Because scaling is easy in the cloud it is best to always start small.<br>
 After instances are deployed it is possible to continuously look at opportunities to eliminate or downsize them by evaluating usage metrics which would lower costs.
 
-AWS Ecosystem 
+A lot of services exist in the AWS Ecosystem.<br>
+A lot of resources are free such as AWS Blogs, AWS Forums, AWS Whitepapers and Guides. The Well-Architected Framework is an example of a whitepaper. AWS Partner Solutions (formerly Quick Start) is also free and provides automated, gold-standard deployments in the AWS Cloud by leveraging CloudFormation templates. An example is Wordpress on AWS. AWS Solutions is also free and a way to deploy vetted technology solutions to the AWS Cloud.<br>
+Different AWS Support Plans, such as Developer, Business and Enterprise, as covered previously, are part of the AWS Ecosystem.<br>
+The AWS Marketplace is a digital catalog with thousands of software listings from independent (third party) software vendors. For example you can buy a custom AMI, CloudFormation template or SaaS. Own solutions can also be sold on AWS Marketplace.<br>
+AWS Training can be digital (online) or from a classroom (in-person or virtual). AWS Private Training exists for an organization. Dedicated training and certification programs for the US government or an enterprise also exist. AWS Academy exists to help universities teach AWS.<br>
+The AWS Professional Services organization is a global team of experts in AWS that help clients by working alongside own team and a chosen member of the AWS Partner Network (APN). APN is a network of people that AWS knows are good in cloud. The APN Technology Partners provide hardware, connectivity and software. While the APN Consulting Partners help build on AWS. The APN Training Partners help own team learn AWS. The AWS Competency Program is granted to APN Partners who demonstrated technical proficiency and customer success in specialized solution areas. Lastly, the AWS Navigate Program trains Partners to become better Partners.
+
+AWS IQ is used to quickly find and pay a professional to help own AWS projects. Those professionals are third party, AWS certified experts. AWS IQ also provides video-conferencing, contract management, secure collaboration and integrated billing. The client must submit a request on the platform and review responses to select an expert to work with afterwards. Charges are added to AWS bill.<br>
+Alternatively AWS re:Post can be used, which is a community forum where you can find answers. Thus it is an AWS managed Q&A service offering crowd-sourced, expert-reviewed answers to technical questions about AWS. It replaces what used to be the original AWS Forums. Questions from AWS Premium Support customers that do not receive a response from the community are passed on to AWS Support engineers.<br>
+AWS Knowledge Center is part of re:Post. It is a place to find the most common questions on AWS.
+
+AWS Managed Services (AMS) consists of a team of AWS experts who provide infrastructure and application support on AWS. They manage and operate client's infrastructure for security, reliability and availability. 
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
