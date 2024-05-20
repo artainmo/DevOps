@@ -592,7 +592,10 @@ As Transformation Domains we have Technology, Process, Organization and Product,
 &nbsp;&nbsp;&nbsp;** Organization refers to reimagining operating model. By re-organizing teams and using methods to rapidly iterate and evolve.<br>
 &nbsp;&nbsp;&nbsp;** Product refers to reimagining own business model by creating new value propositions (products/services) and revenue models.<br>
 CAF has 4 Tranformation Phases.<br>
-&nbsp;&nbsp;&nbsp;** 
+&nbsp;&nbsp;&nbsp;** Envision is the first Transformation Phase. It demonstrates how the cloud will accelerate business outcomes by identifying transformation opportunities and create a foundation for own digital transformation.<br>
+&nbsp;&nbsp;&nbsp;** Align identifies capability gaps within the 6 CAF Perspectives which results in an action plan.<br>
+&nbsp;&nbsp;&nbsp;** Launch builds and delivers pilot initiatives in production and demonstrates incremental business value.<br>
+&nbsp;&nbsp;&nbsp;** Scale expands the pilot initiatives.
 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
