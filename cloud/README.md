@@ -566,6 +566,12 @@ As design principle, test recovery procedures and automatically recover from fai
 
 Performance efficiency includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.<br>
 As design principle, advanced technologies should be used. Going global should take minutes. Use serverless architecture to avoid the burden of managing servers. Be aware of all AWS services and don't be afraid to experiment.
+
+Cost optimization includes the ability to run systems to deliver business value at the lowest price point.<br>
+As design principle, pay only for what you use. Use CloudWatch to measure if resources are used effectively. Start using AWS to stop spending money on data center operations. Use tags to track costs of each application and analyze expenditures. Use managed services to lower costs.
+
+Sustainability focuses on minimizing the environmental impacts of running cloud workloads.<br>
+As design principle, understand own impact. Establish sustainability goals. Maximize the utilization of running services to be energy efficient. Adopt new hardware/software over time. Use managed services to share infrastructure. Reduce the amount of energy or resources required to use services and the need for cutomers to upgrade devices.
  
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
