@@ -1,6 +1,28 @@
 # Cloud
 
 ## Table of contents
+- [Udemy course - AWS certified cloud practitioner](#Udemy-course---AWS-certified-cloud-practitioner)
+  - [What is cloud computing?](#what-is-cloud-computing)
+  - [AWS cloud overview](#AWS-cloud-overview)
+  - [Identity and Access Management (IAM)](#identity-and-access-management-iam)
+  - [Elastic Compute Cloud (EC2)](#elastic-compute-cloud-ec2)
+  - [EC2 instance storage](#EC2-instance-storage)
+  - [Elastic Load Balancing (ELB) & Auto Scaling Groups (ASG)](#elastic-load-balancing-elb--auto-scaling-groups-asg)
+  - [Amazon S3](#Amazon-S3)
+  - [Databases & Analytics](#databases--analytics)
+  - [Other Compute Services: ECS, Lambda, Batch, Lightsail](#other-compute-services-ecs-lambda-batch-lightsail)
+  - [Deployments & Managing Infrastructure at Scale](#deployments--managing-infrastructure-at-scale)
+  - [Leveraging the AWS Global Infrastructure](#Leveraging-the-AWS-Global-Infrastructure)
+  - [Cloud Integration](#Cloud-Integration)
+  - [Cloud Monitoring](#Cloud-Monitoring)
+  - [Virtual Private Cloud (VPC) & Networking](#virtual-private-cloud-vpc--networking)
+  - [Security and Compliance](#Security-and-Compliance)
+  - [Machine Learning](#Machine-Learning)
+  - [Account Management, Billing and Support](#account-management-billing-and-support)
+  - [Advanced Identity](#Advanced-Identity)
+  - [Other Services](#Other-Services)
+  - [AWS Architecting and Ecosystem](#AWS-Architecting-and-Ecosystem)
+- [Resources](#Resources)  
 
 ## Udemy course - AWS certified cloud practitioner
 Other cloud providers than amazon exist. Here, we will specifically learn how to use AWS. However, this knowledge can also be applied to other cloud platforms.
