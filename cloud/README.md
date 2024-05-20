@@ -549,5 +549,11 @@ AWS Ground Station is a managed service that allows control of satellite communi
 
 Amazon Pinpoint is a scalable, inbound and outbound, marketing and communication service. It supports email, SMS, push notifications and in-app messaging. With it you can create campaigns using message templates, delivery schedules and targeted segments. Receiving replies is possible.
 
+### AWS Architecting and Ecosystem
+Here we will cover the Well Architected Framework which consists of advice on architecture.<br>
+Good practice is to use auto-scaling instead of trying to guess capacity. Test systems at production scale. Automation can make architectural experimentation easier. Make architectural choices based on data.<br>
+A design principle is for resources to be disposable, by having backups for example. Loose coupling is recommended and consists of using micro-services instead of a monolith. Think in services, not servers, avoid only using EC2, try to use managed services too.<br>
+The six pillars of Well Architected Framework are, operational excellence, security, reliability, performance efficiency, cost optimization, sustainability.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
