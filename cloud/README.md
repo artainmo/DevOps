@@ -497,5 +497,11 @@ AWS does not have AD on it, however AD can be extended using AWS Directory Servi
 
 AWS IAM Identity Center (successor to AWS Single Sign-On) gives a single sign-on, one login for all the accounts in an AWS organization. It basically provides one access to multiple AWS accounts and applications. It works by providing a screen with all accounts after login where you can choose with what account to continue.
 
+### Other Services
+Amazon Workspaces is a managed Desktop as a Service (DaaS) solution to easily provision Windows or Linux desktops. It eliminates the need for management of on-premise Virtual Desktop Infrastructure (VDI). If someone wants to have a Windows/Linux laptop in the cloud they can do so using Amazon Workspaces.
+
+Amazon AppStream 2.0 is a desktop application streaming service. It allows streaming on any computer without provisioning infrastructure. The application is delivered from within a web browser.<br>
+Amazon Workspaces provides a full VDI which can launch multiple applications, while with Amazon AppStream 2.0 one specific desktop application is streamed into a web browser.  
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
