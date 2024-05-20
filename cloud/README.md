@@ -555,5 +555,8 @@ Good practice is to use auto-scaling instead of trying to guess capacity. Test s
 A design principle is for resources to be disposable, by having backups for example. Loose coupling is recommended and consists of using micro-services instead of a monolith. Think in services, not servers, avoid only using EC2, try to use managed services too.<br>
 The six pillars of Well Architected Framework are, operational excellence, security, reliability, performance efficiency, cost optimization, sustainability.
 
+Operational Excellence is the first pillar. It refers to the ability to run and monitor systems to deliver business value and to continually improve supporting processes and procedures.<br>
+Use infrastructure/operations as code, which is an associated design principle. CloudFormation can be used for that. Also make small changes at a time so that if failure occurs they are reversible. Refine operations procedures frequently and ensure team members are familiar with it. Anticipate and learn from failure. Implement observability for actionable insights.
+ 
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
