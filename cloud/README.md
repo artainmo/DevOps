@@ -503,5 +503,25 @@ Amazon Workspaces is a managed Desktop as a Service (DaaS) solution to easily pr
 Amazon AppStream 2.0 is a desktop application streaming service. It allows streaming on any computer without provisioning infrastructure. The application is delivered from within a web browser.<br>
 Amazon Workspaces provides a full VDI which can launch multiple applications, while with Amazon AppStream 2.0 one specific desktop application is streamed into a web browser.  
 
+Internet of Things (IoT) is a network of internet-connected devices that can collect and transfer data. AWS IoT Core connects IoT devices to the AWS Cloud. It is serverless, secure and scalable.
+
+AWS AppSync stores and synchronizes data across mobile and web apps in real-time. For this it leverages a technology from Facebook called GraphQL. To build this GraphQL backend integration is possible with DynamoDB and Lambda.
+
+AWS Amplify is a set of tools and services that help develop and deploy scalable full stack web and mobile applications. Amplify can manage authentication, storage, API, CI/CD, PubSub, analytics and ML, monitoring, source code from AWS or Github...
+
+AWS Application Composer can be used to visually design and build serverless applications on AWS by generating CloudFormation infrastructure as code (IaC). It allows AWS infrastructure code deployment without being an expert in AWS.
+
+AWS Device Farm is a managed service that tests your web and mobile apps against desktop browsers, real mobile devices and tablets.
+
+AWS Backup is a managed service to centrally manage and automate backups across AWS services. It allows the creation of a backup plan where you define the frequency and retention policy of backups. This backup plan can be assigned to AWS resources such as EC2, EBS, RDS, DynamoDB... The backups are stored in S3.
+
+Different disaster recovery strategies exist. Backup and Restore is the cheapest one. Pilot Light keeps the minimal critical functions of the app running in the cloud. Warm Standby is more expensive, it keeps the full app running in the cloud but at a minimum size. Multi-Site/Hot-Site is the most expensive, as it keeps the full app at full size running in the cloud.<br>
+In the cloud we can perform disaster recovery of applications running in multiple regions, if one region fails we can failover the traffic to other region using route 53.
+
+AWS Elastic Disaster Recovery (DRS) used to be named CloudEndure Disaster Recovery. It allows quick and easy recovery of physical, virtual and cloud-based servers into AWS.<br>
+It performs continuous replication of servers into an AWS staging environment. Then in case of a disaster, the staging can be moved to production on which you can failover within minutes.
+
+AWS DataSync moves large data amounts from on-premises to AWS by running an AWS DataSync Agent in on-premise. Replication/synchronization tasks can be scheduled hourly, daily, weekly. The replication tasks are incremental after the first full load.
+
 ## Resources
 [Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
