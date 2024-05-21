@@ -273,7 +273,7 @@ A global application is an application deployed onto multiple AWS regions or edg
 
 Route 53 is an AWS service that routes users to the closest deployment with least latency. It is a managed Domain Name System (DNS). DNS associates servers' IPs and URLs.<br>
 A web browser first makes a DNS request with an URL to Route 53. Route 53 will return the associated IP address. The web browser will then make its request to the IP address which will return an HTTP response.<br>
-Route 53 has different routing policies. The 'Simple Routing Policy' has no health checks and simply returns an IP when a URL gets sent to it. The 'Weighted Routing Policy' distributes traffic across multiple EC2 instances which is similar to load balancing and thus health checks are used. The 'Latency Routing Policy' makes users connect to the closest servers to minimize latency. The 'Failover Routing Policy' performs health checks on primary server and redirects traffic to the failover server if the primary server failed its health checks with the goal of handling disaster recovering.<br>
+Route 53 has different routing policies. The 'Simple Routing Policy' has no health checks and simply returns an IP when a URL gets sent to it. The 'Weighted Routing Policy' distributes traffic across multiple EC2 instances which is similar to load balancing and thus health checks are used. The 'Latency Routing Policy' makes users connect to the closest servers to minimize latency. The 'Failover Routing Policy' performs health checks on primary server and redirects traffic to the failover server if the primary server failed its health checks with the goal of handling disaster recovery.<br>
 Route 53 has the following features, Domain Registration, DNS, Health Checks, Routing Policy.
 
 CloudFront is a Content Delivery Network (CDN). It replicates part of applications to edge locations to decrease latency. It will also cache common requests to decrease latency further. It has 216 points of presence representing edge locations globally.<br>
@@ -446,7 +446,7 @@ Amazon Kendra is a managed document search service powered by ML. It can extract
 When buying a product on Amazon, personalized recommendations appear afterwards for the next product you may want to buy. Amazon Personalize is a managed service using ML to produce real-time personalized recommendations.<br>
 Personalize can take data from S3 and the Personalize API for real-time data.
 
-Amazon Textract automatically extracts text, handwriting, and data from any scanned document using ML. You can even extract data even from forms and tables.
+Amazon Textract automatically extracts text, handwriting, and data from any scanned document using ML. You can even extract data from forms and tables.
 
 Amazon Bedrock is a service that doesn't need to be known for the exam. It allows building generative AI applications using foundational models like Claude from anthropic, Lama from Meta.<br>
 Other ML services exist who are not covered in this course.
@@ -530,7 +530,7 @@ Amazon Workspaces provides a full VDI which can launch multiple applications, wh
 
 Internet of Things (IoT) is a network of internet-connected devices that can collect and transfer data. AWS IoT Core connects IoT devices to the AWS Cloud. It is serverless, secure and scalable.
 
-AWS AppSync stores and synchronizes data across mobile and web apps in real-time. For this it leverages a technology from Facebook called GraphQL. To build this GraphQL backend integration is possible with DynamoDB and Lambda.
+AWS AppSync stores and synchronizes data across mobile and web apps in real-time. For this it leverages a technology from Facebook called GraphQL. To build this GraphQL backend, integration is possible with DynamoDB and Lambda.
 
 AWS Amplify is a set of tools and services that help develop and deploy scalable full stack web and mobile applications. Amplify can manage authentication, storage, API, CI/CD, PubSub, analytics and ML, monitoring, source code from AWS or Github...
 
