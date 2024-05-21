@@ -179,10 +179,10 @@ AWS Storage Gateway is used to bridge on-premise data and cloud data in S3 when 
 ### Databases & Analytics
 Storing data on disk as with EFS, EBS, EC2, Instance Store and S3 can have its limits. This is why you sometimes want to store data on a database where you can structure the data, build indexes for efficient database searches, and define relationships between datasets.<br>
 Relational databases enable linking datasets and the use of SQL queries.<br>
-NoSQL databases are non-relational and don't use SQL. It is flexible and scalable. Different types exist for optimization of specific data models.
+NoSQL databases are non-relational and don't use SQL. They are flexible and scalable. Different types exist for optimization of specific data models.
 
-Amazon Relational Database Servive (RDS) is a managed service for the use of a SQL database in the cloud. We can also deploy own databases on EC2. But the advantage of RDS is that it is managed by Amazon.<br>
-Amazon Aurora is a database technology who supports PostGreSQL and MySQL, because it is cloud optimized, performances on PostGreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora serverless has no management overhead and is useful for infrequent workloads.
+Amazon Relational Database Service (RDS) is a managed service for the use of a SQL database in the cloud. We can also deploy own databases on EC2. But the advantage of RDS is that it is managed by Amazon.<br>
+Amazon Aurora is a database technology who supports PostgreSQL and MySQL, because it is cloud optimized, performances on PostgreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora serverless has no management overhead and is useful for infrequent workloads.
 
 RDS Read Replicas can scale the read workload of your database.<br>
 Multi-AZ gives high availability by providing a replication of the database into another AZ.<br>
