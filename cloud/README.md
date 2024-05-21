@@ -38,7 +38,7 @@ In the past own website would run on own server(s). This comes with downsides su
 The cloud resolves those problems by allowing rental of external servers and thus delegation of associated tasks.
 
 Cloud computing is the on-demand delivery of computing power, database storage, applications, and other IT resources.<br>
-Via a web-applications you can indicate how much cloud computing resources you need. Usually with cloud platforms you only pay for what you use which we call pay-as-you-go pricing. 
+Via a web-application you can indicate how much cloud computing resources you need. Usually with cloud platforms you only pay for what you use which we call pay-as-you-go pricing. 
 
 Netflix and dropbox are examples of services who are built on AWS.
 
@@ -54,10 +54,10 @@ In 2019 AWS accounted for 47% of the market with microsoft being second at 22%.
 
 AWS enables users to build scalable applications in a diverse set of industries. Its use cases include hosting of websites or mobile apps, gaming, enterprise IT, big data analytics.
 
-At AWS we pay for compute time and amount of stored data. Data transfer out of the AWS cloud is free.
+At AWS we pay for compute time and amount of stored data.
 
 AWS is global.<br>
-It has regions all over the world with regions referring to clusters of data centers. Due to legal regions when launching a new application you may need to choose a local region. Else it is best to choose a region close to customers to reduce latency. Available services and pricing can also be variable across regions.<br>
+It has regions all over the world with regions referring to clusters of data centers. Due to legal reasons when launching a new application you may need to choose a local region. Else it is best to choose a region close to customers to reduce latency. Available services and pricing can also be variable across regions.<br>
 Each region has many availability zones (AZ). Each AZ is one or more separate data center so that if one fails another AZ can be used instead.<br>
 AWS has more than 400+ points of presence in 90+ cities across 40+ countries which allows content delivery to end users with lowest latency possible.
 
@@ -66,7 +66,7 @@ The shared responsibility model defines the distribution of responsibilities for
 ### Identity and Access Management (IAM)
 IAM is a global service, meaning it is available in all regions. 
 
-When you create a AWS account you are the root user. However, it is best practice to work via admin users who don't have all permissions.
+When you create an AWS account you are the root user. However, it is best practice to work via admin users who don't have all permissions.
 IAM service allows the creation of users and groups in our AWS account for them to have certain permissions or not on our AWS account. Those permissions can be defined in a JSON document we call a 'policy'. The 'least privilege' principle should be used, it means a user should not receive more permissions than necessary.
 
 ![Screen Shot 2024-05-14 at 14 27 17](https://github.com/artainmo/DevOps/assets/53705599/4b425dce-83ae-4c9d-abea-389fb6fdcd61)
@@ -447,6 +447,9 @@ When buying a product on Amazon, personalized recommendations appear afterwards 
 Personalize can take data from S3 and the Personalize API for real-time data.
 
 Amazon Textract automatically extracts text, handwriting, and data from any scanned document using ML. You can even extract data even from forms and tables.
+
+Amazon Bedrock is a service that doesn't need to be known for the exam. It allows building generative AI applications using foundational models like Claude from anthropic, Lama from Meta.<br>
+Other ML services exist who are not covered in this course.
 
 ### Account Management, Billing and Support
 AWS Organizations is a service that allows the management of multiple AWS accounts with the main account being the master account.<br>
