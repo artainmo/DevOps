@@ -37,6 +37,8 @@ A server is necessary to host a website, contains central processing units (CPU)
 In the past own website would run on own server(s). This comes with downsides such as costs related to buying servers, space, power supply, maintenance, infrastructure monitoring, scaling or replacing hardware takes more time and is more complicated.<br>
 The cloud resolves those problems by allowing rental of external servers and thus delegation of associated tasks.
 
+![Screen Shot 2024-05-22 at 12 56 22](https://github.com/artainmo/DevOps/assets/53705599/6cb8db76-1f74-4ace-8f3d-e20efab8115e)
+
 Cloud computing is the on-demand delivery of computing power, database storage, applications, and other IT resources.<br>
 Via a web-application you can indicate how much cloud computing resources you need. Usually with cloud platforms you only pay for what you use which we call pay-as-you-go pricing. 
 
@@ -63,6 +65,8 @@ AWS has more than 400+ points of presence in 90+ cities across 40+ countries whi
 
 The shared responsibility model defines the distribution of responsibilities for security in the AWS cloud. The client is responsible for data and AWS for cloud.
 
+The Acceptable Use Policy describes prohibited uses of the web services offered by Amazon Web Services.
+
 ### Identity and Access Management (IAM)
 IAM is a global service, meaning it is available in all regions. 
 
@@ -72,7 +76,7 @@ IAM service allows the creation of users and groups in our AWS account for them 
 ![Screen Shot 2024-05-14 at 14 27 17](https://github.com/artainmo/DevOps/assets/53705599/4b425dce-83ae-4c9d-abea-389fb6fdcd61)
 
 To protect your users you can also create password policies which define how strong the users' passwords must be, if users can/must change their password and so on.<br>
-For ideal security you can use multi-factor authentication (MFA) which consists of a regular password next to a security device you own. In AWS, MFA devices can be virtual such as Google Authenticator or Authy, else they can be physical such as special security usb keys made by third parties.
+For ideal security you can use multi-factor authentication (MFA) which consists of a regular password next to a security device you own. In AWS, MFA devices can be virtual such as Google Authenticator or Authy which we call virtual MFA devices, else they can be physical such as Hardware MFA device or UTF security key. Hardware MFA device is a hardware device unique to its user that generates a six-digit numeric code. UTF security key is a device that you plug into a USB port on your computer.
 
 In the AWS platform you can create policies and associate them with specific users or groups. Users can be associated with groups and thus policies associated with a group would apply to all the users within that group.
 
@@ -113,9 +117,11 @@ The shared responsibility model of AWS states that amazon is responsible for the
 ### EC2 instance storage
 Elastic Block Store (EBS) volume is the most important storage option in EC2. It allows to persist data even after termination of the instance. It can quickly be detached from one EC2 instance and attached to another one within the same AZ.<br>
 When creating an EBS we have the 'Delete on Termination' option that is activated by default for the root volume but not other volumes. Thus if you want to preserve the root volume after instance termination you need to deactivate this option.<br>
-It is possible to make EBS backups, also called snapshots. Those snapshots can also be copied to other AZs or regions to leverage the global infrastructure.
+It is possible to make EBS backups, also called snapshots. Those snapshots can also be copied to other AZs or regions to leverage the global infrastructure.<br>
+EBS volumes cannot be accessed simultaneously by multiple EC2 instances.
 
-Amazon machine image (AMI) represents a customization of an EC2 instance. Thus it contains pre-packaged customized software to boot the EC2 instance faster. They can be build for a specific region and be copied to other regions to leverage the global infrastructure.<br>
+Amazon machine image (AMI) represents a customization of an EC2 instance. Thus it contains pre-packaged customized software to boot the EC2 instance faster.<br>
+The AMI must be in the same region as that of the EC2 instance to be launched. If the AMI exists in a different region, it can be copied to the region of the EC2 instance. The region of AMI has no bearing on the performance of the EC2 instance.<br>
 Some AMIs are public and provided by AWS, but you can also create your own AMIs. You can also sell your AMIs on an AWS Marketplace AMI.
 
 EC2 Image Builder is a new service that can automate the creation of virtual machines or container images. It can automate the creation, maintenance and testing of EC2 AMIs.
@@ -157,11 +163,13 @@ S3 has different storage classes. What differentiates them is that the more expe
 It is possible to move between them manually or using S3 Lifecycle configurations.<br>
 Durability indicates how often data is lost and is similar between storage classes. Availability indicates how readily available a service is which in AWS usually is 99.99%.<br>
 The Standard storage class is general purpose.<br>
-The Infrequent Access storage class is for data that is less frequently accessed but when needed requires rapid access. It is cheaper than Standard storage class.<br>
+The Infrequent Access storage class is for data that is less frequently accessed but when needed requires rapid access. It is cheaper than Standard storage class. One-Zone Infrequent Access is cheaper than Standard Infrequent Access.<br>
 The Glacier storage class is low cost and meant for archiving/backup. You pay for storage and object retrieval. It has the 'Instant Retrieval' option and 'Flexible Retrieval' option with different retrieval time options of 5min to 12hours.<br>
+S3 Glacier Deep Archive is Amazon S3’s lowest-cost storage class and supports long-term storage for data that may be accessed once or twice in a year. It is designed for customers in highly-regulated industries, such as the Financial Services, Healthcare, and Public Sectors, that retain data sets for 7-10 years or longer to meet regulatory compliance requirements. S3 Glacier Deep Archive can also be used for backup and disaster recovery use cases. It has a retrieval time of 12 to 48 hours.<br>
 The last storage class is Intelligent-Tiering which allows you to automatically move between storage classes based on usage.
 
-Server-side encryption means that the uploaded file/object on S3 will get encrypted automatically by the server. Client-side encryption is when the user encrypts the file/object before uploading it. Both exist on AWS but by default server-side encryption is always on.
+Server-side encryption means that the uploaded file/object on S3 will get encrypted automatically by the server. Client-side encryption is when the user encrypts the file/object before uploading it. Both exist on AWS but by default server-side encryption is always on.<br>
+Data encryption is automatically enabled for Amazon S3 Glacier and AWS Storage Gateway.
 
 IAM Access Analyzer is a monitoring feature to ensure that only intended people have access to S3 buckets. It works by analyzing the various related policies. It will indicate what buckets are publicly available or shared with whom.
 
@@ -184,7 +192,7 @@ NoSQL/shemaless databases are non-relational and don't use SQL. They are flexibl
 Amazon Relational Database Service (RDS) is a managed service for the use of a SQL database in the cloud. We can also deploy own databases on EC2. But the advantage of RDS is that it is managed by Amazon.<br>
 Amazon Aurora is a database technology who supports PostgreSQL and MySQL, because it is cloud optimized, performances on PostgreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora serverless has no management overhead and is useful for infrequent workloads.
 
-RDS Read Replicas can scale the read workload of your database.<br>
+RDS Read Replicas can scale the read workload of your database thus they improve database scalability.<br>
 Multi-AZ gives high availability by providing a replication of the database into another AZ.<br>
 Multi-Region creates Read Replicas across regions which is useful for disaster recovery and local performance for global reads.
 
@@ -194,7 +202,7 @@ DynamoDB is a managed, NoSQL, highly-available database with replication across 
 DynamoDB Accelerator (DAX) is a managed cache for DynamoDB. Thus as it uses cache it is 10X faster.<br>
 DynamoDB Global Tables make a DynamoDB table accessible with low latency in multiple regions.
 
-Redshift is a database type based on PostgreSQL that is in a warehouse. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP).
+Redshift is a database type based on PostgreSQL that is in a warehouse designed for large scale data set storage and analysis. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP).
 
 Elastic MapReduce (EMR) helps create Hadoop clusters to analyze and process vast amounts of data. Those clusters can be made of 100s of EC2 instances. It is used for machine learning, web indexing, big data.
 
@@ -246,7 +254,7 @@ A CloudFormation Template can be visualized using the Application Composer servi
 AWS Cloud Development Kit (CDK) is a way of defining your cloud infrastructure via a familiar programming language such as javascript, python, Java. This code will then be compiled into a CloudFormation template. 
 
 When deploying an application on AWS we usually follow a 3-tier architecture. The user connects to a load balancer that can be in multiple availability zones. This load balancer will forward traffic to multiple EC2 instances who are managed by an ASG. Those EC2 instances are usually connected to a regular database like RDS and eventually also to a fast database like ElastiCache. Usually when searching data, first it will be searched in the fast chached database and afterwards in the regular database.<br>
-This architecture can be reproduced automatically using AWS Elastic Beanstalk. Which is a developer centric view of deploying an application on AWS. It is a PaaS because the client only needs to provide the code. It is limited to certain programming languages or Docker. Within Beanstalk a health agent is present on each EC2 instance and pushes metrics to CloudWatch.<br>
+This architecture can be reproduced automatically using AWS Elastic Beanstalk. Which is a developer centric view of deploying and scaling an application/service on AWS. It is a PaaS because the client only needs to manage the applications and the data. It is limited to certain programming languages or Docker. Elastic Beanstalk automatically handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.<br>
 CloudFormation and Elastic Beanstalk are free of use, but you do pay for the resources created.
 
 AWS CodeDeploy automatically deploys or upgrades applications. It works both for EC2 instances and on-premises servers, thus it is a hybrid service.
@@ -263,7 +271,7 @@ Software packages have dependencies, meaning they depend on each other to be bui
 AWS CodeStar is a unified UI to easily manage software development activities in one place. This is useful when needing to work with the different services used for CI/CD such as CodeCommit, CodeBuild, CodeDeploy, CodePipeline.<br>
 It can also be used to edit the code directly in the cloud using AWS Cloud9. AWS Cloud9 is a cloud integrated development environment (IDE), for writing, running and debugging code.
 
-AWS Systems Manager (SSM) helps you manage both EC2 and on-premise systems at scale, thus it is a Hybrid service. It gives operational insight about the state of the infrastructure, it automates patches, it runs commands across all servers and stores parameter configuration with the SSM Parameter Store.<br>
+AWS Systems Manager (SSM) allows centralization of operational data from multiple AWS services and automate tasks across AWS resources. It manages both EC2 and on-premise systems at scale, thus it is a Hybrid service. It gives operational insight about the state of the infrastructure, it automates patches, it runs commands across all servers and stores parameter configuration with the SSM Parameter Store.<br>
 To use SSM we need to install the SSM agent onto our EC2 instances or on-premise system.<br>
 SSM has a feature we call SSM Session Manager. It starts a secure shell on EC2 or on-premise servers without the need for SSH.<br>
 SSM Parameter Store allows secure storage of configurations and secrets on AWS such as API keys, passwords.
@@ -319,22 +327,23 @@ The Billing Metric is popular and reflects how much you have spent on AWS each m
 CloudWatch Alarms can be used to trigger notifications for any metric after it surpasses a certain treshold.
 
 When an application runs, it logs in a file what it is doing. Those log files can be collected and used when wanting to troubleshoot an application.<br>
-Amazon CloudWatch Logs collects those log files from various AWS services/applications. CloudWatch log agents can be used on EC2 instances or on-premise servers for them to create collectable log files.
+Amazon CloudWatch Logs collects those log files from various AWS services/applications but also on-premise servers. CloudWatch log agents can be used on EC2 instances or on-premise servers for them to create collectable log files. It centralizes the logs from all of your systems.
 
 Amazon EventBridge (formerly known as CloudWatch Events) allows reactions to events happening in AWS account. Using Cron Jobs you can react to events every x amount of time. Else we can create rules to react to a service doing something.<br>
 Events happening from within AWS services are called 'Default Event Bus'. It is also possible to get events from AWS partners which we call 'Partner Event Bus'. Lastly, own custom applications can also send events which we call 'Custom Event Bus'.
 
 AWS CloudTrail is a service enabled by default that provides governance, compliance and audit for own AWS account. It gets the history of events/API-calls made within AWS account by the console, SDK, CLI, AWS services. Those logs can be sent to CloudWatch Logs or S3.<br>
 CloudTrail Insights provides automated analysis of CloudTrail Events.<br>
-If a resource gets deleted in AWS, CloudTrail should be consulted first as it records the history of events/API-calls made which will help determine who or what deleted the resource.
+If a resource gets deleted in AWS, CloudTrail should be consulted first as it records the history of events/API-calls made which will help determine who or what deleted the resource.<br>
+CloudWatch, CloudTrail and Config can be differentiated as follows. CloudWatch is for resource performance monitoring, events, and alerts. CloudTrail is for account-specific activity and audit. Config is for resource-specific change history, audit, and compliance.
 
 Debugging on distributed systems is hard because log formats differ across applications and log analysis is hard. AWS X-Ray resolves this problem by providing a visual analysis of own applications after tracing requests made through the distributed applications.
 
 Amazon CodeGuru is a machine-learning-powered service for automated code reviews (CodeGuru Reviewer) and application performance recommendations (CodeGuru Profiler).
 
 AWS Health Dashboard consists of two parts, a Service History and your Account.<br>
-The Service History shows all regions' and services' health.<br>
-Your Account provides alerts and remediation guidance when AWS is experiencing events that may impact own infrastructure. It provides a personalized view of the performance and availability of the AWS services personally used.
+The Service History, AWS Service Health Dashboard, shows all regions' and services' health information up-to-the-minute.<br>
+Your Account, AWS Personal Health Dashboard, provides alerts and remediation guidance when AWS is experiencing events that may impact own infrastructure. It provides a personalized view of the performance and availability of the AWS services personally used.
 
 ### Virtual Private Cloud (VPC) & Networking 
 EC2 instances get a new public IP address every time you stop and restart them. However, private IP addresses are fixed for EC2 instances even if you start/stop them. AWS also has an Elastic IP which can attach a fixed public IPv4 to an EC2 instance.<br>
@@ -368,7 +377,7 @@ If we have a serious infrastructure on AWS, the network topology can become comp
 ### Security and Compliance
 AWS is responsible for the security of the cloud while customers of the security in the cloud. The client must for example configure the firewall and IAM in the cloud but also encrypt application data.<br>
 ![Screen Shot 2024-05-18 at 13 20 41](https://github.com/artainmo/DevOps/assets/53705599/124e785e-7b1d-4d03-ac8a-fce1689c7edb)<br>
-AWS is responsible for patching and fixing flaws within the infrastructure, but customers are responsible for patching their guest OS and applications. Thus both AWS and the customer are responsible for Patch management.
+AWS is responsible for patching and fixing flaws within the infrastructure, but customers are responsible for patching their guest OS and applications. Thus both AWS and the customer are responsible for Patch management. Similarly, configuration management is a shared responsibility. AWS maintains the configuration of its infrastructure devices, but a customer is responsible for configuring their own guest operating systems, databases, and applications.
 
 A Distributed Denial-of-Service (DDoS) attack on our infrastructure is done by saturating/overwhelming our application server with requests. Those high volume requests occur via bots run on servers.<br>
 AWS Shield Standard protects against DDoS attacks, is activated for every AWS customer and is free.<br>
@@ -456,6 +465,7 @@ AWS Organizations is a service that allows the management of multiple AWS accoun
 One benefit is consolidated billing, meaning across all accounts. Another benefit is discounts from aggregated usage. Reserved instances can be used across all the accounts of the organization. It also contains an API to automate AWS account creation. It also allows restriction of account privileges using Service Control Policies (SCP).<br>
 Organizational units (OU) represent a grouping of accounts. They can be nested in each other. The root OU for example contains all accounts and thus nested OUs.<br>
 SCP allows whitelisting or blacklisting IAM actions at the account or OU level but the master account it cannot affect. It applies to all Users and Roles of each account. SCP can be used to restrict access to certain services, or enforce PCI compliancy by disabling services.<br>
+It is recommended to create accounts per department and to use SCP.
 
 Consolidated billing, combines the usage across all AWS accounts in the AWS Organization to share the volume pricing. This combined usage can lead to benefits on discounts. In the end the organization only gets one bill. Reserved instances can be shared across accounts.
 
@@ -472,7 +482,7 @@ AWS has 4 different pricing models:<br>
 &nbsp;&nbsp;&nbsp;** Pay less by using more: Via volume-based discounts.<br>
 &nbsp;&nbsp;&nbsp;** Pay less as AWS grows: AWS tends to lower its prices as it grows.<br>
 Some services on AWS are free or free up to a certain point. Free services include IAM, VPC, Consolidated Billing, and Elastic Beanstalk.<br>
-EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper. Spot instances are even cheaper and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
+EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper and comes with no interruptions. Spot instances are even cheaper and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand but are not cost-efficient. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
 Lambda is paid per call and duration.<br>
 ECS comes with no cost but runs on EC2 which comes with costs.<br>
 With Fargate we need to pay for each container its used CPU and memory as it does not run on EC2.<br>
@@ -487,7 +497,7 @@ With the EC2 savings plan you commit to usage of individual instance families in
 With the compute savings plan you don't need to commit to an instance family, region or compute option (EC2, Fargate, Lambda). Thus it is flexible.<br>
 The Machine Learning Savings plan is for ML services such as SageMaker.
 
-AWS Compute Optimizer reduces costs and improves performance by recommending optimal AWS resources and resources' configurations for your workloads. It uses ML to analyze resources' configurations and their utilization CloudWatch metrics.
+AWS Compute Optimizer reduces costs and improves performance by recommending optimal AWS resources and resources' configurations for your workloads. It uses ML to analyze resources' configurations and their utilization CloudWatch metrics. 
 
 AWS Pricing Calculator helps estimate costs in the cloud. It is useful both for people who have never used AWS and for those who want to expand their usage.
 
@@ -503,14 +513,14 @@ AWS Cost Anomaly Detection continuously monitors costs and usage using ML to det
 
 Quotas refer to limits. AWS services contain limits/quotas. AWS Service Quotas notify via CloudWatch Alarms when close to a service's quota value treshold. Before the limit is reached you can request a quota increase or shutdown of resources.
 
-AWS Trusted Advisor gives a high level AWS account assessment. It will check certain things and advise on them. For example it will check if you have EBS public Snapshots/backups or RDS public Snapshots/backups or are you using the root account. To have a full set of checks you need a Business or Enterprise Support Plan which will also give you access to the AWS Support API.
+AWS Trusted Advisor gives a high level AWS account assessment. It will check certain things and advise on them to help provision resources. For example it will check if you have EBS public Snapshots/backups or RDS public Snapshots/backups or are you using the root account. To have a full set of checks you need a Business or Enterprise Support Plan which will also give you access to the AWS Support API.
 
 Different AWS Support Plans exist.<br>
 Basic Support Plan is free and gives access to 24x7 customer service, documentation and support forums. You also get access to AWS Personal Health Dashboard and 7 core AWS Trusted Advisor checks.<br>
 AWS Developer Support Plan also provides business hours email access to Cloud Support Associates. Response times will depend on severity of problem.<br>
 AWS Business Support Plan is intended to be used when having production workloads. It gives all Trusted Advisor checks and access to its API. It also provides 24x7 phone, email and chat access to Cloud Support Engineers. Response times are very short for production system impairments or downs.<br>
 AWS Enterprise On-Ramp Support Plan is intended when having production or business critical workloads. It gives additionally access to a pool of Technical Account Managers (TAMs). For account and billing best practices next to operations reviews it gives access to the Concierge Support Team. Response times are even shorter with business-critical system downs being responded in 30min.<br>
-The Enterprise Support Plan is intended when having mission critical workloads. It provides a designated TAM. Business-critical system downs are responded in 15min.
+The Enterprise Support Plan is intended when having mission critical workloads. It provides a designated TAM. Business-critical system downs are responded in 15min. It also gives access to online training with self-paced labs.
 
 ### Advanced Identity
 AWS Security Token Service (STS) enables you to create temporary, limited-privileges credentials to access AWS resources.
@@ -574,6 +584,8 @@ AWS Ground Station is a managed service that allows control of satellite communi
 
 Amazon Pinpoint is a scalable, inbound and outbound, marketing and communication service. It supports email, SMS, push notifications and in-app messaging. With it you can create campaigns using message templates, delivery schedules and targeted segments. Receiving replies is possible.
 
+AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. Chef and Puppet are automation platforms that allow use of code to automate the configurations of servers. OpsWorks uses Chef and Puppet to automate how servers are configured, deployed, and managed across Amazon EC2 instances or on-premises compute environments.
+
 ### AWS Architecting and Ecosystem
 Here we will cover the Well-Architected Framework which consists of advice on architecture.<br>
 Good practice is to use auto-scaling instead of trying to guess capacity. Test systems at production scale. Automation can make architectural experimentation easier. Make architectural choices based on data.<br>
@@ -626,11 +638,11 @@ Right sizing is the process of matching instance types and sizes to your workloa
 After instances are deployed it is possible to continuously look at opportunities to eliminate or downsize them by evaluating usage metrics which would lower costs.
 
 A lot of services exist in the AWS Ecosystem.<br>
-A lot of resources are free such as AWS Blogs, AWS Forums, AWS Whitepapers and Guides. The Well-Architected Framework is an example of a whitepaper. AWS Partner Solutions (formerly Quick Start) is also free and provides automated, gold-standard deployments in the AWS Cloud by leveraging CloudFormation templates. An example is Wordpress on AWS. AWS Solutions is also free and a way to deploy vetted technology solutions to the AWS Cloud.<br>
+A lot of resources are free such as AWS Blogs, AWS Forums, AWS Whitepapers and Guides. The Well-Architected Framework is an example of a whitepaper. AWS Partner Solutions (formerly Quick Starts references) is also free and provides automated, gold-standard deployments in the AWS Cloud by leveraging CloudFormation templates. An example is Wordpress on AWS. AWS Solutions is also free and a way to deploy popular technology solutions to the AWS Cloud.<br>
 Different AWS Support Plans, such as Developer, Business and Enterprise, as covered previously, are part of the AWS Ecosystem.<br>
 The AWS Marketplace is a digital catalog with thousands of software listings from independent (third party) software vendors. For example you can buy a custom AMI, CloudFormation template or SaaS. Own solutions can also be sold on AWS Marketplace.<br>
 AWS Training can be digital (online) or from a classroom (in-person or virtual). AWS Private Training exists for an organization. Dedicated training and certification programs for the US government or an enterprise also exist. AWS Academy exists to help universities teach AWS.<br>
-The AWS Professional Services organization is a global team of experts in AWS that help clients by working alongside own team and a chosen member of the AWS Partner Network (APN). APN is a network of people that AWS knows are good in cloud. The APN Technology Partners provide hardware, connectivity and software. While the APN Consulting Partners help build on AWS. The APN Training Partners help own team learn AWS. The AWS Competency Program is granted to APN Partners who demonstrated technical proficiency and customer success in specialized solution areas. Lastly, the AWS Navigate Program trains Partners to become better Partners.
+The AWS Professional Services organization is a global team of experts in AWS that help clients by working alongside own team and a chosen member of the AWS Partner Network (APN). APN is a network of people that AWS knows are good in cloud. The APN Technology Partners provide hardware, connectivity and software. While the APN Consulting Partners help migrate, build and manage on AWS. The APN Training Partners help own team learn AWS. The AWS Competency Program is granted to APN Partners who demonstrated technical proficiency and customer success in specialized solution areas. Lastly, the AWS Navigate Program trains Partners to become better Partners.
 
 AWS IQ is used to quickly find and pay a professional to help own AWS projects. Those professionals are third party, AWS certified experts. AWS IQ also provides video-conferencing, contract management, secure collaboration and integrated billing. The client must submit a request on the platform and review responses to select an expert to work with afterwards. Charges are added to AWS bill.<br>
 Alternatively AWS re:Post can be used, which is a community forum where you can find answers. Thus it is an AWS managed Q&A service offering crowd-sourced, expert-reviewed answers to technical questions about AWS. It replaces what used to be the original AWS Forums. Questions from AWS Premium Support customers that do not receive a response from the community are passed on to AWS Support engineers.<br>
