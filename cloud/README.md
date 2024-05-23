@@ -332,7 +332,7 @@ CloudWatch Alarms can be used to trigger notifications for any metric after it s
 When an application runs, it logs in a file what it is doing. Those log files can be collected and used when wanting to troubleshoot an application.<br>
 Amazon CloudWatch Logs collects those log files from various AWS services/applications but also on-premise servers. CloudWatch log agents can be used on EC2 instances or on-premise servers for them to create collectable log files. It centralizes the logs from all of your systems.
 
-Amazon EventBridge (formerly known as CloudWatch Events) allows reactions to events happening in AWS account. Using Cron Jobs you can react to events every x amount of time. Else we can create rules to react to a service doing something.<br>
+Amazon EventBridge (formerly known as CloudWatch Events) allows reactions to events happening in AWS account. Using Cron Jobs you can react to events every x amount of time. Else we can create rules to react to a service doing something. A reaction can be calling a lambda function for example or send a notification using SNS.<br>
 Events happening from within AWS services are called 'Default Event Bus'. It is also possible to get events from AWS partners which we call 'Partner Event Bus'. Lastly, own custom applications can also send events which we call 'Custom Event Bus'.
 
 AWS CloudTrail is a service enabled by default that provides governance, compliance and audit for own AWS account. It gets the history of events/API-calls made within AWS account by the console, SDK, CLI, AWS services. Those logs can be sent to CloudWatch Logs or S3.<br>
