@@ -60,7 +60,7 @@ At AWS we pay for compute time and amount of stored data.
 
 AWS is global.<br>
 It has regions all over the world with regions referring to clusters of data centers. Due to legal reasons when launching a new application you may need to choose a local region. Else it is best to choose a region close to customers to reduce latency. Available services and pricing can also be variable across regions.<br>
-Each region has many availability zones (AZ). Each AZ is one or more separate data center so that if one fails another AZ can be used instead.<br>
+Each region has a minimum of three availability zones (AZ). Each AZ consists of one or more separate data centers so that if one fails another AZ can be used instead.<br>
 AWS has more than 400+ points of presence in 90+ cities across 40+ countries which allows content delivery to end users with lowest latency possible.
 
 The shared responsibility model defines the distribution of responsibilities for security in the AWS cloud. The client is responsible for data and AWS for cloud.
@@ -364,7 +364,10 @@ Log data can go to S3, CloudWatch Logs, and Kinesis Data Firehose.
 
 VPC Peering connects two VPCs privately using AWS' network to make them behave as if they are in the same network. For this to work the CIDR Range must not overlap.
 
-VPC Endpoints enable us to connect to AWS services privately. By using a private network, security is enhanced and latency lowered.
+VPC Endpoints enable connection to AWS services privately. By using a private network, security is enhanced and latency lowered.<br>
+There are two types of VPC endpoints: interface endpoints and gateway endpoints.<br>
+Only Amazon S3 and Amazon DynamoDB support VPC gateway endpoint. All other services that support VPC Endpoints use a VPC interface endpoint (note that Amazon S3 supports the VPC interface endpoint as well).
+
 
 AWS PrivateLink is the most secure and scalable way of exposing a service to 1000s of VPCs. PrivateLink allows you to connect a service running within your VPC to other VPCs directly and privately. With it you can connect to a service in a third party VPC.
 
@@ -467,7 +470,8 @@ AWS Organizations is a service that allows the management of multiple AWS accoun
 One benefit is consolidated billing, meaning across all accounts. Another benefit is discounts from aggregated usage. Reserved instances can be used across all the accounts of the organization. It also contains an API to automate AWS account creation. It also allows restriction of account privileges using Service Control Policies (SCP).<br>
 Organizational units (OU) represent a grouping of accounts. They can be nested in each other. The root OU for example contains all accounts and thus nested OUs.<br>
 SCP allows whitelisting or blacklisting IAM actions at the account or OU level but the master account it cannot affect. It applies to all Users and Roles of each account. SCP can be used to restrict access to certain services, or enforce PCI compliancy by disabling services.<br>
-It is recommended to create accounts per department and to use SCP.
+It is recommended to create accounts per department and to use SCP.<br>
+Removing an account from an organization is possible only if the account has the information that is required for it to operate as a standalone account.
 
 Consolidated billing, combines the usage across all AWS accounts in the AWS Organization to share the volume pricing. This combined usage can lead to benefits on discounts. In the end the organization only gets one bill. Reserved instances can be shared across accounts.
 
@@ -484,13 +488,13 @@ AWS has 4 different pricing models:<br>
 &nbsp;&nbsp;&nbsp;** Pay less by using more: Via volume-based discounts.<br>
 &nbsp;&nbsp;&nbsp;** Pay less as AWS grows: AWS tends to lower its prices as it grows.<br>
 Some services on AWS are free or free up to a certain point. Free services include IAM, VPC, Consolidated Billing, and Elastic Beanstalk.<br>
-EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper and comes with no interruptions. Spot instances are even cheaper (up to 90% discount compared to on-demand) and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand but are not cost-efficient. They allow use of eligible software licenses. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
+EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper and comes with no interruptions. EC2, RDS and DynamoDB support reservations to optimize costs. Spot instances are even cheaper (up to 90% discount compared to on-demand) and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand but are not cost-efficient. They allow use of eligible software licenses. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
 Lambda is paid per call and duration.<br>
 ECS comes with no cost but runs on EC2 which comes with costs.<br>
 With Fargate we need to pay for each container its used CPU and memory as it does not run on EC2.<br>
 With S3 you pay for the amount and size of objects and the requests made in and out of S3. You also must pay for data transfer out of S3. But data transfer into S3 is free.<br>
 With EBS we have pricing based on the volume type and size. We also pay for backups/snapshots and data transferred out.<br>
-For the database service RDS we pay per hour for storage in GB. The price also differs based on the database's characteristics. You can purchase on-demand instances or reserved instances. Backups are free. Input and output requests come with a cost. Again outbound data transfer comes with a cost but inbound is free.<br>
+For the database service RDS we pay per hour for storage in GB. The price also differs based on the database's characteristics. You can purchase on-demand instances or reserved instances. Backups are free. Input and output requests come with a cost. Again outbound data transfer comes with a cost but inbound or data transfer between other AWS services within the same region are free.<br>
 CloudFront's pricing differs across geographic regions. Number of requests are also billed.<br>
 Using private IPs instead of public IPs lowers costs and improves network performance. Staying in same AZ lowers costs too.
 
@@ -509,7 +513,7 @@ We can generate AWS Cost and Usage Reports which will contain the most comprehen
 Cost Explorer allows visualization and management of AWS costs and usage over time. It indicates the optimal Savings Plan and can forecast usage up to 1 year based on past usage.
 
 Billing Metric is stored in CloudWatch region us-east-1 and aggregates billing of all regions and thus indicates worldwide AWS costs. Billing Alarm can be used on top of Billing Metric to send an email notification when billing surpasses a certain treshold.<br>
-AWS Budgets is more advanced and sends alarms when costs or forecasted costs exceed the budget. Different types of budgets can be created, Usage, Cost, Reservation and Savings Plan.
+AWS Budgets is more advanced and sends alarms when costs/usage or forecasted costs/usage exceed the budget. Different types of budgets can be created, Usage, Cost, Reservation and Savings Plan.
 
 AWS Cost Anomaly Detection continuously monitors costs and usage using ML to detect unusual spends.
 
