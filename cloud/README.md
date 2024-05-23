@@ -68,7 +68,7 @@ The shared responsibility model defines the distribution of responsibilities for
 The Acceptable Use Policy describes prohibited uses of the web services offered by Amazon Web Services.
 
 ### Identity and Access Management (IAM)
-IAM is a global service, meaning it is available in all regions. 
+IAM is a global service, meaning it is available in all regions. Other global services are CloudFront, Route 53, and WAF.
 
 When you create an AWS account you are the root user. However, it is best practice to work via admin users who don't have all permissions.
 IAM service allows the creation of users and groups in our AWS account for them to have certain permissions or not on our AWS account. Those permissions can be defined in a JSON document we call a 'policy'. The 'least privilege' principle should be used, it means a user should not receive more permissions than necessary.
@@ -81,6 +81,7 @@ For ideal security you can use multi-factor authentication (MFA) which consists 
 In the AWS platform you can create policies and associate them with specific users or groups. Users can be associated with groups and thus policies associated with a group would apply to all the users within that group.
 
 AWS can be accessed via the management console, thus the online platform protected by password and MFA. But also via a command line interface (CLI) which is protected by access keys. Lastly, the software developer kit (SDK) which is used when calling AWS APIs from your application code and is also protected by access keys.<br>
+Access keys are long-term credentials for an IAM user or the AWS account root user.<br>
 Use link on AWS website to download and install the CLI, after in terminal you can use the 'aws' executable. Start with `aws configure` command for setup.<br>
 Alternatively, if you don't want to use own terminal, in AWS platform you can also find a terminal named 'CloudShell'.
 
@@ -183,7 +184,8 @@ For data migration we have the following devices in ascending order of storage c
 AWS OpsHub is a software with a UI to use your AWS Snow Family device.<br>
 For Snowball Edge you pay for device usage and data transfer out of AWS.
 
-AWS Storage Gateway is used to bridge on-premise data and cloud data in S3 when using a Hybrid Cloud. It allows on-premise to seamlessly use the AWS Cloud. It can be used for creating and restoring backups.
+AWS Storage Gateway is used to bridge on-premise data and cloud data in S3 when using a Hybrid Cloud. It allows on-premise to seamlessly use the AWS Cloud. It can be used for creating and restoring backups.<br>
+It supports the Tape, File and Volume Gateways.
 
 ### Databases & Analytics
 Storing data on disk as with EFS, EBS, EC2, Instance Store and S3 can have its limits. This is why you sometimes want to store data on a database where you can structure the data, build indexes for efficient database searches, and define relationships between datasets.<br>
@@ -199,7 +201,7 @@ Multi-Region creates Read Replicas across regions which is useful for disaster r
 
 Amazon ElastiCache is used for managed Redis or Memcached databases. Those databases are cache-based which we call in-memory database. Caches have low latency but smaller storage capacity. Thus ElastiCache is fast but of smaller capacity like a RAM in a computer.
 
-DynamoDB is a managed, NoSQL, highly-available database with replication across 3 AZs. It is a serverless database because AWS doesn't need to provision any servers. It can scale automatically and has low retrieval latency. It is a key-value database.<br>
+DynamoDB is a managed, NoSQL, highly-available, serverless database with replication across 3 AZs. It can scale automatically and has low retrieval latency. It is a key-value and document database with a flexible shema. DynamoDB provides the least amount of operational overhead compared to other databases.<br>
 DynamoDB Accelerator (DAX) is a managed cache for DynamoDB. Thus as it uses cache it is 10X faster.<br>
 DynamoDB Global Tables make a DynamoDB table accessible with low latency in multiple regions.
 
@@ -387,7 +389,7 @@ Customers are responsible for Service and Communications Protection or Zone Secu
 A Distributed Denial-of-Service (DDoS) attack on our infrastructure is done by saturating/overwhelming our application server with requests. Those high volume requests occur via bots run on servers.<br>
 AWS Shield Standard protects against DDoS attacks, is activated for every AWS customer and is free.<br>
 Alternatively, AWS Shield Advanced offers premium DDoS protection is optional and costs $3000/month. With Shield Advanced AWS reimburses costs that incurred during a DDoS attack.<br>
-The AWS web application firewall (WAF) can also help protect against common web exploits by filtering HHTP/HTTPS requests based on rules. HTTP/HTTPS requests are part of the Application layer, which is layer 7. WAF can be deployed on Application Load Balancer, API Gateway and CloudFront.<br>
+The AWS web application firewall (WAF) can also help protect against common web exploits by filtering HHTP/HTTPS requests based on rules. HTTP/HTTPS requests are part of the Application layer, which is layer 7. WAF can be deployed on Application Load Balancer, API Gateway and CloudFront. It can also be used to block specific geographies.<br>
 CloudFront and Route 53 provide availability protection by using the global edge network.<br>
 When under attack you must be ready to scale and can use AWS Auto Scaling for that.
 
@@ -503,7 +505,7 @@ With the EC2 savings plan you commit to usage of individual instance families in
 With the compute savings plan you don't need to commit to an instance family, region or compute option (EC2, Fargate, Lambda). Thus it is flexible.<br>
 The Machine Learning Savings plan is for ML services such as SageMaker.
 
-AWS Compute Optimizer reduces costs and improves performance by recommending optimal AWS resources and resources' configurations for your workloads. It uses ML to analyze resources' configurations and their utilization CloudWatch metrics. 
+AWS Compute Optimizer reduces costs and improves performance by recommending optimal AWS resources and resources' configurations for your workloads. It uses ML to analyze resources' configurations and their utilization CloudWatch metrics. It gives recommendations for EBS, Lambda, EC2 and auto-scaling groups.
 
 AWS Pricing Calculator helps estimate costs in the cloud. It is useful both for people who have never used AWS and for those who want to expand their usage.
 
