@@ -168,8 +168,9 @@ The Glacier storage class is low cost and meant for archiving/backup. You pay fo
 S3 Glacier Deep Archive is Amazon S3’s lowest-cost storage class and supports long-term storage for data that may be accessed once or twice in a year. It is designed for customers in highly-regulated industries, such as the Financial Services, Healthcare, and Public Sectors, that retain data sets for 7-10 years or longer to meet regulatory compliance requirements. S3 Glacier Deep Archive can also be used for backup and disaster recovery use cases. It has a retrieval time of 12 to 48 hours.<br>
 The last storage class is Intelligent-Tiering which allows you to automatically move between storage classes based on usage.
 
-Server-side encryption means that the uploaded file/object on S3 will get encrypted automatically by the server. Client-side encryption is when the user encrypts the file/object before uploading it. Both exist on AWS but by default server-side encryption is always on.<br>
-Data encryption is automatically enabled for Amazon S3 Glacier and AWS Storage Gateway.
+Server-side encryption means that the uploaded file/object on S3 will get encrypted automatically by the server. Client-side encryption is when the user encrypts the file/object before uploading it. Both exist on AWS but by default server-side encryption is always on for S3.<br>
+If needing encryption before it is sent to S3, server-side encryption is not sufficient, then we need client-side encryption. For this we can use AWS encryption SDK.<br>
+All S3 storage classes, such as Glacier, have by default server-side encryption, CloudTrails and AWS Storage Gateway too because they use S3 for storage.
 
 IAM Access Analyzer is a monitoring feature to ensure that only intended people have access to S3 buckets. It works by analyzing the various related policies. It will indicate what buckets are publicly available or shared with whom.
 
@@ -189,8 +190,8 @@ Storing data on disk as with EFS, EBS, EC2, Instance Store and S3 can have its l
 Relational databases enable linking datasets and the use of SQL queries.<br>
 NoSQL/shemaless databases are non-relational and don't use SQL. They are flexible and scalable. Different types exist for optimization of specific data models.
 
-Amazon Relational Database Service (RDS) is a managed service for the use of a SQL database in the cloud. We can also deploy own databases on EC2. But the advantage of RDS is that it is managed by Amazon.<br>
-Amazon Aurora is a database technology who supports PostgreSQL and MySQL, because it is cloud optimized, performances on PostgreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora serverless has no management overhead and is useful for infrequent workloads.
+Amazon Relational Database Service (RDS) is a managed service for the use of a SQL database in the cloud. We can also deploy own databases on EC2. But the advantage of RDS is that it is managed by Amazon which leads to improved performance compared to a customer-managed database instance.<br>
+Amazon Aurora is a database technology who supports PostgreSQL and MySQL, because it is cloud optimized, performances on PostgreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora is serverless and managed by RDS. The AWS Product team is responsible for applying patches to the underlying OS for AWS Aurora.
 
 RDS Read Replicas can scale the read workload of your database thus they improve database scalability.<br>
 Multi-AZ gives high availability by providing a replication of the database into another AZ.<br>
@@ -377,12 +378,13 @@ If we have a serious infrastructure on AWS, the network topology can become comp
 ### Security and Compliance
 AWS is responsible for the security of the cloud while customers of the security in the cloud. The client must for example configure the firewall and IAM in the cloud but also encrypt application data.<br>
 ![Screen Shot 2024-05-18 at 13 20 41](https://github.com/artainmo/DevOps/assets/53705599/124e785e-7b1d-4d03-ac8a-fce1689c7edb)<br>
-AWS is responsible for patching and fixing flaws within the infrastructure, but customers are responsible for patching their guest OS and applications. Thus both AWS and the customer are responsible for Patch management. Similarly, configuration management is a shared responsibility. AWS maintains the configuration of its infrastructure devices, but a customer is responsible for configuring their own guest operating systems, databases, and applications.
+AWS is responsible for patching and fixing flaws within the infrastructure, but customers are responsible for patching their guest OS and applications. Thus both AWS and the customer are responsible for Patch management. Similarly, configuration management is a shared responsibility. AWS maintains the configuration of its infrastructure devices, but a customer is responsible for configuring their own guest operating systems, databases, and applications.<br>
+Customers are responsible for Service and Communications Protection or Zone Security which may require the customers to route or zone data within specific security environments.
 
 A Distributed Denial-of-Service (DDoS) attack on our infrastructure is done by saturating/overwhelming our application server with requests. Those high volume requests occur via bots run on servers.<br>
 AWS Shield Standard protects against DDoS attacks, is activated for every AWS customer and is free.<br>
 Alternatively, AWS Shield Advanced offers premium DDoS protection is optional and costs $3000/month. With Shield Advanced AWS reimburses costs that incurred during a DDoS attack.<br>
-The web application firewall AWS WAF can also help protect against common web exploits by filtering requests based on rules. It can be deployed on Application Load Balancer, API Gateway and CloudFront.<br>
+The AWS web application firewall (WAF) can also help protect against common web exploits by filtering HHTP/HTTPS requests based on rules. HTTP/HTTPS requests are part of the Application layer, which is layer 7. WAF can be deployed on Application Load Balancer, API Gateway and CloudFront.<br>
 CloudFront and Route 53 provide availability protection by using the global edge network.<br>
 When under attack you must be ready to scale and can use AWS Auto Scaling for that.
 
@@ -395,7 +397,7 @@ Penetration testing consists of attacking own infrastructure to test security. I
 In AWS we can find encryption at rest and encryption in transit.<br>
 Data at rest means it is stored on a physical device like a hard drive or S3 bucket. Data in transit means it is moving from one place to another, thus it is being transferred over the network.<br>
 Encryption keys are used to encrypt data in both rest and transit states.<br>
-AWS Key Management Service (KMS) is a service used to encrypt that manages the encryption keys automatically. CloudHSM is another encryption service that differs in that the users need to manage the encryption keys themselves, amazon only provides the dedicated hardware named Hardware Security Module (HSM).
+AWS Key Management Service (KMS) is a service used to encrypt that manages the encryption keys automatically. Customer managed keys (CMK) are KMS keys in own AWS account that oneself creates, owns, and manages. CloudHSM is another encryption service that differs in that the users need to manage the encryption keys themselves, amazon only provides the dedicated hardware named Hardware Security Module (HSM).
 
 AWS Certificate Manager (ACM) is a service that allows easy provision, management and deployment of SSL/TLS certificates. Those certificates provide in-flight encryption for HTTPS websites.
 
@@ -482,7 +484,7 @@ AWS has 4 different pricing models:<br>
 &nbsp;&nbsp;&nbsp;** Pay less by using more: Via volume-based discounts.<br>
 &nbsp;&nbsp;&nbsp;** Pay less as AWS grows: AWS tends to lower its prices as it grows.<br>
 Some services on AWS are free or free up to a certain point. Free services include IAM, VPC, Consolidated Billing, and Elastic Beanstalk.<br>
-EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper and comes with no interruptions. Spot instances are even cheaper and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand but are not cost-efficient. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
+EC2 on-demand instances are paid per second for Linux/Windows, with minimal use of 60s, or hour for others. If you know you will use EC2 for a long time it is better to use reserved instances for a 1 or 3 year commitment which would be cheaper and comes with no interruptions. Spot instances are even cheaper (up to 90% discount compared to on-demand) and work by bidding for unused capacity. Dedicated hosts can be reserved as well for 1 or 3 years and are on-demand but are not cost-efficient. They allow use of eligible software licenses. RDS can be used on reserved instances but not on dedicated hosts. Lastly, savings plan is an alternative to save on sustained usage.<br>
 Lambda is paid per call and duration.<br>
 ECS comes with no cost but runs on EC2 which comes with costs.<br>
 With Fargate we need to pay for each container its used CPU and memory as it does not run on EC2.<br>
@@ -518,9 +520,12 @@ AWS Trusted Advisor gives a high level AWS account assessment. It will check cer
 Different AWS Support Plans exist.<br>
 Basic Support Plan is free and gives access to 24x7 customer service, documentation and support forums. You also get access to AWS Personal Health Dashboard and 7 core AWS Trusted Advisor checks.<br>
 AWS Developer Support Plan also provides business hours email access to Cloud Support Associates. Response times will depend on severity of problem.<br>
-AWS Business Support Plan is intended to be used when having production workloads. It gives all Trusted Advisor checks and access to its API. It also provides 24x7 phone, email and chat access to Cloud Support Engineers. Response times are very short for production system impairments or downs.<br>
+AWS Business Support Plan is intended to be used when having production workloads. It gives all Trusted Advisor checks and access to its API. It also provides 24x7 phone, email and chat access to Cloud Support Engineers. Response times are very short for production system impairments or downs. It provides architectural guidance in the context of client's specific use-cases.<br>
 AWS Enterprise On-Ramp Support Plan is intended when having production or business critical workloads. It gives additionally access to a pool of Technical Account Managers (TAMs). For account and billing best practices next to operations reviews it gives access to the Concierge Support Team. Response times are even shorter with business-critical system downs being responded in 30min.<br>
-The Enterprise Support Plan is intended when having mission critical workloads. It provides a designated TAM. Business-critical system downs are responded in 15min. It also gives access to online training with self-paced labs.
+The Enterprise Support Plan is intended when having mission critical workloads. It provides a designated TAM. Business-critical system downs are responded in 15min. It also gives access to online training with self-paced labs.<br>
+Both the Business and Enterprise Support plans provide access to guidance, configuration, and troubleshooting of AWS interoperability with third-party software.
+
+Credits in AWS can reduce charges related to a service. If EC2 charges $1000 and client has a credit of $100 for EC2, he will be able to lower his charges to $900. When having multiple credits, first those who expire the soonest need to be used, then those who are applicable to the least amount of products and lastly those who are oldest.
 
 ### Advanced Identity
 AWS Security Token Service (STS) enables you to create temporary, limited-privileges credentials to access AWS resources.
@@ -651,4 +656,5 @@ AWS Knowledge Center is part of re:Post. It is a place to find the most common q
 AWS Managed Services (AMS) consists of a team of AWS experts who provide infrastructure and application support on AWS. They manage and operate client's infrastructure for security, reliability and availability. 
 
 ## Resources
-[Udemy course - AWS certified cloud practitioner](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
+[Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
+[Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)
