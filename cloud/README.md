@@ -142,7 +142,7 @@ Horizontal scalability consists of increasing the number of instances in AWS. It
 
 Scalability is the ability to accomodate a larger load by making the hardware stronger (scale up) or by adding nodes (scale out). Once a system is scalable, elasticity means that there will be some 'auto-scaling' so that the system can scale based on the load to match the demand and optimize costs.
 
-Load balancing allows elasticity by being a server that forwards internet traffic equally to multiple servers (EC2 instances) downstream. Thus it balances the traffic/load across multiple running instances of an application. It does health-checks an if one instance fails it can forward to other instances in other AZs making the application highly-available.<br>
+Load balancing allows elasticity by being a server that forwards internet traffic equally to multiple servers (EC2 instances) downstream. Thus it balances the traffic/load across multiple running instances of an application. It does health-checks and if one instance fails it can forward to other instances in other AZs making the application highly-available.<br>
 AWS provides as service the elastic load balancer (ELB), being a managed load balancer. Multiple types exist.<br>
 ![Screen Shot 2024-05-15 at 13 29 04](https://github.com/artainmo/DevOps/assets/53705599/b7b86737-71cf-4973-b167-1a2a4d20c439)
 
