@@ -22,6 +22,7 @@
   - [Advanced Identity](#Advanced-Identity)
   - [Other Services](#Other-Services)
   - [AWS Architecting and Ecosystem](#AWS-Architecting-and-Ecosystem)
+- [Udemy course - AWS certified machine learning specialty](#Udemy-course---AWS-certified-machine-learning-specialty)
 - [Resources](#Resources)  
 
 ## Udemy course - AWS certified cloud practitioner
@@ -661,6 +662,10 @@ AWS Knowledge Center is part of re:Post. It is a place to find the most common q
 
 AWS Managed Services (AMS) consists of a team of AWS experts who provide infrastructure and application support on AWS. They manage and operate client's infrastructure for security, reliability and availability. 
 
+## Udemy course - AWS certified machine learning specialty
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
-[Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)
+[Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
+[Udemy course - AWS certified machine learning specialty 2024 - Hands on!](https://campus19.udemy.com/course/aws-machine-learning)<br>
