@@ -714,7 +714,14 @@ Each video stream with 'Kinesis Video Stream' has one producer. A producer can b
 
 AWS Glue Data Catalog is a central repository to store metadata for all your tables. It can for example index all datasets within amazon S3. It integrates with Athena or Redshift for data discovery.<br>
 Glue Crawlers help build the Glue Data Catalog. They go through data and infer shemas and partitions.<br>
-Glue ETL or extract transform load is a service that transforms, cleans, enriches data, before doing analysis. It can also perform ML transformations with 'FindMatches ML' to identify duplicate or matching records in dataset.
+Glue ETL or extract transform load is a service that transforms, cleans, enriches data, before doing analysis. It can also perform ML transformations with 'FindMatches ML' to identify duplicate or matching records in dataset.<br>
+AWS Glue DataBrew allows cleaning and normalizing data without writing any code.
+
+Amazon Relational Database Service (RDS) is a managed service for the use of a SQL database in the cloud. Amazon Aurora is a database technology who supports PostgreSQL and MySQL, because it is cloud optimized, performances on PostgreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora is serverless and managed by RDS.<br>
+Redshift is a database type based on PostgreSQL that is in a warehouse designed for large scale data set storage and analysis. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP). Usually S3 data needs to be loaded into Redshift to perform its SQL queries, however, Redshift Spectrum can be used to query directly into S3. While Redshift can perform analytics, RDS and Aurora only store data.<br>
+DynamoDB is a serverless NoSQL database while S3 stores objects.<br>
+OpenSearch (previously called ElasticSearch) is used to index data and search among data points, but also for clickstream analytics.<br>
+ElastiCache has a caching mechanism which allows faster data retrieval, thus lower latency.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
