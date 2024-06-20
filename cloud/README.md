@@ -701,6 +701,16 @@ Lastly, for security on S3, object encryption can be used.
     * Encryption/decryption is fully managed by the client outside of S3. The 'Amazon S3 client-side encryption library' can be used.<br>
 * Encryption in transit/flight (SSL/TLS) refers to the HTTPS endpoint of S3 which encrypts in transit. S3 has both HTTP and HTTPS endpoints but the HTTPS endpoint is recommended as it has encryption in flight. For SSE-C HTTPS is mandatory. Encryption in transit can be forced using a bucket policy.
 
+Usually the public internet is used to access S3 via a public subnet that connects via an Internet Gateway. A private subnet can be used to keep S3 instance private via a VPC Endpoint Gateway.
+
+AWS Kinesis is a streaming service and managed alternative to a technology called 'Apache Kafka'. It is great for 'real-time' big data and gathering application logs, metrics, IoT device information, clickstream data.<br>
+Kinesis holds four services. 'Kinesis Streams' ingests low latency streaming data at scale. 'Kinesis Analytics' performs real-time analytics on streams using SQL. 'Kinesis Firehose' loads data into S3, Redshift and ElasticSearch, but also to third-party partners such as Splunk or even custom destinations. 'Kinesis Video Streams' is meant for streaming video in real-time.<br>
+Here is an example workflow were streaming data is gathered using 'Kinesis Streams', real-time analytics are performed on this data using 'Kinesis Analytics', and finally we use 'Kinesis Firehose' to distribute the streaming data in S3 and Redshift.<br>
+![Screen Shot 2024-06-20 at 15 17 39](https://github.com/artainmo/DevOps/assets/53705599/06e62e43-4261-4718-834c-59937b9ca24c)<br>
+Streams can be viewed as being composed of shards/partitions. In 'Kinesis Streams' data retention is 24h by default but can be set to 365 days. If usage capacity is not known in advance, use on-demand mode, else provision mode is cheaper.<br>
+
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
