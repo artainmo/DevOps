@@ -689,6 +689,18 @@ S3 Lifecycle rules can be created to automatically move S3 objects between stora
 IAM policies can be used for security in S3 by determining accessibility of users towards buckets. Bucket policies determine accessibility of the bucket towards users but can also enforce encryption. Those policies are written in JSON. <br>
 Lastly, for security on S3, object encryption can be used.
 
+* Four methods exist in S3 for encryption:
+  * Server-side encryption (SSE)
+    * SSE with Amazon S3-Managed Keys (SSE-S3) uses keys handled, managed and owned by AWS.
+      * It is enabled by default. Encryption type is AES-256.
+    * SSE with KMS Keys stored in AWS (SSE-KMS) leverages AWS Key Management Service (KMS) to manage encryption keys.
+      * KMS allows user control and logging in CloudTrail. Its disadvantage is the need for API calls to KMS when encrypting and decrypting.
+    * SSE with customer provided keys (SSE-C) when wanting to manage own encryption keys.
+      * AWS does not store the client provided encryption keys. 
+  * Cliend-side encryption when encryption is done before upload to S3.
+    * Encryption/decryption is fully managed by the client outside of S3. The 'Amazon S3 client-side encryption library' can be used.<br>
+* Encryption in transit/flight (SSL/TLS) refers to the HTTPS endpoint of S3 which encrypts in transit. S3 has both HTTP and HTTPS endpoints but the HTTPS endpoint is recommended as it has encryption in flight. For SSE-C HTTPS is mandatory. Encryption in transit can be forced using a bucket policy.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
