@@ -714,7 +714,7 @@ Each video stream with 'Kinesis Video Stream' has one producer. A producer can b
 
 AWS Glue Data Catalog is a central repository to store metadata for all your tables. It can for example index all datasets within amazon S3. It integrates with Athena or Redshift for data discovery.<br>
 Glue Crawlers help build the Glue Data Catalog. They go through data and infer shemas and partitions.<br>
-Glue ETL or extract transform load is a service that transforms, cleans, enriches data, before doing analysis. It can also perform ML transformations with 'FindMatches ML' to identify duplicate or matching records in dataset.<br>
+Glue ETL stands for extract transform load and is a service that transforms, cleans, enriches data, before doing analysis. It can also perform ML transformations with 'FindMatches ML' to identify duplicate or matching records in dataset.<br>
 AWS Glue DataBrew allows cleaning and normalizing data without writing any code.
 
 Amazon Relational Database Service (RDS) is a managed service for the use of a SQL database in the cloud. Amazon Aurora is a database technology who supports PostgreSQL and MySQL, because it is cloud optimized, performances on PostgreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora is serverless and managed by RDS.<br>
@@ -722,6 +722,14 @@ Redshift is a database type based on PostgreSQL that is in a warehouse designed 
 DynamoDB is a serverless NoSQL database while S3 stores objects.<br>
 OpenSearch (previously called ElasticSearch) is used to index data and search among data points, but also for clickstream analytics.<br>
 ElastiCache has a caching mechanism which allows faster data retrieval, thus lower latency.
+
+AWS Data Pipeline moves data from one place to another. It can retry and notify on failure. It also handles data on-premises. It acts as an orchestrator that creates EC2 or EMR instances to perform the actual data ETL.
+
+AWS Batch is a scalable and managed batch processing service. It can run 100,000s of computing batch jobs on AWS. A batch job is a job with a start and end, thus it is not continuous. Batch jobs are defined as Docker images and run on ECS.<br>
+Lambda and Batch both execute functions/jobs. They differ in that Lambda has a time and disk space limit while batch has no such limits. However, Lambda is serverless while Batch relies on EC2.<br>
+AWS Batch can be used to perform ETL jobs. However, Glue ETL would be better for such tasks.
+
+Database migration service (DMS) is a service that migrates data from one database (DB) to another. DMS runs in an EC2 instance, extracts datas from the source DB and inserts it in the target database. It performs continuous data replication thus it migrates in real-time.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
