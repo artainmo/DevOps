@@ -663,7 +663,17 @@ AWS Knowledge Center is part of re:Post. It is a place to find the most common q
 AWS Managed Services (AMS) consists of a team of AWS experts who provide infrastructure and application support on AWS. They manage and operate client's infrastructure for security, reliability and availability. 
 
 ## Udemy course - AWS certified machine learning specialty
+This certification is different compared to other certifications in that half of the learned knowledge is not related to AWS but instead to general machine learning knowledge. The other half is related to AWS and more specifically its service SageMaker.
 
+### Data Engineering
+Data needs to be stored in a way that allows use by machine-learning (ML) models, scaling and security.
+
+S3 allows storage of objects/files inside buckets/directories.<br>
+Each bucket must have a globally unique name. What we call objects are files who have a key. This key is the path of the file.<br>
+The object value is the content of file body which can be everything you want but has a size limit of 5TB, if larger than that you must use 'multi-part upload'.<br>
+Object tags are used to classify/partition data and for security. They consist of key-value pairs.<br>
+S3 is often used as data storage for AWS ML services such as SageMaker. It can be used to create a 'data lake'. A 'data lake' is a centralized repository designed to store large amounts of data. Here, S3, demands no provisioning, can have infinite size, has 99.999999999...% durability. It also allows decoupling storage from compute to manage costs of storage and compute separately.<br>
+Data partioning allows speeding up queries by classifying data via date for example. Certain tools such as Kinesis or Glue can partition data for us.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
