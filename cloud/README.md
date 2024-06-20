@@ -708,8 +708,13 @@ Kinesis holds four services. 'Kinesis Streams' ingests low latency streaming dat
 Here is an example workflow were streaming data is gathered using 'Kinesis Streams', real-time analytics are performed on this data using 'Kinesis Analytics', and finally we use 'Kinesis Firehose' to distribute the streaming data in S3 and Redshift.<br>
 ![Screen Shot 2024-06-20 at 15 17 39](https://github.com/artainmo/DevOps/assets/53705599/06e62e43-4261-4718-834c-59937b9ca24c)<br>
 Streams can be viewed as being composed of shards/partitions. In 'Kinesis Streams' data retention is 24h by default but can be set to 365 days. If usage capacity is not known in advance, use on-demand mode, else provision mode is cheaper.<br>
-'Kinesis Analytics' will take data from 'Kinesis Data Streams' or 'Kinesis Data Firehose', perform SQL queries on that data and send the result back to 'Kinesis Data Streams' or 'Kinesis Data Firehose'.
+'Kinesis Analytics' will take data from 'Kinesis Data Streams' or 'Kinesis Data Firehose', perform SQL queries on that data and send the result back to 'Kinesis Data Streams' or 'Kinesis Data Firehose'. When performing ML on 'Kinesis Data Analytics' two algorithms can be used, namely 'random cut forest' which is used for anomaly detection on numeric columns in a stream thus it finds outliers in data, and 'hotspots' which returns information about dense regions in data. 'Kinesis Data Analytics' can also be used to perform real-time extract, transform and load (ETL).<br>
+Lambda can be used for pre-processing or post-processing the data before or after using it in 'Kinesis Data Analytics'. Post-processing it can be used to aggregate rows, translate to different formats, transform/enrich the data, encrypt, and send it to other destinations such as Aurora or SNS or CloudWatch.<br>
+Each video stream with 'Kinesis Video Stream' has one producer. A producer can be any camera type. 'Kinesis Video Stream' has video playback capability. Those streams can be consumed by other services such as Amazon Rekognition or SageMaker. Stream data can be kept for 1 hour to 10 years.
 
+AWS Glue Data Catalog is a central repository to store metadata for all your tables. It can for example index all datasets within amazon S3. It integrates with Athena or Redshift for data discovery.<br>
+Glue Crawlers help build the Glue Data Catalog. They go through data and infer shemas and partitions.<br>
+Glue ETL or extract transform load is a service that transforms, cleans, enriches data, before doing analysis. It can also perform ML transformations with 'FindMatches ML' to identify duplicate or matching records in dataset.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
