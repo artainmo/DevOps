@@ -708,7 +708,7 @@ Kinesis holds four services. 'Kinesis Streams' ingests low latency streaming dat
 Here is an example workflow were streaming data is gathered using 'Kinesis Streams', real-time analytics are performed on this data using 'Kinesis Analytics', and finally we use 'Kinesis Firehose' to distribute the streaming data in S3 and Redshift.<br>
 ![Screen Shot 2024-06-20 at 15 17 39](https://github.com/artainmo/DevOps/assets/53705599/06e62e43-4261-4718-834c-59937b9ca24c)<br>
 Streams can be viewed as being composed of shards/partitions. In 'Kinesis Streams' data retention is 24h by default but can be set to 365 days. If usage capacity is not known in advance, use on-demand mode, else provision mode is cheaper.<br>
-
+'Kinesis Analytics' will take data from 'Kinesis Data Streams' or 'Kinesis Data Firehose', perform SQL queries on that data and send the result back to 'Kinesis Data Streams' or 'Kinesis Data Firehose'.
 
 
 ## Resources
