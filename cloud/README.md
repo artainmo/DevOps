@@ -675,6 +675,20 @@ Object tags are used to classify/partition data and for security. They consist o
 S3 is often used as data storage for AWS ML services such as SageMaker. It can be used to create a 'data lake'. A 'data lake' is a centralized repository designed to store large amounts of data. Here, S3, demands no provisioning, can have infinite size, has 99.999999999...% durability. It also allows decoupling storage from compute to manage costs of storage and compute separately.<br>
 Data partioning allows speeding up queries by classifying data via date for example. Certain tools such as Kinesis or Glue can partition data for us.
 
+S3 has different storage classes. What differentiates them is that the more expensive ones return your stored data faster and/or more often.
+It is possible to move between them manually or using S3 Lifecycle configurations.
+Durability indicates how often data is lost and is similar between storage classes. Availability indicates how readily available a service is which in AWS usually is 99.99%.
+The Standard storage class is general purpose.
+The Infrequent Access storage class is for data that is less frequently accessed but when needed requires rapid access. It is cheaper than Standard storage class. One-Zone Infrequent Access is cheaper than Standard Infrequent Access.
+The Glacier storage class is low cost and meant for archiving/backup. You pay for storage and object retrieval. It has the 'Instant Retrieval' option and 'Flexible Retrieval' option with different retrieval time options of 5min to 12hours.
+S3 Glacier Deep Archive is Amazon S3’s lowest-cost storage class and supports long-term storage for data that may be accessed once or twice in a year. It is designed for customers in highly-regulated industries, such as the Financial Services, Healthcare, and Public Sectors, that retain data sets for 7-10 years or longer to meet regulatory compliance requirements. S3 Glacier Deep Archive can also be used for backup and disaster recovery use cases. It has a retrieval time of 12 to 48 hours.
+The last storage class is Intelligent-Tiering which allows you to automatically move between storage classes based on usage.
+
+S3 Lifecycle rules can be created to automatically move S3 objects between storage classes. For example you can create 'transition actions' which are rules that move objects to another storage class after some. Else, 'expiration actions' are rules that delete objects after some time or delete old versions when using versioning.
+
+IAM policies can be used for security in S3 by determining accessibility of users towards buckets. Bucket policies determine accessibility of the bucket towards users but can also enforce encryption. Those policies are written in JSON. <br>
+Lastly, for security on S3, object encryption can be used.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
