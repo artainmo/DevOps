@@ -23,6 +23,7 @@
   - [Other Services](#Other-Services)
   - [AWS Architecting and Ecosystem](#AWS-Architecting-and-Ecosystem)
 - [Udemy course - AWS certified machine learning specialty](#Udemy-course---AWS-certified-machine-learning-specialty)
+  - [Data Engineering](Data-Engineering)
 - [Resources](#Resources)  
 
 ## Udemy course - AWS certified cloud practitioner
@@ -206,7 +207,7 @@ DynamoDB is a managed, NoSQL, highly-available, serverless database with replica
 DynamoDB Accelerator (DAX) is a managed cache for DynamoDB. Thus as it uses cache it is 10X faster.<br>
 DynamoDB Global Tables make a DynamoDB table accessible with low latency in multiple regions.
 
-Redshift is a database type based on PostgreSQL that is in a warehouse designed for large scale data set storage and analysis. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP).
+Redshift is a database type based on PostgreSQL designed for large scale data set storage and analysis. It acts as a data warehouse which is a central repository containing data from one or more disparate sources. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP).
 
 Elastic MapReduce (EMR) helps create Hadoop clusters to analyze and process vast amounts of data. Those clusters can be made of 100s of EC2 instances. It is used for machine learning, web indexing, big data.
 
@@ -710,15 +711,15 @@ Here is an example workflow were streaming data is gathered using 'Kinesis Strea
 Streams can be viewed as being composed of shards/partitions. In 'Kinesis Streams' data retention is 24h by default but can be set to 365 days. If usage capacity is not known in advance, use on-demand mode, else provision mode is cheaper.<br>
 'Kinesis Analytics' will take data from 'Kinesis Data Streams' or 'Kinesis Data Firehose', perform SQL queries on that data and send the result back to 'Kinesis Data Streams' or 'Kinesis Data Firehose'. When performing ML on 'Kinesis Data Analytics' two algorithms can be used, namely 'random cut forest' which is used for anomaly detection on numeric columns in a stream thus it finds outliers in data, and 'hotspots' which returns information about dense regions in data. 'Kinesis Data Analytics' can also be used to perform real-time extract, transform and load (ETL).<br>
 Lambda can be used for pre-processing or post-processing the data before or after using it in 'Kinesis Data Analytics'. Post-processing it can be used to aggregate rows, translate to different formats, transform/enrich the data, encrypt, and send it to other destinations such as Aurora or SNS or CloudWatch.<br>
-Each video stream with 'Kinesis Video Stream' has one producer. A producer can be any camera type. 'Kinesis Video Stream' has video playback capability. Those streams can be consumed by other services such as Amazon Rekognition or SageMaker. Stream data can be kept for 1 hour to 10 years.
+Each video stream with 'Kinesis Video Stream' has one producer. A producer can be any camera type. DeepLens is a camera by Amazon. 'Kinesis Video Stream' has video playback capability. Those streams can be consumed by other services such as Amazon Rekognition or SageMaker. Stream data can be kept for 1 hour to 10 years.
 
-AWS Glue Data Catalog is a central repository to store metadata for all your tables. It can for example index all datasets within amazon S3. It integrates with Athena or Redshift for data discovery.<br>
+AWS Glue Data Catalog is a central repository to store metadata for all your tables. It can for example index all datasets within amazon S3. It integrates with Athena or Redshift for data discovery. Data discovery is the process of visually navigating data and applying advanced analytics in order to detect patterns, gain insight, or answer specific questions.<br>
 Glue Crawlers help build the Glue Data Catalog. They go through data and infer shemas and partitions.<br>
 Glue ETL stands for extract transform load and is a service that transforms, cleans, enriches data, before doing analysis. It can also perform ML transformations with 'FindMatches ML' to identify duplicate or matching records in dataset.<br>
 AWS Glue DataBrew allows cleaning and normalizing data without writing any code.
 
 Amazon Relational Database Service (RDS) is a managed service for the use of a SQL database in the cloud. Amazon Aurora is a database technology who supports PostgreSQL and MySQL, because it is cloud optimized, performances on PostgreSQL and MySQL is more efficient. It is more expensive than RDS but more efficient. Aurora is serverless and managed by RDS.<br>
-Redshift is a database type based on PostgreSQL that is in a warehouse designed for large scale data set storage and analysis. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP). Usually S3 data needs to be loaded into Redshift to perform its SQL queries, however, Redshift Spectrum can be used to query directly into S3. While Redshift can perform analytics, RDS and Aurora only store data.<br>
+Redshift is a database type based on PostgreSQL designed for large scale data set storage and analysis. It acts as a data warehouse which is a central repository containing data from one or more disparate sources. It is not used for online transaction processing (OLTP), which is what RDS is good for. Instead Redshift is used for online analytical processing (OLAP). Usually S3 data needs to be loaded into Redshift to perform its SQL queries, however, Redshift Spectrum can be used to query directly into S3. While Redshift can perform analytics, RDS and Aurora only store data.<br>
 DynamoDB is a serverless NoSQL database while S3 stores objects.<br>
 OpenSearch (previously called ElasticSearch) is used to index data and search among data points, but also for clickstream analytics.<br>
 ElastiCache has a caching mechanism which allows faster data retrieval, thus lower latency.
@@ -729,7 +730,14 @@ AWS Batch is a scalable and managed batch processing service. It can run 100,000
 Lambda and Batch both execute functions/jobs. They differ in that Lambda has a time and disk space limit while batch has no such limits. However, Lambda is serverless while Batch relies on EC2.<br>
 AWS Batch can be used to perform ETL jobs. However, Glue ETL would be better for such tasks.
 
-Database migration service (DMS) is a service that migrates data from one database (DB) to another. DMS runs in an EC2 instance, extracts datas from the source DB and inserts it in the target database. It performs continuous data replication thus it migrates in real-time.
+Database migration service (DMS) is a service that migrates data from one database (DB) to another. DMS runs in an EC2 instance, extracts datas from the source DB and inserts it in the target database. It performs continuous data replication using change data capture (CDC) thus it migrates in real-time.
+
+AWS Step Functions is used to design and orchestrate a visual workflow. The ability to wait between steps exists, and a workflow can have a maximum execution time of one year. The possibility exist to audit history and retry steps after failure. Step Functions can be used to train a machine learning model for example.
+
+AWS DataSync moves large data amounts from on-premises to AWS.<br>
+In the case of ML, IoT uses physical devices/sensors to feed data in a centralized repository to be used by ML model. MQTT is an internet of things (IoT) standard messaging protocol. Thus it helps transfer sensor data to ML model.
+
+Quicksight is a AWS visualization service.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
