@@ -759,6 +759,12 @@ Time series are a series of data points over time. Noice refers to random variat
 
 Athena is a serverless SQL query service for S3. Under the hood it is powered by Presto. It can be used to query and analyze logs. It integrates with a lot of other services. AWS Glue can create a shema and transform data which can be useful for Athena. Amazon Quicksight can then be used to visualize the Athena queries. With Athena you pay-as-you-go, $5 per scanned TB. Converting data to columnar formats (such as ORC or Parquet) saves a lot of money because it allows Athena to be selective in the columns it needs to read.
 
+Amazon QuickSight is an analytics and visualization tool. It allows quick creation of dashboards, graphs and reports. It is aimed more towards end users as an application and less towards developers. Under the hood it uses Super-fast, Parallel, In-memory, Calculation Engine (SPICE). It is used for interactive exploration/visualization of data, dashboards and KPI reports.<br>
+It contains a feature called 'Machine Learning Insights' which can perform anomaly detection, forecasting and auto-narratives to automatically build dashboards using ML.<br>
+QuickSight Q is a ML powered add-on to QuickSight which answers plain language questions about the data using NLP. The datasets need to be NLP friendly and personal training is necessary on how to use it.<br>
+Another feature is Quicksight Paginated Reports which produces printable reports for management.<br>
+QuickSight is best not used for highly formatted canned reports. Unless when using QuickSight Paginated Reports, but the exam may not be updated on this new nuance.
+
 
 
 ## Resources
