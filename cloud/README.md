@@ -746,6 +746,11 @@ Python is the programming language of choice in ML and data science. Pandas is a
 Matplotlib allows visualization of data from Pandas DataFrames or Numpy arrays. It can be useful to visualize data distributions and outliers. Seaborn produces even more advanced plots. It contains heatmaps which represent data in part via colors indicating the average value at each point.<br>
 Scikit-learn is the python library for ML models.
 
+The main data types are numerical, categorical and ordinal.<br>
+Numerical data represents a quantitative measurement.<br>
+Categorical data has no inherent mathematical meaning even if you can use numbers to represent/differentiate the categories.<br>
+Ordinal data is a mixture of numerical and categorical data. An example is star ratings for a restaurant. One to five stars are possible and represent categories and those categories have mathematical meaning.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
