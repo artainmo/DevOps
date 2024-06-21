@@ -751,6 +751,15 @@ Numerical data represents a quantitative measurement.<br>
 Categorical data has no inherent mathematical meaning even if you can use numbers to represent/differentiate the categories.<br>
 Ordinal data is a mixture of numerical and categorical data. An example is star ratings for a restaurant. One to five stars are possible and represent categories and those categories have mathematical meaning.
 
+Data distributions represent the likelihood of data falling into a certain range.<br>
+A normal distribution is a bell curve centered around a central value. A normal distribution is an example of a probability density function.<br>
+![Screen Shot 2024-06-21 at 14 22 22](https://github.com/artainmo/DevOps/assets/53705599/48649c67-5fb8-4db2-88f2-f548f2f496d7)<br>
+Data that can only take certain values is called discrete data or discrete values. This is data that can be counted and has a limited number of values. It usually comes in the form of whole numbers or integers. When using discrete data we use probability mass functions instead which look like histograms and uses single values instead of ranges.<br>
+![Screen Shot 2024-06-21 at 14 24 01](https://github.com/artainmo/DevOps/assets/53705599/e695384b-1d3d-412c-86a7-3497dc0a19ab)
+
+Time series are a series of data points over time. Noice refers to random variations in time series data.
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
