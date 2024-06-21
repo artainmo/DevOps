@@ -739,6 +739,13 @@ In the case of ML, IoT uses physical devices/sensors to feed data in a centraliz
 
 Quicksight is a AWS visualization service.
 
+### Exploratory Data Analysis
+This section is about pre-processing the data that will be used by our ML model.
+
+Python is the programming language of choice in ML and data science. Pandas is a library that uses DataFrames, which is a table that holds values, to manipulate data. A Series is a one-dimensional row from a DataFrame. It interoperates with Numpy. Numpy performs operations on multi-dimensional data in pyton and often is the data format used by actual ML algorithms.<br>
+Matplotlib allows visualization of data from Pandas DataFrames or Numpy arrays. It can be useful to visualize data distributions and outliers. Seaborn produces even more advanced plots. It contains heatmaps which represent data in part via colors indicating the average value at each point.<br>
+Scikit-learn is the python library for ML models.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
