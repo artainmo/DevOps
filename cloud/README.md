@@ -737,8 +737,6 @@ AWS Step Functions is used to design and orchestrate a visual workflow. The abil
 AWS DataSync moves large data amounts from on-premises to AWS.<br>
 In the case of ML, IoT uses physical devices/sensors to feed data in a centralized repository to be used by ML model. MQTT is an internet of things (IoT) standard messaging protocol. Thus it helps transfer sensor data to ML model.
 
-Quicksight is a AWS visualization service.
-
 ### Exploratory Data Analysis
 This section is about pre-processing the data that will be used by our ML model.
 
@@ -758,6 +756,9 @@ Data that can only take certain values is called discrete data or discrete value
 ![Screen Shot 2024-06-21 at 14 24 01](https://github.com/artainmo/DevOps/assets/53705599/e695384b-1d3d-412c-86a7-3497dc0a19ab)
 
 Time series are a series of data points over time. Noice refers to random variations in time series data.
+
+Athena is a serverless SQL query service for S3. Under the hood it is powered by Presto. It can be used to query and analyze logs. It integrates with a lot of other services. AWS Glue can create a shema and transform data which can be useful for Athena. Amazon Quicksight can then be used to visualize the Athena queries. With Athena you pay-as-you-go, $5 per scanned TB. Converting data to columnar formats (such as ORC or Parquet) saves a lot of money because it allows Athena to be selective in the columns it needs to read.
+
 
 
 ## Resources
