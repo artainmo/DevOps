@@ -786,6 +786,17 @@ It can integrate with EC2, Amazon VPC, S3, IAM, CloudTrail, Data Pipeline.<br>
 EMR Notebooks is similar to Jupyter Notebooks. It runs on an EMR cluster and has several integration points with AWS services.<br>
 EMR charges by the hour plus the associated usage of EC2 costs too.
 
+Hadoop consists of MapReduce, YARN and HDFS.<br>
+YARN stands for Yet Another Resource Negatiator. It centrally manages cluster resources.<br>
+MapReduce is a software framework to easily write applications that process vast amounts of data in parallel on large clusters. However, lately, Apache Spark has largely replaced MapReduce as it is faster due to caching and optimized query execution by using a directed acyclic graph.<br>
+Spark has multiple components. Spark Core acts as the foundation of the platform and is responsible for memory management, fault recovery, scheduling and distributing jobs, and interacting with storage systems. It uses a resilient distributed dataset (RDD) to collect data partitioned across different compute nodes.<br>
+Spark SQL is a distributed query engine that provides low latency interactive queries up to 100 times faster than MapReduce.<br>
+Spark Streaming performs streaming analytics. It uses a growing table to store data over time which can be queried in relation to the time. It integrates with Kinesis.<br>
+The ML library for Spark is called MLLib. MLLib offers several ML algorithms who are implemented in a distributed and scalable way by leveraging the cluster and parallel computing.<br>
+GraphX is a distributed graph processing framework in Spark, it provides ETL and exploratory analysis.<br>
+Zeppelin is a notebook to run Spark code and for example execute SQL queries directly against SparkSQL and visualize the results in charts and graphs. EMR Notebook is similar to Zeppelin but with more AWS integration.<br>
+Kerberos is used for security of EMRs. It provides strong authentification via key cryptography. Apache ranger can integrate with EMR for data security. 
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
