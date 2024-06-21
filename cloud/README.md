@@ -780,8 +780,11 @@ QuickSight is best not used for highly formatted canned reports. Unless when usi
 
 Elastic MapReduce (EMR) helps create Hadoop clusters to analyze and process vast amounts of data. Those clusters can be made of 100s of EC2 instances with each cluster being called a node. Each node has a role and type. The master/leader node manages the cluster and distributes the data across the other nodes. Core nodes run tasks and store data on the Hadoop Distributive File System (HDFS). Task nodes only run tasks, are not mandatory and don't store data. As a result they are good for spot instances who are not reliable.<br>
 For massive datasets you sometimes need a cluster to process it in parallel.<br>
+HDFS is fast but data is lost when cluster is shut down. EMRFS can use S3 as if it was HDFS to avoid this problem.<br>
+A transient cluster terminates after the defined steps/tasks are all completed while long-running clusters need to be manually terminated.<br>
+It can integrate with EC2, Amazon VPC, S3, IAM, CloudTrail, Data Pipeline.<br>
 EMR Notebooks is similar to Jupyter Notebooks. It runs on an EMR cluster and has several integration points with AWS services.<br>
-
+EMR charges by the hour plus the associated usage of EC2 costs too.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
