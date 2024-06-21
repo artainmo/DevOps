@@ -763,8 +763,24 @@ Amazon QuickSight is an analytics and visualization tool. It allows quick creati
 It contains a feature called 'Machine Learning Insights' which can perform anomaly detection, forecasting and auto-narratives to automatically build dashboards using ML.<br>
 QuickSight Q is a ML powered add-on to QuickSight which answers plain language questions about the data using NLP. The datasets need to be NLP friendly and personal training is necessary on how to use it.<br>
 Another feature is Quicksight Paginated Reports which produces printable reports for management.<br>
-QuickSight is best not used for highly formatted canned reports. Unless when using QuickSight Paginated Reports, but the exam may not be updated on this new nuance.
+QuickSight is best not used for highly formatted canned reports. Unless when using QuickSight Paginated Reports, but the exam may not be updated on this new nuance.<br>
 
+* Different visual types exist in QuickSight:
+  * AutoGraph automatically selects the most appropriate visualization based on the properties of the data.
+  * Bar charts such as histograms can be used for comparisons between data and distributions of data.
+  * Line graphs can be used for visualizing changes over time.
+  * Scatter plots and heat maps for correlation between data.
+  * Pie graphs and tree maps for aggregation indicating where most of the data lies.
+  * Pivot tables for tabular thus multi-dimensional data on which we can perform statistical functions.
+  * Donut charts show a percentage of a total amount. This is best when precision is not important and only a few items exist in a dimension.
+  * Gauge charts indicate the value of a measure. It looks like the gauge used to indicate fuel in a tank.
+  * KPIs are used to compare key value to its target value.
+  * Geospatial charts show data over a map.
+  * Word clouds show the frequency of words or phrases in a dataset.
+
+Elastic MapReduce (EMR) helps create Hadoop clusters to analyze and process vast amounts of data. Those clusters can be made of 100s of EC2 instances with each cluster being called a node. Each node has a role and type. The master/leader node manages the cluster and distributes the data across the other nodes. Core nodes run tasks and store data on the Hadoop Distributive File System (HDFS). Task nodes only run tasks, are not mandatory and don't store data. As a result they are good for spot instances who are not reliable.<br>
+For massive datasets you sometimes need a cluster to process it in parallel.<br>
+EMR Notebooks is similar to Jupyter Notebooks. It runs on an EMR cluster and has several integration points with AWS services.<br>
 
 
 ## Resources
