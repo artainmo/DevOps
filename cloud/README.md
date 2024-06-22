@@ -750,10 +750,11 @@ Categorical data has no inherent mathematical meaning even if you can use number
 Ordinal data is a mixture of numerical and categorical data. An example is star ratings for a restaurant. One to five stars are possible and represent categories and those categories have mathematical meaning.
 
 Data distributions represent the likelihood of data falling into a certain range.<br>
-A normal distribution is a bell curve centered around a central value. A normal distribution is an example of a probability density function.<br>
+A normal distribution is a bell curve centered around a central value. A normal distribution is an example of a probability density function and is used for numerical data.<br>
 ![Screen Shot 2024-06-21 at 14 22 22](https://github.com/artainmo/DevOps/assets/53705599/48649c67-5fb8-4db2-88f2-f548f2f496d7)<br>
-Data that can only take certain values is called discrete data or discrete values. This is data that can be counted and has a limited number of values. It usually comes in the form of whole numbers or integers. When using discrete data we use probability mass functions instead which look like histograms and uses single values instead of ranges.<br>
-![Screen Shot 2024-06-21 at 14 24 01](https://github.com/artainmo/DevOps/assets/53705599/e695384b-1d3d-412c-86a7-3497dc0a19ab)
+Data that can only take certain values is called discrete data or discrete values. This is data that can be counted and has a limited number of values. It usually comes in the form of whole numbers or integers. When using discrete data we use probability mass functions instead which look like histograms and uses single values instead of ranges. Poisson distribution is an example.
+![Screen Shot 2024-06-21 at 14 24 01](https://github.com/artainmo/DevOps/assets/53705599/e695384b-1d3d-412c-86a7-3497dc0a19ab)<br>
+Binomial distributions are used for binary classifications of discrete events, such as flipping a coin.
 
 Time series are a series of data points over time. Noice refers to random variations in time series data.
 
@@ -777,6 +778,7 @@ QuickSight is best not used for highly formatted canned reports. Unless when usi
   * KPIs are used to compare key value to its target value.
   * Geospatial charts show data over a map.
   * Word clouds show the frequency of words or phrases in a dataset.
+  * Box and whisker plots organize data into quartiles, and display outliers in the outer quartiles.
 
 Elastic MapReduce (EMR) helps create Hadoop clusters to analyze and process vast amounts of data. Those clusters can be made of 100s of EC2 instances with each cluster being called a node. Each node has a role and type. The master/leader node manages the cluster and distributes the data across the other nodes. Core nodes run tasks and store data on the Hadoop Distributive File System (HDFS). Task nodes only run tasks, are not mandatory and don't store data. As a result they are good for spot instances who are not reliable.<br>
 For massive datasets you sometimes need a cluster to process it in parallel.<br>
