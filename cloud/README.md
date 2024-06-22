@@ -820,6 +820,9 @@ Sometimes data needs to be encoded in a format required by the ML model. An exam
 Some ML models prefer data to be normally distributed which demands data normalization. Data of one feature can also be scaled to values comparable to other features. All features should be on same scale to avoid some having more weight than others.<br>
 Shuffling can also benefit many ML algorithms by not making data order predictable.
 
+SageMaker Ground Truth manages humans to label your data for training purposes. For example if you have a lot of pictures and need labels on them, humans may be the only way to label them. Ground Truth will also learn on the way and only ask humans to label data he cannot predict with certainty. Ground Truth Plus is even simpler to use as it lets AWS Experts manage the whole workflow and team of labelers.<br>
+Instead of using humans to label images or text, one can also use AWS Rekognition or Comprehend respectively. Any pre-trained model or unsupervised technique may be helpful for labeling.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
