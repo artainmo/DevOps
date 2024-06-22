@@ -823,6 +823,9 @@ Shuffling can also benefit many ML algorithms by not making data order predictab
 SageMaker Ground Truth manages humans to label your data for training purposes. For example if you have a lot of pictures and need labels on them, humans may be the only way to label them. Ground Truth will also learn on the way and only ask humans to label data he cannot predict with certainty. Ground Truth Plus is even simpler to use as it lets AWS Experts manage the whole workflow and team of labelers.<br>
 Instead of using humans to label images or text, one can also use AWS Rekognition or Comprehend respectively. Any pre-trained model or unsupervised technique may be helpful for labeling.
 
+Term Frequency and Inverse Document Frequency (TF-IDF) is used in search algorithms to find how relevant a given term is for a given document.<br>
+Term Frequency (TF) measures how often a word occurs in a document while Document Frequency (DF) is how often a word occurs in an entire set of documents which indicates what words are common among any document/topic and thus are not relevant. So to measure the relevancy of a word to a document we divide TF by DF. We can also measure n-grams instead of only individual words.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
