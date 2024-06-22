@@ -828,6 +828,27 @@ Instead of using humans to label images or text, one can also use AWS Rekognitio
 Term Frequency and Inverse Document Frequency (TF-IDF) is used in search algorithms to find how relevant a given term is for a given document.<br>
 Term Frequency (TF) measures how often a word occurs in a document while Document Frequency (DF) is how often a word occurs in an entire set of documents which indicates what words are common among any document/topic and thus are not relevant. So to measure the relevancy of a word to a document we divide TF by DF. We can also measure n-grams instead of only individual words.
 
+### General Deep Learning and Machine Learning
+Parallelization is useful for neural networks. GPUs (graphics processing unit) use parallelization to make all the screen pixels appear simultaneously. But GPUs can also be used for parallelization with neural networks.
+
+A popular framework for deep learning is tensorflow which contains a higher-level API called Keras. Apache MXNet is also a deep learning framework. Amazon's deep learning services are often build on MXNet.
+
+* Different neural network types exist:
+  * Feedforward neural network is the most basic one.
+  * Convolutional neural networks (CNN) are often used for image recognition because they handle two-dimensional data.
+  * Recurrent neural networks (RNN) deal with sequences such as sequences of time when predicting stock prices or with sequences of words in NLP. LSTM and GRU are different types of RNN.
+
+* An activation function defines the output of a node/neuron given its input signals.
+  * The simplest activation function is the linear activation function. This simply outputs what it got in input. They are not useful in deep learning.
+  * A binary step function returns 0 if input is negative, else 1 and thus can only be used for binary classification.
+  * Alternatively non-linear activation functions can create complex mappings between inputs and outputs. This allows for multiple layers and backpropagation, thus deep learning.
+    * Sigmoid activation function also known as logistic activation function outputs values between 0 and 1.
+    * TanH or hyperbolic tangent outputs values between -1 to 1. It is generally preferred over sigmoid.
+    * Rectified Linear Unit (ReLU) outputs 0 when input is negative, else the input value itself. It is very fast to compute while Sigmoid and TanH are more computationally expensive. Sigmoid and TanH are more susceptible to the '[vanishing gradients problem](https://github.com/artainmo/machine-learning/tree/main/supervised-learning%20and%20neural-networks#Vanishing-gradient-problem)' when input values are small. But ReLu is susceptible to the 'dying ReLU problem' when inputs are zero or negative.
+    * The solution to the 'dying ReLU problem' is Leaky ReLu. Which outputs smaller negative value when input is negative instead of 0. The extend to which the value is smaller can be calculated using backpropagation which we call Parametric ReLU (PReLU). However this is computationally expensive.
+    * 
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
