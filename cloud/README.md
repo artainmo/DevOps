@@ -795,7 +795,30 @@ Spark Streaming performs streaming analytics. It uses a growing table to store d
 The ML library for Spark is called MLLib. MLLib offers several ML algorithms who are implemented in a distributed and scalable way by leveraging the cluster and parallel computing.<br>
 GraphX is a distributed graph processing framework in Spark, it provides ETL and exploratory analysis.<br>
 Zeppelin is a notebook to run Spark code and for example execute SQL queries directly against SparkSQL and visualize the results in charts and graphs. EMR Notebook is similar to Zeppelin but with more AWS integration.<br>
-Kerberos is used for security of EMRs. It provides strong authentification via key cryptography. Apache ranger can integrate with EMR for data security. 
+Kerberos is used for security of EMRs. It provides strong authentification via key cryptography. Apache ranger can integrate with EMR for data security.<br>
+The master node can use as Instance Type an m4.large if having less than 50 nodes, else an m4.xlarge. For core and task nodes m4.large is in general good too. For AI and accelerated computing you may want GPU instances. Spot instances are usually a good choice for task nodes.
+
+Feature engineering is the process of selecting what features in the data are important for ML models to predict. You may also need to transform the selected data, handle missing data, or even create new features from existing ones.<br>
+Too many features can be problematic by leading to scattered data which is called 'the curse of dimensionality' and is why we need to select the most important features or use unsupervised dimensionality reduction algorithms such as PCA or K-means to distill many features into less features.
+
+Mean replacement is one solution for missing data. If a data misses replace it with the mean of the entire feature column. If data has a lot of outliers you may prefer to use the median instead of mean. If the data is categorical you cannot use this method but instead should use the most frequent value. However, the mean replacement method is usually not very accurate.<br>
+An alternative, which neither is best solution, is to drop the missing rows.<br>
+ML can be used to impute missing data which may be best solution. KNN can be used to find average of N most similar rows. It does not work for categorical data. Deep Learning can be used to impute data, also categorical data. Or regressions can be used with MICE (Multiple Imputation by Chained Equations) being such an advanced technique.<br>
+Lastly, collecting more real data is another way to combat missing datas.
+
+Unbalanced data refers to having a large discrepancy between positive and negative cases. For example fraud is rare and the associated dataset will contain way more negative cases. This is especially a problem with neural-network who will have too few positive training cases and as a result always predict negative.<br>
+One solution is 'oversampling' where minority class samples are duplicated at random. Inversely, 'undersampling' consists of removing majority class samples, however, eliminating data is usually undesirable besides when having scaling issues.<br>
+Synthetic Minority Over-sampling Technique (SMOTE) is even better than 'oversampling' and 'undersampling'. It creates new samples of the minority class by using KNN on each minority sample.<br>
+With neural-networks a final score is given at output, a treshold is used to predict if this score indicates one class or the other. Adjusting this treshold to predict the minority class more often could help.
+
+Variance (σ<sup>2</sup>) is the average of the squared differences from the mean. Standard deviation (σ) is the square root of the variance. An outlier is at least one or two standard deviations away from the mean.<br>
+Sometimes it is best to remove outliers other times not. The AWS Random Cut Forest algorithm can be used for outlier detection.
+
+Binning is transforming ranges of numerical values into categorical values. Binning covers up imprecisions in measurements. With quantile binning data is categorized relative to its distribution thus it ensures each bin has an equal amount of samples.<br>
+Data can be transformed to make it more suitable for training. For example exponential data may benefit from a logarithmic transform to make it more linear.<br>
+Sometimes data needs to be encoded in a format required by the ML model. An example is one-hot-encoding where a category gets transformed into a string of 0-1 values, where all categories equal zero besides the category being represented has value 1.<br>
+Some ML models prefer data to be normally distributed which demands data normalization. Data of one feature can also be scaled to values comparable to other features. All features should be on same scale to avoid some having more weight than others.<br>
+Shuffling can also benefit many ML algorithms by not making data order predictable.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
