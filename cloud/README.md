@@ -883,6 +883,11 @@ The early stopping method tests model against a validation dataset while trainin
 L1 and L2 regularization adds a regularization term as weights are learned. L1 refers to sum of weights and L2 to sum of square of weights. L1 can be useful in the case of 'curse of dimensionality' but else if all features are of importance L2 would be preferred.
 
 When the slope of the cost function approaches zero, the ML model ends up working with small values that slow down training and can even cause numerical errors. This is called the vanishing gradient problem. In deeper networks and RNN these vanishing gradients can propagate to deeper layers. The opposite problem is called exploding gradients and can also lead to numerical errors.<br>
+Multiple solutions exist to the vanishing gradient problem. One of them is to use a multi-level hierarchy which consists of splitting neural network into several layers who are trained individually. LSTMs and ResNet can also prevent vanishing gradients. ReLU is the best activation function to prevent vanishing gradients.<br>
+Gradient checking is a debugging technique that verifies the correctness of the computed derivatives. It is used to validate the neural network training code.
+
+Accuracy is used to evaluate a ML model's performance by giving the percentage of correct responses. Sometimes we need to understand more, namely true positives, true negatives, false positives and false negatives. A confusion matrix can show this. A confusion matrix can show how much predictions were made of a certain class while the answer is a certain class. It can also indicate accuracy and [F1 score](https://github.com/artainmo/machine-learning/tree/main/supervised-learning%20and%20neural-networks#evaluation) relative to a class. It can look like in the following image.<br>
+![Screen Shot 2024-06-23 at 19 51 30](https://github.com/artainmo/DevOps/assets/53705599/12fab3f5-6e0b-42ce-84b6-246c3a671c99)<br>
 
 
 ## Resources
