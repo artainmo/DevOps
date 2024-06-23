@@ -867,6 +867,9 @@ RNNs can be 'sequence to sequence' meaning they take and output a sequence as wh
 Backpropagation needs to be applied to each time step. This can look like a very deep neural network being computationally expensive. As a result truncated backpropagation is used where we limit backpropagation on a limited number of time steps.<br>
 RNNs are sensitive to its hyperparameters and resource intensive, thus they are difficult to train.
 
+Transformer deep learning architectures are the current state of the art in NLP. It uses a mechanism we call self-attention where each part of the input data is weighted on significance. One difference with RNNs is that it can process all time steps in parallel. The attention mechanism provides a context around each word to process them all in parallel.<br>
+Examples of models built on the transformer architecture are Bi-directional Encoder Representations from Transformers (BERT), RoBERTa, T5, Generative Pre-trained Transformer (GPT)-2, GPT-3. DistilBERT too and it uses knowledge distillation to reduce model size by 40%.<br>
+Because NLP models (LLM) are huge they are expensive to train. This is why pre-trained models such as 'Hugging Face' are used as a starting point. Hugging Face via deep learning containers integrate with SageMaker. Using a Hugging Face deep learning container (DLC) in SageMaker we can import a BERT model that has been pre-trained on BookCorpus and Wikipedia. Such a pre-trained model you can fine-tune with own training data using transfer learning. For that you need to tokenize your training data and use it for further training of the model using a low learning rate to not eliminate previous learnings. Another way of transfer learning is to add new trainable layers to the top of a frozen model.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
