@@ -876,6 +876,12 @@ EMR supports MXNet, TensorFlow and PyTorch and GPU instance types to accelerate 
 Gradient descend is the main mathematical algorithm behind neural-networks. It tries to go down a cost function by changing neural-network weights and biases to minimize the cost which refers to degree of prediction errors. The learning rate refers to the step size used when performing gradient descend and is a hyperparameter. A small learning rate leads to slowly going down the cost function while a high learning rate comes with risk of missing global minima of cost function.<br>
 Another important hyperparameter is the batch size which indicates how much training samples are used within each batch of each epoch. Smaller batch sizes can help exit local minimas.
 
+Regularization are techniques intended to prevent overfitting. Overfitting refers to a model that performs very well on its training data but not on never seen data.<br>
+A simple regularization method is to simplify the model by reducing layers or neurons so that it won't overfit on training data and instead generalize more.<br>
+The dropout method is another regularization technique. It works by temporarily removing (dropping out) certain nodes and all its associated connexions. This forces all nodes to learn which prevents one dominant node from overfitting.<br>
+The early stopping method tests model against a validation dataset while training and stops training when the validation dataset starts to indicate overfitting.
+L1 and L2 regularization adds a regularization term as weights are learned. L1 refers to sum of weights and L2 to sum of square of weights. L1 can be useful in the case of 'curse of dimensionality' but else if all features are of importance L2 would be preferred.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
