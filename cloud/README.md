@@ -845,8 +845,20 @@ A popular framework for deep learning is tensorflow which contains a higher-leve
     * Sigmoid activation function also known as logistic activation function outputs values between 0 and 1.
     * TanH or hyperbolic tangent outputs values between -1 to 1. It is generally preferred over sigmoid.
     * Rectified Linear Unit (ReLU) outputs 0 when input is negative, else the input value itself. It is very fast to compute while Sigmoid and TanH are more computationally expensive. Sigmoid and TanH are more susceptible to the '[vanishing gradients problem](https://github.com/artainmo/machine-learning/tree/main/supervised-learning%20and%20neural-networks#Vanishing-gradient-problem)' when input values are small. But ReLu is susceptible to the 'dying ReLU problem' when inputs are zero or negative.
-    * The solution to the 'dying ReLU problem' is Leaky ReLu. Which outputs smaller negative value when input is negative instead of 0. The extend to which the value is smaller can be calculated using backpropagation which we call Parametric ReLU (PReLU). However this is computationally expensive.
-    * 
+      * The solution to the 'dying ReLU problem' is Leaky ReLu. Which outputs smaller negative value when input is negative instead of 0. The extend to which the value is smaller can be calculated using backpropagation which we call Parametric ReLU (PReLU). However this is computationally expensive.
+      * Another variant of ReLU is Exponential Linear Unit (ELU) where exponentially smaller negative values are given as output when input is negative.
+      * A variant of ReLU that works well on deep learning models with 40 or more layers is Swish.
+      * A last ReLU variant is Maxout which outputs the maximal value of all inputs. It is more computationally expensive and usually not worth using.
+    * Softmax is an activation function usually used in the final output layer of a classification problem. It converts outputs from last layer into probabilities for each classification.
+* How to choose an activation function:
+  * For multiple classification use softmax on output layer.
+  * For RNNs use TanH.
+  * Use Swish for very deep (40+ layers) neural networks.
+  * Else start with ReLU.
+    * And if not good enough try Leaky ReLU, PReLU or Maxout.
+
+CNNs are 'feature-location invariant' which means they find features that are not in an expected specific spot. Like a stop sign in a picture or words in a sentence. Thus they are used in image recognition or NLP.<br>
+CNNs are inspired by the biology of our visual cortex. Local receptive fields are groups of neurons that only respond to a part of what our eyes see. They subsample the image coming from the retinas and overlap each other to cover the entire visual field which we call convolution. Thus by convolution we mean it breaks up data in chunks and processes those chunks individually. Later the system assembles a bigger picture of what is being seen. In CNNs multiple layers are used. A hierarchy exists of layers that first identify lines and edges, then shapes from those lines, and finally objects from shapes. For color images, additional layers are necessary for red, green, blue, those too are processed individually and assembled later.<br>
 
 
 ## Resources
