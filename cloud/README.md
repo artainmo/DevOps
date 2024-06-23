@@ -882,6 +882,9 @@ The dropout method is another regularization technique. It works by temporarily 
 The early stopping method tests model against a validation dataset while training and stops training when the validation dataset starts to indicate overfitting.
 L1 and L2 regularization adds a regularization term as weights are learned. L1 refers to sum of weights and L2 to sum of square of weights. L1 can be useful in the case of 'curse of dimensionality' but else if all features are of importance L2 would be preferred.
 
+When the slope of the cost function approaches zero, the ML model ends up working with small values that slow down training and can even cause numerical errors. This is called the vanishing gradient problem. In deeper networks and RNN these vanishing gradients can propagate to deeper layers. The opposite problem is called exploding gradients and can also lead to numerical errors.<br>
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
