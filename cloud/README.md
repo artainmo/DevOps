@@ -859,7 +859,7 @@ A popular framework for deep learning is tensorflow which contains a higher-leve
 
 CNNs are 'feature-location invariant' which means they find features that are not in an expected specific spot. Like a stop sign in a picture or words in a sentence. Thus they are used in image recognition or NLP.<br>
 CNNs are inspired by the biology of our visual cortex. Local receptive fields are groups of neurons that only respond to a part of what our eyes see. They subsample the image coming from the retinas and overlap each other to cover the entire visual field which we call convolution. Thus by convolution we mean it breaks up data in chunks and processes those chunks individually. Later the system assembles a bigger picture of what is being seen. In CNNs multiple layers are used. A hierarchy exists of layers that first identify lines and edges, then shapes from those lines, and finally objects from shapes. For color images, additional layers are necessary for red, green, blue, those too are processed individually and assembled later.<br>
-
+CNNs are computationally expensive. They contain a lot of hyperparameters. Specialized CNN architectures define hyperparameters for you. For example LeNet-5 is good for handwriting recognition. AlexNet is deeper and used for image classification. GoogLeNet and ResNet are even deeper and have better performance. AWS and SageMaker often use ResNet and variations of it like ResNet-50.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
