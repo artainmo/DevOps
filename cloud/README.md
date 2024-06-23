@@ -873,6 +873,9 @@ Because NLP models (LLM) are huge they are expensive to train. This is why pre-t
 
 EMR supports MXNet, TensorFlow and PyTorch and GPU instance types to accelerate those. Different instance types can be used for deep learning on EMR or EC2, they are all Nvidia chips, for example P3 is more expensive, P2, G2 and P4d which can form UltraClusters by pairing multiple P4ds together. G5g paired with T4G are available on EC2 but not EMR and also used for Android game streaming. Also you can use AMIs configured for deep learning on EC2 instances. Else, SageMaker allows automatic deployment of desired architecture. As a reaction to the rise in generative AI, Amazon launched in 2023 other instance types, such as Trn1 which is optimized for training large neural networks. Trn1n instances are even faster. Inf2 instances are optimized for using pre-trained models.
 
+Gradient descend is the main mathematical algorithm behind neural-networks. It tries to go down a cost function by changing neural-network weights and biases to minimize the cost which refers to degree of prediction errors. The learning rate refers to the step size used when performing gradient descend and is a hyperparameter. A small learning rate leads to slowly going down the cost function while a high learning rate comes with risk of missing global minima of cost function.<br>
+Another important hyperparameter is the batch size which indicates how much training samples are used within each batch of each epoch. Smaller batch sizes can help exit local minimas.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
