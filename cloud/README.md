@@ -888,6 +888,13 @@ Gradient checking is a debugging technique that verifies the correctness of the 
 
 Accuracy is used to evaluate a ML model's performance by giving the percentage of correct responses. Sometimes we need to understand more, namely true positives, true negatives, false positives and false negatives. A confusion matrix can show this. A confusion matrix can show how much predictions were made of a certain class while the answer is a certain class. It can also indicate accuracy and [F1 score](https://github.com/artainmo/machine-learning/tree/main/supervised-learning%20and%20neural-networks#evaluation) relative to a class. It can look like in the following image.<br>
 ![Screen Shot 2024-06-23 at 19 51 30](https://github.com/artainmo/DevOps/assets/53705599/12fab3f5-6e0b-42ce-84b6-246c3a671c99)<br>
+Recall is another measure to evaluate a ML model's performance. It is calculated by dividing the true positives by the true positives added to the false negatives. It gives the percentage of true positives. It is also called Sensitivity, True Positive rate, and Completeness.<br>
+Precision or Correct Positives is calculated by dividing true positives by true positives added to false positives. It is a good metric choice when caring about false positives.<br>
+Specificity, also called true negative rate, is another metric and is calculated by dividing true negatives with true negatives added to false positives.<br>
+[F1 score](https://github.com/artainmo/machine-learning/tree/main/supervised-learning%20and%20neural-networks#evaluation) is a metric often used that provides a harmonic mean of precision and recall and is used when both false positives and true positives matter. It is calculated by multiplying 2 with precision times recall and to divide the result by precision added to recall.<br>
+Root mean squared error (RMSE) measures accuracy thus it only cares about right and wrong answers.<br>
+The Receiver Operating Characteristic (ROC) Curve plots the recall (true positive rate) vs false positive rate. The more the plotted curve bends towards the upper-left, the better. The area under the curve (AUC) can be used as a metric where 0.5 is as good as random and 1.0 is perfect. It is useful to compare classifiers.<br>
+The Precision / Recall (P-R) Curve plots the recall and precision metrics. Again, the higher the AUC the better. It is similar to ROC but better for information retrieval as it is more readable as vlues are less small.
 
 
 ## Resources
