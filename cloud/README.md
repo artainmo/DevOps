@@ -966,6 +966,8 @@ Principal Component Analysis (PCA) is a dimensionality reduction algorithm. It i
 Can use file or pipe mode.<br>
 As instance types it can use GPU or CPU.
 
+Factorization machines specialize in classification or regression with sparse data. 
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
