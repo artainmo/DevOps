@@ -919,7 +919,9 @@ eXtreme Gradient Boosting (XGBoost) consists of a series of decision trees where
 One hyperparameter is *max_depth* which refers to the tree depth. Too much depth can lead to overfitting.<br>
 It can be trained on a single-instance GPU such as P2 or P3 for faster training which can also be more cost effective. To use GPU, set *tree_method* hyperparameter to *gpu_hist*. 
 
-
+SageMakers Seq2Seq algorithm takes as input a sequence of tokens and outputs a sequence of tokens. Machine translation, text summarization, speech to text, are common uses of this. It can be used both on RNNs and CNNs.<br>
+Its training data must be tokenized beforehand. Next to training and validation data, you also need to provide vocabulary files. Even on SageMaker, training for machine translation can take days. Else, pre-trained models are available and public training datasets too.<br>
+BLUE score and perplexity are well-suited for evaluating machine translation models.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
