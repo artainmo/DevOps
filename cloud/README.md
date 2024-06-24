@@ -966,7 +966,10 @@ Principal Component Analysis (PCA) is a dimensionality reduction algorithm. It i
 Can use file or pipe mode.<br>
 As instance types it can use GPU or CPU.
 
-Factorization machines specialize in classification or regression with sparse data. 
+Factorization Machines specialize in classification or regression with sparse data. Item recommendation is an example of sparse data as a lot of item pages exist but the client only saw some of them, thus we don't have a lot of data on the client's interests. Factorization Machines are a supervised method and are usually used in the context of recommender systems.<br>
+CPU and GPU can be used but CPU is recommended because GPU is only useful when data is dense while Factorization Machines are useful when data is sparse.
+
+
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
