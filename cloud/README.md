@@ -923,6 +923,9 @@ SageMakers Seq2Seq algorithm takes as input a sequence of tokens and outputs a s
 Its training data must be tokenized beforehand. Next to training and validation data, you also need to provide vocabulary files. Even on SageMaker, training for machine translation can take days. Else, pre-trained models are available and public training datasets too.<br>
 BLUE score and perplexity are well-suited for evaluating machine translation models.
 
+DeepAR uses RNNs and is used to forecast one-dimensional time series data.<br>
+It is recommended for training to use CPU and move up to GPU only if necessary for larger models or mini-batch sizes (>512). For inference/predicting only CPU is supported.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
