@@ -986,6 +986,10 @@ AWS allows use of sagemaker-spark library where you can pre-process your data wi
 In practice you can take a SageMaker notebook and connect to a remote EMR running Spark. Then pre-process the training DataFrame, and afterwards call *fit* method on SageMakerEstimator to get a SageMakerModel on which you can call *transform* to make inferences.<br>
 This allows combining pre-processing big data in Spark with training and inference/predicting in SageMaker to get best of both worlds.
 
+SageMaker Studio is an integrated development environment (IDE) for machine learning. It allows the creation and sharing of Jupyter notebooks. SageMaker Experiments is present in SageMaker Studio and lets you compare and search your notebooks and ML jobs to find model with best performance.
+
+SageMaker Debugger saves the internal model state at periodical intervals while training. This allows looking back at gradients during training. You can define rules that will detect unwanted conditions while training is happening.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
