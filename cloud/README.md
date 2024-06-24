@@ -909,6 +909,12 @@ Data is expected to come from S3. Its ideal format varies with algorithm, often 
 Multiple ways exist to work with SageMaker, the most common one is by using its associated notebook. This notebook runs on an EC2 instance and has access to S3 and thus associated training data. It allows use of scikit_learn, tensorflow, Spark and has access to a wide variety of built-in models that can be accessed via pre-built Docker images. From the notebook you can also launch training instances and endpoints.<br>
 A lot of this can also be done via the SageMaker console.<br>
 
+Let's look at SageMaker's built in algorithms.<br>
+Linear learner performs linear regression. It can also handle binary and multi-class classification. It is not accurate on data as it is limited to straight lines as indicated in image below.<br>
+![Screen Shot 2024-06-24 at 13 43 15](https://github.com/artainmo/DevOps/assets/53705599/f5eaeb28-34c7-4942-8cd3-94744ca68a81)<br>
+It supports both file and pipe mode. Where file mode will copy all training data in a file to every training instance while pipe mode will pipe and stream it from S3. Pipe mode is faster.<br>
+As hyperparameter, L2 regularization is called weight decay.<br>
+As instance type single or multi-machine CPU or GPU can be used. Having multiple GPU on same machine isn't helpful however.
 
 
 
