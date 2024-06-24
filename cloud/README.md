@@ -926,6 +926,16 @@ BLUE score and perplexity are well-suited for evaluating machine translation mod
 DeepAR uses RNNs and is used to forecast one-dimensional time series data.<br>
 It is recommended for training to use CPU and move up to GPU only if necessary for larger models or mini-batch sizes (>512). For inference/predicting only CPU is supported.
 
+BlazingText can be used for text classification such as predicting labels for a sentence. It is useful for information retrieval.<br>
+It can also perform word2vec which consists of creating vector representations of words. This is also called word embedding. It is of use in NLP. Different modes exist such as Continuous Bag of Words (CBOW) where word order does not matter, skip-gram which uses n-grams, and batch skip-grams which distributes computation over many CPU nodes.
+
+Object2vec is an embedding layer, thus it transforms into vectors. Those vectors can be compared and thus evaluated for similarity. Object2vec is more general purpose than word2vec in that it works on arbitrary objects. Thus while word2vec only transforms words, object2vec can transform entire documents. Object2vec can for example be used to compute nearest neighbors of objects, but also predict genres of music/movie, or for recommendation systems.<br>
+As instance type only one machine can be used with CPU, GPU or multi-GPU.
+
+Object detection algorithms in SageMaker detect and classify all objects in an image using a deep neural network. The predicted classes are given with a confidence score.<br>
+Object detection algorithms can be trained from scratch or pre-trained models can be used.<br>
+As instance type for training you can use GPU, multi-GPU, multi-machine while for inference/predicting you can use CPU or GPU.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
