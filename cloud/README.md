@@ -950,6 +950,10 @@ Random Cut Forest is Amazon's unsupervised algorithm for anomaly detection. It l
 It works by creating a forest of trees where each tree is a partition of the training data, then after adding a data point to a tree, it looks at how the tree changes. If it changes a lot due to that data point, the data point may be anomalous.<br>
 Can use file or pipe mode.<br>
 
+The Neural Topic Model tries to identify what the topic of a document is. It is unsupervised.<br>
+Can use file or pipe mode.<br>
+The main hyperparameter *Num_topics* defines how many topics you want.<br>
+GPU is recommended for training. CPU is cheaper and can be used for inference/predicting.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
