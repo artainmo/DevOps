@@ -932,9 +932,24 @@ It can also perform word2vec which consists of creating vector representations o
 Object2vec is an embedding layer, thus it transforms into vectors. Those vectors can be compared and thus evaluated for similarity. Object2vec is more general purpose than word2vec in that it works on arbitrary objects. Thus while word2vec only transforms words, object2vec can transform entire documents. Object2vec can for example be used to compute nearest neighbors of objects, but also predict genres of music/movie, or for recommendation systems.<br>
 As instance type only one machine can be used with CPU, GPU or multi-GPU.
 
-Object detection algorithms in SageMaker detect and classify all objects in an image using a deep neural network. The predicted classes are given with a confidence score.<br>
-Object detection algorithms can be trained from scratch or pre-trained models can be used.<br>
+Object Detection algorithms in SageMaker detect and classify all objects in an image using a deep neural network. The predicted classes are given with a confidence score.<br>
+Separate algorithms exist for MXNet and Tensorflow.<br>
+Object Detection algorithms can be trained from scratch or pre-trained models can be used.<br>
 As instance type for training you can use GPU, multi-GPU, multi-machine while for inference/predicting you can use CPU or GPU.
+
+While Object Detection algorithms tell you where an object in an image lies, Image Classification algorithms assign one or more labels to an image.<br>
+Separate algorithms exist for MXNet and Tensorflow.<br>
+Weight decay is a hyperparameter that often comes forward in SageMaker's build-in algorithms which refers to L2 regularization.<br>
+As instance type for training you can use GPU, multi-GPU, multi-machine while for inference/predicting you can use CPU or GPU.
+
+Semantic Segmentation is pixel level object classification. It produces a segmentation mask that maps individual pixels to labels or classifications. Self-driving cars or medical imaging diagnostics for example need such a level of precision.<br>
+It is built on MXNet Gluon and Gluon CV. Three algorithms can be choosen from, Fully-Convolutional Network (FCN), Pyramid Scene Parsing (PSP), DeepLabV3. Architectures such as ResNet50, ResNet101 are trained on ImageNet and define the model's hyperparameters/backbone for you. You can train from scratch or start with ImageNet and build upon that.<br>
+It can only be trained on a single machine with GPU. For inference/predicting both CPU and GPU can be used.
+
+Random Cut Forest is Amazon's unsupervised algorithm for anomaly detection. It looks at series of data and tries to find anomalies by giving an anomaly score to each data point.<br>
+It works by creating a forest of trees where each tree is a partition of the training data, then after adding a data point to a tree, it looks at how the tree changes. If it changes a lot due to that data point, the data point may be anomalous.<br>
+Can use file or pipe mode.<br>
+
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
