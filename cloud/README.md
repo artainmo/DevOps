@@ -972,6 +972,15 @@ CPU and GPU can be used but CPU is recommended because GPU is only useful when d
 IP Insights is an unsupervised technique that learns the usage patterns of specific IP addresses to then identify suspicious behavior from those IP addresses such as login attempts from anomalous IP addresses. Thus it is a security tool.<br>
 As instance types CPUs and GPUs can be used but GPUs are recommended as it uses a neural-network. Multiple GPUs can be used on one machine.
 
+Reinforcement learning (RL) is different. It learns how to navigate a virtual environment optimally as different states are encountered within that environment.<br>
+Let's use the Pac-Man game as an example. RL uses an agent (in this example the agent is Pac-Man) that explores some space (in this example the space is the gameboard) and by doing that learns the values/rewards associated with different state changes and conditions (in this example running in a wall would be negative while in a power pill would be a reward). Thus the agent learns for a given position what is best done within an environment with surroundings.<br>
+RL is often used for machines playing games, but it can also be used for supply chain management, industrial robotics, HVAC systems and autonomous vehicles. Once the space has been explored it yields fast online performance.<br>
+Q-Learning is a specific implementation of reinforcement learning. 'States' refer to surroundings (for this example if a wall or ghost is next to pac-man). Each state and possible action has a Q value starting at 0 that decreases as negative things happen while exploring the space and increases as rewards happen while exploring the space on a specific state/action. Then we can use those Q values to inform the agent's future choices (in this example Pac-Man's future actions).<br>
+SageMaker offers a RL implementation built on deep learning that uses Tensorflow and MXNet. It also supports toolkits such as Intel Coach and Ray Rllib and environments who can be custom, open source or commercial. It can also distribute across cores and instances the exploration/training and environment rollout.<br>
+Because it is build on MXNet and Tensorflow for deep learning using a GPU is probably best. It supports multiple instances and cores.
+
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
