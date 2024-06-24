@@ -969,7 +969,8 @@ As instance types it can use GPU or CPU.
 Factorization Machines specialize in classification or regression with sparse data. Item recommendation is an example of sparse data as a lot of item pages exist but the client only saw some of them, thus we don't have a lot of data on the client's interests. Factorization Machines are a supervised method and are usually used in the context of recommender systems.<br>
 CPU and GPU can be used but CPU is recommended because GPU is only useful when data is dense while Factorization Machines are useful when data is sparse.
 
-
+IP Insights is an unsupervised technique that learns the usage patterns of specific IP addresses to then identify suspicious behavior from those IP addresses such as login attempts from anomalous IP addresses. Thus it is a security tool.<br>
+As instance types CPUs and GPUs can be used but GPUs are recommended as it uses a neural-network. Multiple GPUs can be used on one machine.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
