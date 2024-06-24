@@ -953,7 +953,13 @@ Can use file or pipe mode.<br>
 The Neural Topic Model tries to identify what the topic of a document is. It is unsupervised.<br>
 Can use file or pipe mode.<br>
 The main hyperparameter *Num_topics* defines how many topics you want.<br>
-GPU is recommended for training. CPU is cheaper and can be used for inference/predicting.
+GPU is recommended for training. CPU is cheaper and can be used for inference/predicting.<br>
+Latent Dirichlet Allocation (LDA) is another topic modeling algorithm. It is also unsupervised but contrary to the Neural Topic Model it doesn't use deep learning. It can also be used for things other than words that are based on unsupervised clustering such as clustering customers based on purchases or performing harmonic analysis of music. Its training is done on single-instance CPU.
+
+K-Nearest-Neighbors (KNN) is a simple classification or regression algorithm. When using this algorithm SageMaker includes a dimensionality reduction stage and builds an index for looking up neighbors faster.<br>
+It can be trained on CPU or GPU instances. For inference/predicting both CPU and GPU can be used. CPU can provide lower latency but GPU provides higher throughput for handling large batches of data all at once.
+
+
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
