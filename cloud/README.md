@@ -962,6 +962,10 @@ It can be trained on CPU or GPU instances. For inference/predicting both CPU and
 K-means is an unsupervised clustering technique. It divides data into K groups where members of a group are as similar as possible to each other. Euclidian distance can be used to measure similarity. SageMaker allows large scale K-means clustering.<br>
 Both CPU and GPU instance types can be used but CPU is recommended.
 
+Principal Component Analysis (PCA) is a dimensionality reduction algorithm. It is unsupervised. It transforms higher-dimensional data, meaning data with a lot of different features, into lower-dimensional data, such as 2D data to allow plotting, while minimizing the loss of information. The reduced dimensions are called components and they are ordered so that the first one has the largest variability and thus predictive power. It works by creating a covariance matrix that it distills down with the singular value decomposition (SVD) algorithm.
+Can use file or pipe mode.<br>
+As instance types it can use GPU or CPU.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
