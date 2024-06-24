@@ -959,7 +959,8 @@ Latent Dirichlet Allocation (LDA) is another topic modeling algorithm. It is als
 K-Nearest-Neighbors (KNN) is a simple classification or regression algorithm. When using this algorithm SageMaker includes a dimensionality reduction stage and builds an index for looking up neighbors faster.<br>
 It can be trained on CPU or GPU instances. For inference/predicting both CPU and GPU can be used. CPU can provide lower latency but GPU provides higher throughput for handling large batches of data all at once.
 
-
+K-means is an unsupervised clustering technique. It divides data into K groups where members of a group are as similar as possible to each other. Euclidian distance can be used to measure similarity. SageMaker allows large scale K-means clustering.<br>
+Both CPU and GPU instance types can be used but CPU is recommended.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
