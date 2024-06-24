@@ -898,7 +898,7 @@ The Precision / Recall (P-R) Curve plots the recall and precision metrics. Again
 
 An ensemble method takes multiple models, which may just be variations of the same model, and lets them all vote on a final result. Random forests is one example of an ensemble method that combines the result of multiple decision trees to reach a single result. Using multiple decision trees like that often ends up with better results compared to only using one decision tree.<br>
 Bagging generates multiple training sets by random sampling. Each training set can be used on a different model that can run in parallel.<br>
-With boosting we assign weights to each observation in our dataset. This runs in a sequential manner where we start with equal weights on each observation, and at each stage reweigh the data and the model. We keep iterating to get better results.<br>
+With boosting we assign weights to each observation in our dataset. This runs in a sequential manner where we start with equal weights on each observation, and at each stage reweigh the data and the model. We keep iterating to get better results. By weighing the data we increase or decrease the scale of certain features to give them more or less influence on the model being trained.<br>
 XGBoost is part of SageMaker to perform boosting and is an often used algorithm. A lot of Kaggle challenges are being won by XGBoost right now, its strength is accuracy. On the other hand bagging is useful for overfitting as it spreads and subsamples the data. Also bagging can be parallelized.
 
 ### Amazon SageMaker
@@ -913,8 +913,11 @@ Let's look at SageMaker's built in algorithms.<br>
 Linear learner performs linear regression. It can also handle binary and multi-class classification. It is not accurate on data as it is limited to straight lines as indicated in image below.<br>
 ![Screen Shot 2024-06-24 at 13 43 15](https://github.com/artainmo/DevOps/assets/53705599/f5eaeb28-34c7-4942-8cd3-94744ca68a81)<br>
 It supports both file and pipe mode. Where file mode will copy all training data in a file to every training instance while pipe mode will pipe and stream it from S3. Pipe mode is faster.<br>
-As hyperparameter, L2 regularization is called weight decay.<br>
 As instance type single or multi-machine CPU or GPU can be used. Having multiple GPU on same machine isn't helpful however.
+
+eXtreme Gradient Boosting (XGBoost) consists of a series of decision trees where new trees are made to correct the errors of previous trees. It is fast and has been winning a lot of Kaggle competitions. As it uses decision trees it is used for classification. However, using regression trees it can also perform regression.<br>
+One hyperparameter is *max_depth* which refers to the tree depth. Too much depth can lead to overfitting.<br>
+It can be trained on a single-instance GPU such as P2 or P3 for faster training which can also be more cost effective. To use GPU, set *tree_method* hyperparameter to *gpu_hist*. 
 
 
 
