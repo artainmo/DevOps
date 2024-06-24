@@ -901,6 +901,17 @@ Bagging generates multiple training sets by random sampling. Each training set c
 With boosting we assign weights to each observation in our dataset. This runs in a sequential manner where we start with equal weights on each observation, and at each stage reweigh the data and the model. We keep iterating to get better results.<br>
 XGBoost is part of SageMaker to perform boosting and is an often used algorithm. A lot of Kaggle challenges are being won by XGBoost right now, its strength is accuracy. On the other hand bagging is useful for overfitting as it spreads and subsamples the data. Also bagging can be parallelized.
 
+### Amazon SageMaker
+SageMaker is intended to manage the entire ML workflow. SageMaker's architecture looks like this.<br>
+![Screen Shot 2024-06-24 at 12 58 42](https://github.com/artainmo/DevOps/assets/53705599/9c69965e-425d-45d3-a0e7-7ded76eb69c5)<br>
+Data is expected to come from S3. Its ideal format varies with algorithm, often RecordIO or Protobuf. But data can also come from Athena, EMR, Redshift, and Amazon Keyspaces DB. SageMaker will provision training hosts to perform the data processing and training using that data. The code behind the model itself comes from a Docker image registered in Elastic Container Registry (ECR). The trained model and any artifacts will subsequently be stored in S3. For deployment in production we will use another Docker image from ECR with inference code thus code for model to predict. This is used inside hosts with endpoints provided by SageMaker again. When deploying, persistent endpoints can be used to answer individual requests on demand or SageMaker Batch Transform can be used to predict an entire dataset once. SageMaker Neo can deploy models to edge devices. Automatic scaling for endpoints is possible. Shadow testing evaluates new model against currently deployed model to catch errors.
+
+Multiple ways exist to work with SageMaker, the most common one is by using its associated notebook. This notebook runs on an EC2 instance and has access to S3 and thus associated training data. It allows use of scikit_learn, tensorflow, Spark and has access to a wide variety of built-in models that can be accessed via pre-built Docker images. From the notebook you can also launch training instances and endpoints.<br>
+A lot of this can also be done via the SageMaker console.<br>
+
+
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
