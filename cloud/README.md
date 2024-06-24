@@ -979,7 +979,12 @@ Q-Learning is a specific implementation of reinforcement learning. 'States' refe
 SageMaker offers a RL implementation built on deep learning that uses Tensorflow and MXNet. It also supports toolkits such as Intel Coach and Ray Rllib and environments who can be custom, open source or commercial. It can also distribute across cores and instances the exploration/training and environment rollout.<br>
 Because it is build on MXNet and Tensorflow for deep learning using a GPU is probably best. It supports multiple instances and cores.
 
+Finding the optimal value for hyperparameters is difficult. Some guidance exists but often one needs to experiment to find the best value. This experimenting can become tedious and costly when having a lot of hyperparameters. SageMaker tries to resolve this problem via Automatic Model Tuning. With this you only need to define the important hyperparameters with value ranges you want to try, and the metrics you want to optimize the model on. Then SageMaker will launch 'Hyperparameter Tuning Jobs' that train as many combinations as you allow. The set of hyperparameters producing the best results can then be deployed as a model. It doesn't need to try every combination as it can learn if a value direction is negatively affecting results.
 
+Apache Spark is a popular framework for processing data and it also has a powerful MLlib that can perform large scale ML. Spark loads data in DataFrames, then you can distribute the processing of that DataFrame across an entire cluster on Spark.<br>
+AWS allows use of sagemaker-spark library where you can pre-process your data with Apache Spark but afterwards use SageMakerEstimator instead of MLlib which exposes some popular SageMaker algorithms you can use in Spark such as K-means, PCA, XGBoost to produce a SageMakerModel to make inferences/predictions.<br>
+In practice you can take a SageMaker notebook and connect to a remote EMR running Spark. Then pre-process the training DataFrame, and afterwards call *fit* method on SageMakerEstimator to get a SageMakerModel on which you can call *transform* to make inferences.<br>
+This allows combining pre-processing big data in Spark with training and inference/predicting in SageMaker to get best of both worlds.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
