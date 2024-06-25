@@ -1031,6 +1031,19 @@ Data Wrangler lies between data sources and places to send it to.<br>
 ![Screen Shot 2024-06-25 at 18 27 41](https://github.com/artainmo/DevOps/assets/53705599/68de8bbb-88ca-4680-a864-fba3c1a67cc4)<br>
 Data Wrangler isn't doing the transformations of your pipeline itself, it's just generating code to do those transformations in your pipeline. Thus it is more a code generation tool. It will export the code to a notebook for execution. 
 
+### High-Level ML Services
+Higher level ML services offered by AWS are aimed for a general audience not for ML experts.
+
+Amazon Comprehend is an NLP engine that provides analytics of the documents fed into it. Those documents can come from any number of sources, such as social media, emails, web pages, raw documents, transcripts. A separate product called Comprehend Medical can also take medical records. It can extract key phrases from those documents, but also entities (for example restaurant name, menu item, person name...), and topics to classify documents. It can perform sentiment analysis, detect languages, events, personally identifiable information (such as address, social security number or credit card number). Targeted sentiment is also possible and refers to sentiment relative to a specific entity. It can also extract syntax which refers to word's part of speech such as nouns, verbs, punctuations.<br>
+Comprehend can be extended by training it on own data.
+
+Amazon Translate uses deep learning to translate text. It supports custom terminology where you specify certain words and their translations. Before translating it can detect languages itself.
+
+Amazon Transcribe does speech to text. It can also support streaming audio and automatically identify the dominant language. It can also identify speakers, not actual name but as speaker 1, speaker 2... It can also perform channel identification, meaning for example if you have two callers you could transcribe them separately and then merge those transcriptions. It can also take a custom vocabulary list for words it might not know about. Even custom vocabulary tables who also indicate the unknown words' pronunciation.<br>
+Amazon Transcribe Call Analytics is trained specifically for customer service and sales calls. It can take the audio from a call with a customer, this saves people from taking notes. It can also capture the overall sentiment, talking speed, one speaker interrupting the other, specific phrases such as 'cancel my subscription'.<br>
+Amazon Transcribe Medical is trained specifically on medical terminology. It takes patient privacy in account by being HIPAA-eligible.<br>
+Amazon Transcribe Subtitling provides live subtitles. 
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
