@@ -1019,6 +1019,12 @@ A feature refers to a property used to train a ML model. For example you might p
 PutRecord API can be used to feed streaming data into Feature Store and GetRecord API to stream data out of it. The Feature Store itself has an online repository and batch repository which refers to offline S3 store. SageMaker Feature Store will automatically create a Glue Data Catalog for the offline S3, then tools can be used such as Athena or other services that integrate with S3. Alternatively to streaming, data can also be loaded directly into the offline S3 store.<br>
 For security it encrypts at rest and in transit, KMS can be used. IAM can be used to manage access control and AWS PrivateLink for secured exposure.
 
+SageMaker ML Lineage Tracking automates lineage tracking. Lineage Tracking is a data management practice that tracks the life cycle of data, including its origin, transformations, and usage over time.<br>
+SageMaker ML Lineage Tracking will automatically create and store ML workflows. We call this more broadly MLOps, a field that keeps track of all the pipelines and processes that go into a ML workflow.<br>
+It can track various entities, one is a trial component such as for example a processing job, training job or a transformation job. Those trial components can be assembled into a trial representing a model composed of trial components. Grouping trials together we call an experiment. Context refers to a logical grouping of any entities. Actions refer to workflow steps such as model deployment. Artifacts (objects or data such as S3 bucket or a docker image in ECR) are generated along the way. Lastly, associations can be specified between entities using specific tags.<br>
+Once you have a lineage you can query it using LineageQuery API which is part of SageMaker's SDK for Python. ML Lineage Tracking can also produce visualizations by using an external visualizer helper class. 
+ML Lineage Tracking integrates with AWS Resource Access Manager for cross-account lineage.<br>
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
