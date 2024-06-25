@@ -1013,6 +1013,8 @@ Kullback-Leibler Divergence (KL) and Jensen-Shannon Divergence (JS) measure how 
 Kolmogorov-Smirnov (KS) measures the maximum divergence between outcomes in distributions from facets. This means for example which college application outcomes manifest the greatest disparity by demographic groups.<br>
 Conditional Demographic Disparity (CDD) measures the disparity of outcomes between facets and subgroups. This means for example do some groups have a larger proportion of rejection than their proportion of acceptance.
 
+SageMaker Training Compiler is an optimized compiler. In integrates into AWS Deep Learning Containers (DLCs). It compiles and optimizes training jobs on GPU instances. It knows how to take advantage of GPU capabilities to accelerate training up to 50% depending on if you use it well. It converts models into hardware-optimized instructions. It is proven to work on the Hugging Face transformers library, not on own models but you can still use it on own models even if results are not guaranteed. However, with SageMaker distributed training libraries it is incompatible. 
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
