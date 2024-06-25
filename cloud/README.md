@@ -1022,8 +1022,14 @@ For security it encrypts at rest and in transit, KMS can be used. IAM can be use
 SageMaker ML Lineage Tracking automates lineage tracking. Lineage Tracking is a data management practice that tracks the life cycle of data, including its origin, transformations, and usage over time.<br>
 SageMaker ML Lineage Tracking will automatically create and store ML workflows. We call this more broadly MLOps, a field that keeps track of all the pipelines and processes that go into a ML workflow.<br>
 It can track various entities, one is a trial component such as for example a processing job, training job or a transformation job. Those trial components can be assembled into a trial representing a model composed of trial components. Grouping trials together we call an experiment. Context refers to a logical grouping of any entities. Actions refer to workflow steps such as model deployment. Artifacts (objects or data such as S3 bucket or a docker image in ECR) are generated along the way. Lastly, associations can be specified between entities using specific tags.<br>
-Once you have a lineage you can query it using LineageQuery API which is part of SageMaker's SDK for Python. ML Lineage Tracking can also produce visualizations by using an external visualizer helper class. 
-ML Lineage Tracking integrates with AWS Resource Access Manager for cross-account lineage.<br>
+Once you have a lineage you can query it using LineageQuery API which is part of SageMaker's SDK for Python. ML Lineage Tracking can also produce visualizations by using an external visualizer helper class.<br> 
+ML Lineage Tracking integrates with AWS Resource Access Manager for cross-account lineage.
+
+SageMaker Data Wrangler is an ETL pipeline baked into SageMaker Studio. Thus it is a visual interface to prepare data for machine learning. It allows importing, visualizing, transformation of data. It has 300+ built-in transformations or you can integrate own transformations using Pandas, PySpark, or PySpark SQL.<br>
+Quick Model allows training model with a subset of that data and measure results. This allows experimenting with data processing optimization.<br>
+Data Wrangler lies between data sources and places to send it to.<br>
+![Screen Shot 2024-06-25 at 18 27 41](https://github.com/artainmo/DevOps/assets/53705599/68de8bbb-88ca-4680-a864-fba3c1a67cc4)<br>
+Data Wrangler isn't doing the transformations of your pipeline itself, it's just generating code to do those transformations in your pipeline. Thus it is more a code generation tool. It will export the code to a notebook for execution. 
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
