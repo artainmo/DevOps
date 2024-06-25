@@ -998,6 +998,8 @@ Autopilot has different training modes. One is HPO where after selecting the mos
 SageMaker Autopilot can be used for binary classification, multi-class classification or regression. When using Hyperparameter Optimization mode (HPO) you can choose between Linear Learner, XGBoost, deep learning algorithms. When using Ensembling mode you can additionally choose between neural-networks and tree-based methods such as random forests.<br>
 SageMaker Autopilot integrates with SageMaker Clarify for AI explainability. It gives transparency on how models arrive at predictions by explaining how different features contribute to each prediction. It works by using SHAP Baselines who use Shapley values, this works by assigning each feature an importance value for each prediction. This indicates what features lended the most weight to a final prediction.
 
+SageMaker Model Monitor provides automatic alerts on quality deviations on deployed models via CloudWatch. It allows visualization of data drift. Data drift refers to the data used to train the model changing over time. For example salary data may increase over time due to inflation. It can also detect anomalies, outliers, new features. It integrates with SageMaker Clarify which is meant to detect potential bias by explaining model's behavior. 
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
