@@ -1042,7 +1042,18 @@ Amazon Translate uses deep learning to translate text. It supports custom termin
 Amazon Transcribe does speech to text. It can also support streaming audio and automatically identify the dominant language. It can also identify speakers, not actual name but as speaker 1, speaker 2... It can also perform channel identification, meaning for example if you have two callers you could transcribe them separately and then merge those transcriptions. It can also take a custom vocabulary list for words it might not know about. Even custom vocabulary tables who also indicate the unknown words' pronunciation.<br>
 Amazon Transcribe Call Analytics is trained specifically for customer service and sales calls. It can take the audio from a call with a customer, this saves people from taking notes. It can also capture the overall sentiment, talking speed, one speaker interrupting the other, specific phrases such as 'cancel my subscription'.<br>
 Amazon Transcribe Medical is trained specifically on medical terminology. It takes patient privacy in account by being HIPAA-eligible.<br>
-Amazon Transcribe Subtitling provides live subtitles. 
+Amazon Transcribe Subtitling provides live subtitles.
+
+Amazon Polly does text to speech in many different voices and languages.<br>
+It contains Lexicons which allows customization of pronunciation of specific words and phrases. For example 'W3C' being pronounced as 'World Wide Web Consortium'.<br>
+It supports Speech Synthesis Markup Language (SSML) format which is an alternative to plain text. With SSML you can indicate the desired pronunciation (breathing, whispering, speech rate, pitch, pauses) of plain text.<br>
+It also supports Speech Marks which encode when a sentence/word starts and ends in the audio stream. This is useful for lip-synching animation.
+
+Amazon Rekognition performs computer vision. Its main purpose it object and scene detection. Own face collection can be used for Rekognition to identify individuals by their name. Else it can perform facial analysis to identify gender, age, emotion, next to celebrity recognition and comparing faces. It can also perform image moderation to flag inappropriate images. It can extract text within an image. Else it can perform video analysis to mark the timeline where an object/individual was detected. People pathing it can do too whih refers to the path someone follows in a scene over time.<br>
+Images come from S3 or via the API raw image bites can be sent. Videos must come from Kinesis Video Streams. Lambda can be used to trigger image analysis via Rekognition upon S3 image upload.<br>
+Rekognition Custom Labels allows extension of Rekognition's labeling capabilities by providing a small set of labeled images containing labels Rekognition doesn't know yet.
+
+Amazon Forecast is a time series managed service delivering accurate forecasts using ML. It has 'AutoML' option that chooses best model for time series data. It evaluates different time series models such as ARIMA, DeepAR, ETS, NPTS, and Prophet. 
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
