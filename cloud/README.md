@@ -1053,7 +1053,16 @@ Amazon Rekognition performs computer vision. Its main purpose it object and scen
 Images come from S3 or via the API raw image bites can be sent. Videos must come from Kinesis Video Streams. Lambda can be used to trigger image analysis via Rekognition upon S3 image upload.<br>
 Rekognition Custom Labels allows extension of Rekognition's labeling capabilities by providing a small set of labeled images containing labels Rekognition doesn't know yet.
 
-Amazon Forecast is a time series forecasting service using ML. It has 'AutoML' option that chooses best model for time series data. It evaluates different time series models such as ARIMA, DeepAR, ETS, NPTS, and Prophet. It can be used for inventory planning, financial planning, resource planning.
+Amazon Forecast is a time series forecasting service using ML. It has 'AutoML' option that chooses best model for time series data. It can be used for inventory planning, financial planning, resource planning.<br>
+Different algorithms can be used by Forecast.<br>
+Convolutional Neural Network - Quantile Regression (CNN-QR) is computationally expensive and best for large datasets with hundreds of time series. It can also accept related historical time series data and metadata.<br>
+DeepAR+ is also computationally expensive and best for large datasets. It uses a RNN and accepts related forward-looking time series data and metadata.<br>
+Prophet is an additive model that can handle non-linear trends and seasonality. In an additive model, we represent a particular observation in a time series as the sum of T (trend), S (seasonality), C (cyclical variations), I (irregular variations). Trend refers to the linear increasing or decreasing behavior of the series over time while seasonality refers to the repeating patterns or cycles over time.<br>
+Non-Parametric Time Series (NPTS) is well suited for sparse data. Data sparsity refers to the scenario where a large percentage of data within a dataset is missing or is set to zero.<br>
+Autoregressive Integrated Moving Average (ARIMA) is a good choice for simple datasets of less than 100 time series.<br>
+Exponential Smoothing (ETS) is appropriate for simple datasets of less than 100 time series.
+
+
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
