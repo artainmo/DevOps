@@ -1062,7 +1062,10 @@ Non-Parametric Time Series (NPTS) is well suited for sparse data. Data sparsity 
 Autoregressive Integrated Moving Average (ARIMA) is a good choice for simple datasets of less than 100 time series.<br>
 Exponential Smoothing (ETS) is appropriate for simple datasets of less than 100 time series.
 
-
+Amazon Lex is the same technology that powers the Alexa device by Amazon. Alexa uses Amazon Transcribe to transform speech to text, Lex to handle the request and Amazon Polly to transform text back to speech.<br>
+Lex is a chatbot engine build around intents. An utterance/phrase (ex. 'I want to order a pizza') invokes an intent. A lambda function can fulfill that intent. Slots specify the extra information needed for the intent (ex. Pizza size, toppings, delivery address).<br>
+Amazon Lex can be deployed to AWS Mobile SDK for mobile apps, Facebook Messenger, Slack, and Twilio.<br>
+Amazon Lex Automated Chatbot Designer automates the process of creating a chatbot. It takes transcripts and uses NLP and deep learning to extract intents and slot values. It can take transcripts form Amazon Connect. Amazon Connect can be used to build a call center. It is a cloud-based virtual contact center that can receive calls and listen to those calls with Amazon Lex. 
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
