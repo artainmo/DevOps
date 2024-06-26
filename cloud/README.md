@@ -1053,7 +1053,7 @@ Amazon Rekognition performs computer vision. Its main purpose it object and scen
 Images come from S3 or via the API raw image bites can be sent. Videos must come from Kinesis Video Streams. Lambda can be used to trigger image analysis via Rekognition upon S3 image upload.<br>
 Rekognition Custom Labels allows extension of Rekognition's labeling capabilities by providing a small set of labeled images containing labels Rekognition doesn't know yet.
 
-Amazon Forecast is a time series managed service delivering accurate forecasts using ML. It has 'AutoML' option that chooses best model for time series data. It evaluates different time series models such as ARIMA, DeepAR, ETS, NPTS, and Prophet. 
+Amazon Forecast is a time series forecasting service using ML. It has 'AutoML' option that chooses best model for time series data. It evaluates different time series models such as ARIMA, DeepAR, ETS, NPTS, and Prophet. It can be used for inventory planning, financial planning, resource planning.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
