@@ -1067,6 +1067,11 @@ Lex is a chatbot engine build around intents. An utterance/phrase (ex. 'I want t
 Amazon Lex can be deployed to AWS Mobile SDK for mobile apps, Facebook Messenger, Slack, and Twilio.<br>
 Amazon Lex Automated Chatbot Designer automates the process of creating a chatbot. It takes transcripts and uses NLP and deep learning to extract intents and slot values. It can take transcripts form Amazon Connect. Amazon Connect can be used to build a call center. It is a cloud-based virtual contact center that can receive calls and listen to those calls with Amazon Lex. 
 
+Amazon Personalize is a fully managed recommendation engine. Amazon uses it on its webshop to propose other products.<br>
+It can be used via an API that takes customer data and sends back recommendations. The 'GetRecommendations' API can send recommended or similar products. The 'GetPersonalizedRanking' sends a ranking of products you want to propose.<br>
+It allows recommendations for new unknown users by recommending popular items. Contextual recommendations that take in account contextual factors such as device type, time of day, location, are also possible. It can also be used to segment users intelligently into different groups for marketing campaigns.<br>
+Filters can be used for example to avoid recommending already bought products and business rules for example to highlight premium content. It can also inject promoted content into recommendations and find the most relevant promotion.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
