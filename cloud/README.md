@@ -1123,8 +1123,11 @@ Using EC2 Spot instances can save costs up to 90% over on-demand instances. The 
 
 Elastic inference accelerates deep learning algorithms at the inference stage. And it does this at a fraction of the cost of using a dedicated GPU instance. It works by adding an elastic inference accelerator machine type alongside the CPU instance on which the inference model runs. The cost of the CPU together with elastic inference (EI) accelerator machine is going to be less than using a GPU instance, while still performing well.<br>
 Notebooks can also use EI accelerators which will work with Tensorflow and MXNet pre-built containers. Custom containers should use EI enabled Tensorflow or MXNet. EI accelerator can also be used on SageMaker's built-in Image Classification and Object Detection algorithms.<br>
+*Be aware that as of April 2023, AWS is no longer allowing new users to use Elastic Inference. They are phasing it out in favor of 'more cost effective' solutions. We're not sure if the exam reflects this reality yet, but expect any mentions of Elastic Inference to go away over time.*
 SageMaker allows Automatic Scaling to add or remove inference nodes as needed. You can create scaling policies to define target metrics, min/max capacity, cooldown periods. It works with CloudWatch which monitors the performance of inference nodes to know when scaling is needed. It is recommended to load test your configuration before using it to make sure created policies work as expected.<br>
 SageMaker will automatically attempt to distribute your instances across different availability zones for better resiliency, but for such a distribution to be possible you need more than one instance. VPC should be configured with at least two subnets, so each of them can be in different availability zone.
+
+
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
