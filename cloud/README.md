@@ -1076,6 +1076,13 @@ To maintain relevance of recommendations keep your dataset current, meaning you 
 For security, data is not shared across accounts, KMS can be used for encryption, IAM is used for access control to the service, inappropriate bucket policies in S3 could hinder Personalize from processing its data, monitoring occurs via CloudWatch and CloudTrail.<br>
 For data ingestion you pay per GB. For training per hour. For inference/predicting you pay per TPS-hour (average transactions per seconds over each hour). When using batch instead of real-time recommendations you pay per user or item.
 
+Amazon Textract performs optical character recognition (OCR). An image of text it can turn into text data. It can also handle forms, fields, tables, and structure data automatically.<br>
+AWS DeepRacer is a reinforcement learning powered 1/18-scale race car. It is more of an education tool used to play in race car competitions where the best model wins.<br>
+Amazon Lookout comes in three flavors, one for equipment, another for metrics, and lastly vision. It is an industrial application that takes data and detects abnormalities. It will for example detect abnormalities from sensor data to automatically detect equipment issues. When monitoring metrics the associated data can come from S3, RDS, RedShift, other third party apps. Lookout for vision uses computer vision to detect defects and is primarily used for electronics manufacturing.<br>
+Amazon Monitron is an end-to-end system for monitoring industrial equipment and perform predictive maintenance too. Predictive maintenance refers to warning about equipment potentially failing in the future after detecting data abnormalities. Compared to lookout it is self-contained and higher-level. Monitron sensors can be used to capture vibration, temperature, or other metrics and warn about abnormalities via the Monitron app.
+
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
