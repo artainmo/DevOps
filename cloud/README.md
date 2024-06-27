@@ -1118,6 +1118,11 @@ Training and inference containers are also internet-enabled by default. Network 
 When using IAM on SageMaker you can set the following user permissions: CreateTrainingJob, CreateModel, CreateEndpointConfig, CreateTransformJob, CreateHyperParameterTuningJob, CreateNotebookInstance, UpdateNotebookInstance. IAM predefined policies we can use are: AmazonSageMakerReadOnly, AmazonSageMakerFullAccess, AdministratorAccess, DataScientist.<br>
 Cloudwatch can log, monitor and alarm on endpoint invocations and latency. It can also monitor the node health, CPU and available memory. It can even monitor Ground Truth to see how active human workers are. CloudTrail records actions from users, roles and services within SageMaker. Its log files are delivered to S3 for auditing.
 
+A general rule for choosing an instance type is that deep-learning benefits from GPU instances (P3, g4dn) for training. But inference/predicting is less demanding and thus a lightweight compute instance (C5) can be sufficient. For training non-deep-learning algorithms a general purpose compute instance (M5) can be a good fit. Even if GPU costs more, in the end it can be more cost effective than CPU due to its better performance on certain models.<br>
+Using EC2 Spot instances can save costs up to 90% over on-demand instances. The catch with Spot instances is that they can be interrupted at any time. Checkpoints can be used to S3 for training to pick up where it left off. Waiting for a Spot instance to become available can increase training time.
+
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
