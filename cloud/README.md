@@ -1091,7 +1091,20 @@ Amazon CodeGuru is ML-powered code reviews. It can be fed source code from GitHU
 Contact Lens is built for Amazon Connect's customer support call centers. It ingests audio data from recorded calls and transcribe which allows the search of specific calls back. It can also perform sentiment analysis and find correlations between customer utterances/phrases and successful calls. It categorizes calls automatically. It measures talk speed and interruptions which can for example give feedback to customer service on how to talk better. It can also detect themes to discover emerging issues for example.
 
 Amazon Kendra is aimed at enterprise search with natural language. It can provide internal tech support by answering for example: 'Where is the IT support desk?' or 'How do I connect to my VPN?'. It can combine data from internal file systems into one searchable repository. It is ML-powered and uses thumbs up/down feedback to improve over time.<br>
-Amazon Augmented AI (A2I) is a tool for performing human reviews of machine learning predictions. It is similar to SageMaker GroundTruth but the difference is that it automatically builds workflows for reviewing low-confidence predictions. Amazon Mechanical Turk is where the human workforce comes from. It integrates with SageMaker, Amazon Textract and Rekognition. 
+Amazon Augmented AI (A2I) is a tool for performing human reviews of machine learning predictions. It is similar to SageMaker GroundTruth but the difference is that it automatically builds workflows for reviewing low-confidence predictions. Amazon Mechanical Turk is where the human workforce comes from. It integrates with SageMaker, Amazon Textract and Rekognition.
+
+### ML Implementation and Operations
+ML models in SageMaker are hosted in Docker containers. Inside this container we can find a pre-built deep learning model, a pre-built scikit-learn or Spark ML model. A container can contain Tensorflow, MXNet, Chainer or PyTorch code. Tensorflow is not distributed across machines automatically. The framework Horovod, or Parameter Servers can be used to distribute Tensorflow training across multiple machines. A pre-built docker image can be used and even extended by own code.<br>
+Docker containers are created from docker images and images from Dockerfiles. An image gets stored in a repository, for SageMaker this would be Amazon Elastic Container Registry (ECR).<br>
+The structure of a training container is shown in following image.<br>
+![Screen Shot 2024-06-27 at 16 27 14](https://github.com/artainmo/DevOps/assets/53705599/cca0c445-7ae1-4e73-89b8-5f6861c3a03a)<br>
+The model directory is used for deployment. Here is the structure of a deployment container.<br>
+![Screen Shot 2024-06-27 at 16 29 29](https://github.com/artainmo/DevOps/assets/53705599/5431499c-0894-4ef3-a1e6-2d63da6fadbb)<br>
+The structure of a docker image that combines training and inference looks like the following image. The possibility also exists to use separate images for training and inference.<br>
+![Screen Shot 2024-06-27 at 16 30 45](https://github.com/artainmo/DevOps/assets/53705599/a1eab729-50d0-488f-9cee-88d8d77067b8)<br>
+'nginx.conf' is a configuration file for the NGINX web server. 'predictor.py' implements a flask web server for making predictions at runtime. The 'serve' directory contains a program for container hosting. The 'train' directory contains the invoked program for training. 'wsgi.py' is a wrapper for invoking flask application to serve results.<br>
+Production variance allows testing out multiple models on live traffic. Variant weight indicates how to distribute traffic among them. A new model iteration could start with 10% variant weight and when proven performant the variant weight could be increased.
+
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
