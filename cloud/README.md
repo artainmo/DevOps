@@ -1081,7 +1081,9 @@ AWS DeepRacer is a reinforcement learning powered 1/18-scale race car. It is mor
 Amazon Lookout comes in three flavors, one for equipment, another for metrics, and lastly vision. It is an industrial application that takes data and detects abnormalities. It will for example detect abnormalities from sensor data to automatically detect equipment issues. When monitoring metrics the associated data can come from S3, RDS, RedShift, other third party apps. Lookout for vision uses computer vision to detect defects and is primarily used for electronics manufacturing.<br>
 Amazon Monitron is an end-to-end system for monitoring industrial equipment and perform predictive maintenance too. Predictive maintenance refers to warning about equipment potentially failing in the future after detecting data abnormalities. Compared to lookout it is self-contained and higher-level. Monitron sensors can be used to capture vibration, temperature, or other metrics and warn about abnormalities via the Monitron app.
 
-
+TorchServe is part of the PyTorch project and is a collaboration between Amazon and Meta. It is a model serving framework for PyTorch. It deploys PyTorch models which integrates with AWS for hosting.<br>
+Amazon developed its own microship for deep learning and calls it AWS Inferentia chip. EC2 Inf1 instance type uses this chip. AWS Neuron is an SDK for optimizing models running on the Inferentia chip. It is automatically integrated with SageMaker and deep learning AMIs, deep learning containers, and it can integrate with Tensorflow, PyTorch, MXNet.<br>
+AWS Panorama brings computer vision at the edge. It deploys computer vision models close to your cameras. Some cameras can even have AWS Panorama built in, or other cameras can use the AWS Panorama appliance to connect to Panorama. The results can be routed to S3 or CloudWatch.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
