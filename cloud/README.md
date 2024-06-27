@@ -1108,6 +1108,10 @@ Production variance allows testing out multiple models on live traffic. Variant 
 Examples of edge devices are an embedded computer within your self-driving car, a smart camera like AWS deep lens. SageMaker Neo compiles inference/predicting code to edge devices. It optimizes code for specific edge devices such as ARM, Intel, Nvidia processors. Having the inference model run locally on edge device allows for speed by eliminating web request latency. Neo accepts code writtin in Tensorflow, MXNet, PyTorch, ONNX, or XGBoost.<br>
 Neo pairs well with AWS IoT Greengrass as Greengrass deploys code on an Edge device. Thus the model is trained in cloud with SageMaker, compiled with Neo, and deployed on edge devices with IoT Greengrass.
 
+For security, use IAM to restrict permissions for users and services, use multi-factor authentication whenever possible. Use SSL/TLS when connecting to anything. Use CloudTrail to collect forensic information when necessary. Use encryption, especially with PII both in rest and at transit.<br>
+At rest, in SageMaker jobs and notebooks, KMS can be used for encryption. In docker containers everything under '/opt/ml' and '/tmp' can also be encrypted with KMS. S3 buckets containing training data can also be encrypted with KMS. S3 can also be used to host trained models and again KMS can encrypt this.<br>
+In transit, all traffic supports TLS and SSL. IAM roles can be used to limit SageMaker's access to resources. Even inter-node training communication can be encrypted. However, this would increase training time and cost.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
