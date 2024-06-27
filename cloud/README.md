@@ -1105,6 +1105,8 @@ The structure of a docker image that combines training and inference looks like 
 'nginx.conf' is a configuration file for the NGINX web server. 'predictor.py' implements a flask web server for making predictions at runtime. The 'serve' directory contains a program for container hosting. The 'train' directory contains the invoked program for training. 'wsgi.py' is a wrapper for invoking flask application to serve results.<br>
 Production variance allows testing out multiple models on live traffic. Variant weight indicates how to distribute traffic among them. A new model iteration could start with 10% variant weight and when proven performant the variant weight could be increased.
 
+Examples of edge devices are an embedded computer within your self-driving car, a smart camera like AWS deep lens. SageMaker Neo compiles inference/predicting code to edge devices. It optimizes code for specific edge devices such as ARM, Intel, Nvidia processors. Having the inference model run locally on edge device allows for speed by eliminating web request latency. Neo accepts code writtin in Tensorflow, MXNet, PyTorch, ONNX, or XGBoost.<br>
+Neo pairs well with AWS IoT Greengrass as Greengrass deploys code on an Edge device. Thus the model is trained in cloud with SageMaker, compiled with Neo, and deployed on edge devices with IoT Greengrass.
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
