@@ -1112,6 +1112,12 @@ For security, use IAM to restrict permissions for users and services, use multi-
 At rest, in SageMaker jobs and notebooks, KMS can be used for encryption. In docker containers everything under '/opt/ml' and '/tmp' can also be encrypted with KMS. S3 buckets containing training data can also be encrypted with KMS. S3 can also be used to host trained models and again KMS can encrypt this.<br>
 In transit, all traffic supports TLS and SSL. IAM roles can be used to limit SageMaker's access to resources. Even inter-node training communication can be encrypted. However, this would increase training time and cost.
 
+SageMaker's training jobs run in a VPC. For extra security a private VPC can be used. SageMaker depends on S3 for training data and model artifacts. Within a private VPC you will need VPC endpoints to enable communication with S3.<br>
+SageMaker notebooks are internet-enabled by default which can be a security hole. This can be disabled, but then to access S3, you will need an interface endpoint, also called PrivateLink, or instead a NAT Gateway.<br>
+Training and inference containers are also internet-enabled by default. Network isolation is possible but again it would prevent S3 access.<br>
+When using IAM on SageMaker you can set the following user permissions: CreateTrainingJob, CreateModel, CreateEndpointConfig, CreateTransformJob, CreateHyperParameterTuningJob, CreateNotebookInstance, UpdateNotebookInstance. IAM predefined policies we can use are: AmazonSageMakerReadOnly, AmazonSageMakerFullAccess, AdministratorAccess, DataScientist.<br>
+Cloudwatch can log, monitor and alarm on endpoint invocations and latency. It can also monitor the node health, CPU and available memory. It can even monitor Ground Truth to see how active human workers are. CloudTrail records actions from users, roles and services within SageMaker. Its log files are delivered to S3 for auditing.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
