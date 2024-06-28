@@ -1151,6 +1151,7 @@ Now we multiply all the values by the scores and add them up which creates a new
 ![Screen Shot 2024-06-28 at 14 11 39](https://github.com/artainmo/DevOps/assets/53705599/b4efb1be-7616-4823-ae21-c424ecd48777)<br>
 An optimization is multi-headed self-attention. Here, the q, k, and v vectors are reshaped into matrices, then each row of the matrix can be processed in parallel. The number of rows is referred to as the number of 'heads'.
 
+Transformers are the first step into creating chatbots but are not sufficient on their own. Transformers can be used for question answering. By adding the associated layer to transformers we can perform classification such as sentiment analysis. Transformer can also be used for named entity recognition, summarization, code generation, text generation, and translation. 
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
