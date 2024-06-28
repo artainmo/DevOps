@@ -1169,6 +1169,14 @@ SageMaker Jumpstart allows launching a new notebook that comes with examples. As
 
 Amazon Bedrock is an API for using foundation models. It is serverless. It also has a fine tuning API to provide labeled examples via S3 to perform transfer learning on those foundation models. It integrates with SageMaker. 
 
+Amazon CodeWhisperer is Amazon's AI coding companion service. As you write code in Java, Javascript, Typescript, Python, or C#, it gives coding suggestions in real time. By writing a comment of what you want, it will automatically suggest blocks of code from within your IDE.<br>
+Also it has a reference tracker, meaning that if it gives you a suggested piece of code that is similar to a specific piece of open source code, it will annotate and attribute that code to honor the license it was written for.<br>
+It can automatically identify code that might provide a biased/unfair output.<br>
+It integrates with AWS services by providing suggestions on how to interface with AWS APIs, or even give boilerplate examples on how to use EC2, Lambda, or S3 APIs.<br>
+Amazon CodeWhisperer is secure by using TLS for encrypting in transit. Data is also encrypted at rest. However, Amazon can use your code data for further training its models if you use an individual plan.<br>
+The individual tier is free to use and allows 50 security scans a month. The professional tier costs 19$ per user a month. It for example allows management of which developers in an organization have access to CodeWhisperer. Authentication can occur via IAM Identity Center. Organizational coding policies can be enforced such as not allowing the use of open source code. Each user can use 500 security scans a month.<br>
+It supports the following IDEs, Visual Studio Code, JetBrains' suite of IDEs, JupyterLab, SageMaker Studio, AWS Cloud9 and AWS Lambda console.
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
