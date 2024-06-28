@@ -1130,6 +1130,10 @@ SageMaker will automatically attempt to distribute your instances across differe
 To use Serverless Inference, specify your container, its memory and concurrency (multiple computations simultaneously) requirements, it will then select the necessary amount of hardware. Thus the underlying capacity for your inference is automatically provisioned and scaled. When no requests are coming in it can even scale down to zero. This is useful when traffic is infrequent or unpredictable. You pay based on usage thus this on-demand pricing can be economical. Via CloudWatch we can monitor ModelSetupTime, Invocations, and MemoryUtilization.<br>
 Amazon SageMaker Inference Recommender recommends what instance types to use and what configuration to use for your models. It automates load testing, model tuning and deployment to an optimal inference endpoint type. It can run in different modes. One is 'instance recommendations' where it runs load tests on recommended instance types for 45min, thus it provides a quick answer. 'endpoint recommendations' performs custom load tests on the instance types, traffic patterns, latency and throughput requirements you specify, which takes +-2hours.
 
+Inference Pipelines allows chaining multiple inference containers into one pipeline of results. It can create linear sequences of 2-15 containers. For example you can combine your pre-processing, predictions and related post-processing, all in different containers who are chained together. It can handle both real-time inference and batch transforms.
+
+
+
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
