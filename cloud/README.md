@@ -1132,7 +1132,9 @@ Amazon SageMaker Inference Recommender recommends what instance types to use and
 
 Inference Pipelines allows chaining multiple inference containers into one pipeline of results. It can create linear sequences of 2-15 containers. For example you can combine your pre-processing, predictions and related post-processing, all in different containers who are chained together. It can handle both real-time inference and batch transforms.
 
-
+MLOps refers to managing the pipeline/workflow surrounding the building, testing and deployment of ML models.<br>
+A Kubernetes pipeline based ML infrastructure can be integrated in SageMaker using Amazon SageMaker Operators for Kubernetes or Components for Kubeflow Pipelines. Hybrid ML workflows where Kubernetes lies partly on-premises and is partly integrated with SageMaker in cloud is possible. This may be desirable if some sensitive information should stay on premises. SageMaker Operators can be installed on Amazon Elastic Kubernetes (EKS) to create SageMaker jobs via the Kubernetes API. Components for Kubeflow Pipelines integrates SageMaker with the Kubeflow MLOps solution under Kubernetes. Different components are available to use within the Kubeflow pipeline such as for processing, hyperparameter optimization, training and inference in SageMaker.<br>
+It is possible to have MLOps in SageMaker only, without using Kubernetes, via SageMaker Projects. SageMaker Projects is SageMaker Studio's MLOps solution with CI/CD. Such a pipeline allows building images, process data, train, evaluate, deploy and monitor/update models. For building and deploying ML solutions it will use code repositories and for defining/chaining the steps it will use SageMaker Pipelines.  
 
 ## Resources
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
