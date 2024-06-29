@@ -23,7 +23,13 @@
   - [Other Services](#Other-Services)
   - [AWS Architecting and Ecosystem](#AWS-Architecting-and-Ecosystem)
 - [Udemy course - AWS certified machine learning specialty](#Udemy-course---AWS-certified-machine-learning-specialty)
-  - [Data Engineering](Data-Engineering)
+  - [Data Engineering](#Data-Engineering)
+  - [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+  - [General Deep Learning and Machine Learning](#General-Deep-Learning-and-Machine-Learning)
+  - [Amazon SageMaker](#Amazon-SageMaker)
+  - [High-Level ML Services](#High-Level-ML-Services)
+  - [ML Implementation and Operations](#ML-Implementation-and-Operations)
+  - [Generative AI: Transformers, GPT, Self-Attention, and Foundation Models](#generative-ai-transformers-gpt-self-attention-and-foundation-models)
 - [Resources](#Resources)  
 
 ## Udemy course - AWS certified cloud practitioner
