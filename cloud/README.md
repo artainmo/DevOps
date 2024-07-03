@@ -1051,7 +1051,7 @@ Amazon Transcribe Subtitling provides live subtitles.
 
 Amazon Polly does text to speech in many different voices and languages.<br>
 It contains Lexicons which allows customization of pronunciation of specific words and phrases. For example 'W3C' being pronounced as 'World Wide Web Consortium'.<br>
-It supports Speech Synthesis Markup Language (SSML) format which is an alternative to plain text. With SSML you can indicate the desired pronunciation (breathing, whispering, speech rate, pitch, pauses) of plain text.<br>
+It supports Speech Synthesis Markup Language (SSML) format which is an alternative to plain text. With SSML you can indicate the desired intonation (breathing, whispering, speech rate, pitch, pauses) of plain text.<br>
 It also supports Speech Marks which encode when a sentence/word starts and ends in the audio stream. This is useful for lip-synching animation.
 
 Amazon Rekognition performs computer vision. Its main purpose it object and scene detection. Own face collection can be used for Rekognition to identify individuals by their name. Else it can perform facial analysis to identify gender, age, emotion, next to celebrity recognition and comparing faces. It can also perform image moderation to flag inappropriate images. It can extract text within an image. Else it can perform video analysis to mark the timeline where an object/individual was detected. People pathing it can do too whih refers to the path someone follows in a scene over time.<br>
