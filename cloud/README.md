@@ -1197,3 +1197,4 @@ It supports the following IDEs, Visual Studio Code, JetBrains' suite of IDEs, Ju
 [Udemy course - Ultimate AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/aws-certified-cloud-practitioner-new)<br>
 [Udemy course - 6 Practice Exams | AWS Certified Cloud Practitioner CLF-C02](https://campus19.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)<br>
 [Udemy course - AWS certified machine learning specialty 2024 - Hands on!](https://campus19.udemy.com/course/aws-machine-learning)<br>
+[Udemu course - AWS Certified Machine Learning Specialty Full Practice Exam](https://campus19.udemy.com/course/aws-machine-learning-practice-exam)
