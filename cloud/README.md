@@ -743,6 +743,10 @@ AWS Step Functions is used to design and orchestrate a visual workflow. The abil
 AWS DataSync moves large data amounts from on-premises to AWS.<br>
 In the case of ML, internet of things (IoT) uses physical devices/sensors to feed data in a centralized repository to be used by a ML model. MQTT is an IoT standard messaging protocol. Thus it helps transfer sensor data to a ML model.
 
+Elastic File System (EFS) is a storage type for EC2. It is a shared network file system (NFS) that you can mount to 100s of EC2. EFS is designed for elastic scalability and supports multiple concurrent Lambda connections. It excels in environments where shared, simultaneous file access is needed across different services.<br>
+Amazon FSx is a service to get third-party high-performance file systems on AWS. FSx supports high-performance computing with high data throughput and concurrent access, ideal for intensive data workloads.<br>
+EBS volumes are network drives with good but limited performance. EBS provides block-level storage volumes for use with EC2 instances and is not suitable for simultaneous access by multiple Lambda functions. It is best used for databases or other applications needing persistent, single-instance storage.
+
 ### Exploratory Data Analysis
 This section is about pre-processing the data that will be used by our ML model.
 
@@ -809,7 +813,7 @@ Kerberos is used for security of EMRs. It provides strong authentification via k
 Feature engineering is the process of selecting what features in the data are important for ML models to predict. You may also need to transform the selected data, handle missing data, or even create new features from existing ones.<br>
 Too many features can be problematic by leading to scattered data which is called 'the curse of dimensionality' and is why we need to select the most important features or use unsupervised dimensionality reduction algorithms such as PCA or K-means to distill many features into less features.
 
-Mean replacement is one solution for missing data. If a data misses, replace it with the mean of the entire feature column. If data has a lot of outliers you may prefer to use the median instead of mean. If the data is categorical you cannot use this method but instead should use the most frequent value. However, the mean replacement method is usually not very accurate.<br>
+Mean replacement is one solution for missing data. If a data misses, replace it with the mean of the entire feature column. If data has a lot of outliers you may prefer to use the median instead of mean. If the data is categorical you cannot use this method but instead should use the most frequent value (mode). However, the mean/median and mode replacement methods are usually not very accurate.<br>
 An alternative, which neither is best solution, is to drop the missing rows.<br>
 ML can be used to impute missing data which may be best solution. KNN can be used to find average of N most similar rows. It does not work for categorical data. Deep Learning can be used to impute data and is best suited for categorical data imputation while KNN for numerical data imputation. Or regressions can be used, with MICE (Multiple Imputation by Chained Equations) being such an advanced technique.<br>
 Lastly, collecting more real data is another way to combat missing datas.
@@ -912,6 +916,11 @@ SageMaker is intended to manage the entire ML workflow. SageMaker's architecture
 ![Screen Shot 2024-06-24 at 12 58 42](https://github.com/artainmo/DevOps/assets/53705599/9c69965e-425d-45d3-a0e7-7ded76eb69c5)<br>
 Data is expected to come from S3. Its ideal format varies with algorithm, often RecordIO or Protobuf. But data can also come from Athena, EMR, Redshift, and Amazon Keyspaces DB. SageMaker will provision training hosts to perform the data processing and training using that data. The code behind the model itself comes from a Docker image registered in Elastic Container Registry (ECR). The trained model and any artifacts will subsequently be stored in S3. For deployment in production we will use another Docker image from ECR with inference code thus code for model to predict. This is used inside hosts with endpoints provided by SageMaker again. When deploying, persistent endpoints can be used to answer individual requests on demand or SageMaker Batch Transform can be used to predict an entire dataset once. SageMaker Neo can deploy models to edge devices. Automatic scaling for endpoints is possible. Shadow testing evaluates new model against currently deployed model to catch errors.
 
+RecordIO format is specifically optimized for high throughput and efficient data serialization. It is ideal for large-scale image datasets in MXNet.<br>
+ORC format is optimized for storing tabular data.<br>
+Parquet is designed for efficient storage of columnar text data, not binary image data.<br>
+TFRecord is tailored for TensorFlow applications.
+
 Multiple ways exist to work with SageMaker, the most common one is by using its associated notebook. This notebook runs on an EC2 instance and has access to S3 and thus associated training data. It allows use of scikit_learn, tensorflow, Spark and has access to a wide variety of built-in models that can be accessed via pre-built Docker images. From the notebook you can also launch training instances and endpoints.<br>
 A lot of this can also be done via the SageMaker console.<br>
 
@@ -968,8 +977,8 @@ It can be trained on CPU or GPU instances. For inference/predicting both CPU and
 K-means is an unsupervised clustering technique. It divides data into K groups where members of a group are as similar as possible to each other. Euclidian distance can be used to measure similarity. SageMaker allows large scale K-means clustering.<br>
 Both CPU and GPU instance types can be used but CPU is recommended.
 
-Principal Component Analysis (PCA) is a dimensionality reduction algorithm. It is unsupervised. It transforms higher-dimensional data, meaning data with a lot of different features, into lower-dimensional data, such as 2D data to allow plotting, while minimizing the loss of information. The reduced dimensions are called components and they are ordered so that the first one has the largest variability and thus predictive power. It works by creating a covariance matrix that it distills down with the singular value decomposition (SVD) algorithm.
-Can use file or pipe mode.<br>
+Principal Component Analysis (PCA) is a dimensionality reduction algorithm. It is unsupervised. It transforms higher-dimensional data, meaning data with a lot of different features, into lower-dimensional data, such as 2D data to allow plotting, while minimizing the loss of information. The reduced dimensions are called components and they are ordered so that the first one has the largest variability and thus predictive power. It works by creating a covariance matrix that it distills down with the singular value decomposition (SVD) algorithm.<br>
+Can use file or pipe mode. Using Pipe mode streams data directly from S3 to the algorithm, reducing the need to use and store data on for example EBS volumes, hence lowering costs associated with EBS.<br>
 As instance types it can use GPU or CPU.
 
 Factorization Machines specialize in classification or regression with sparse data. Item recommendation is an example of sparse data as a lot of item pages exist but the client only saw some of them, thus we don't have a lot of data on the client's interests. Factorization Machines are a supervised method and are usually used in the context of recommender systems.<br>
@@ -1139,7 +1148,9 @@ Inference Pipelines allow chaining multiple inference containers into one pipeli
 
 MLOps refers to managing the pipeline/workflow surrounding the building, testing and deployment of ML models.<br>
 A Kubernetes pipeline based ML infrastructure can be integrated in SageMaker using Amazon SageMaker Operators for Kubernetes or Components for Kubeflow Pipelines. Hybrid ML workflows where Kubernetes lies partly on-premises and is partly integrated with SageMaker in cloud is possible. This may be desirable if some sensitive information should stay on-premises. SageMaker Operators for Kubernetes can be installed on Amazon Elastic Kubernetes (EKS) to create SageMaker jobs via the Kubernetes API. Components for Kubeflow Pipelines integrates SageMaker with the Kubeflow MLOps solution under Kubernetes. Different components are available to use within the Kubeflow pipeline such as for processing, hyperparameter optimization, training and inference in SageMaker.<br>
-It is possible to have MLOps in SageMaker only, without using Kubernetes, via SageMaker Projects. SageMaker Projects is SageMaker Studio's MLOps solution with CI/CD. Such a pipeline allows building images, process data, train, evaluate, deploy and monitor/update models. For building and deploying ML solutions it will use code repositories and for defining/chaining the steps it will use SageMaker Pipelines.  
+It is possible to have MLOps in SageMaker only, without using Kubernetes, via SageMaker Projects. SageMaker Projects is SageMaker Studio's MLOps solution with CI/CD. Such a pipeline allows building images, process data, train, evaluate, deploy and monitor/update models. For building and deploying ML solutions it will use code repositories and for defining/chaining the steps it will use SageMaker Pipelines.
+
+If EFS's performance metrics indicate an IOPS (input/output operations per second) nearing 100%, it is advised to increase the provisioned throughput of the EFS file system if it is in the provioned mode.
 
 ### Generative AI: Transformers, GPT, Self-Attention, and Foundation Models
 RNNs introduced a feedforward loop to propagate information forward. This is useful for modeling sequences such as time series or words forming phrases.<br>
