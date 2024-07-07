@@ -692,7 +692,8 @@ The last storage class is Intelligent-Tiering which allows you to automatically 
 
 S3 Lifecycle rules can be created to automatically move S3 objects between storage classes or delete them. For example you can create 'transition actions' which are rules that move objects to another storage class after some time. Else, 'expiration actions' are rules that delete objects after some time or delete old versions when using versioning.
 
-IAM policies can be used for security in S3 by determining accessibility of users towards buckets. Bucket policies determine accessibility of the bucket towards users but can also enforce encryption. Those policies are written in JSON. <br>
+IAM policies can be used for security in S3 by determining accessibility of users towards buckets. Bucket policies determine accessibility of the bucket towards users but can also enforce encryption. Those policies are written in JSON.<br>
+For a SageMaker notebook instance to interact with S3, by default, access is limited to S3 buckets with 'sagemaker' in the name, unless S3FullAccess is added.<br>
 Lastly, for security on S3, object encryption can be used.
 
 * Four methods exist in S3 for encryption:
@@ -907,7 +908,7 @@ The Precision / Recall (P-R) Curve plots the recall and precision metrics. Again
 
 An ensemble method takes multiple models, which may just be variations of the same model, and lets them all vote on a final result. Random forests is one example of an ensemble method that combines the result of multiple decision trees to reach a single result. Using multiple decision trees like that often ends up with better results compared to only using one decision tree.<br>
 Bagging generates multiple training sets by random sampling. Each training set can be used on a different model that can run in parallel.<br>
-With boosting we assign weights to each observation in our dataset. This runs in a sequential manner where we start with equal weights on each observation, and at each stage reweigh the data and the model. We keep iterating to get better results. By weighing the data we increase or decrease the scale of certain features to give them more or less influence on the model being trained.<br>
+With boosting we assign weights to each observation in our dataset. This runs in a sequential manner where we start with equal weights on each observation, and at each stage reweigh the data and the model. We keep iterating to get better results. By weighing the data we increase or decrease the scale of certain features to give them more or less influence on the model being trained. Boosting focuses on increasing model accuracy by giving more weight to difficult to predict observations. <br>
 XGBoost is part of SageMaker to perform boosting and is an often used algorithm. A lot of Kaggle challenges are being won by XGBoost right now, its strength is accuracy. On the other hand bagging is useful for overfitting as it spreads and subsamples the data. Also bagging can be parallelized.
 
 ### Amazon SageMaker
@@ -935,13 +936,15 @@ It can be trained on a single-instance GPU such as P2 or P3 for faster training 
 
 SageMaker's Seq2Seq algorithm takes as input a sequence of tokens and outputs a sequence of tokens. Machine translation, text summarization, speech to text, are common uses of this. It can be used both on RNNs and CNNs.<br>
 Its training data must be tokenized beforehand. Next to training and validation data, you also need to provide vocabulary files. Even on SageMaker, training for machine translation can take days. Else, pre-trained models are available and public training datasets too.<br>
+Its training data must be prepared in a RecordIO-Protobuf format with integer tokens. For inference, you can choose between the application/json format (for space-separated text tokens) or the RecordIO-Protobuf format (for integer-encoded data). For batch transform, the JSON Lines format is recommended.<br>
 BLUE score and perplexity are well-suited for evaluating machine translation models.
 
 DeepAR uses RNNs and is used to forecast one-dimensional time series data.<br>
 It is recommended for training to use CPU and move up to GPU only if necessary for larger models or mini-batch sizes (>512). For inference/predicting only CPU is supported.
 
 BlazingText can be used for text classification such as predicting labels for a sentence. It is useful for information retrieval.<br>
-It can also perform word2vec which consists of creating vector representations of words. This is also called word embedding. It is of use in NLP. Different modes exist such as Continuous Bag of Words (CBOW) where word order does not matter, skip-gram which uses n-grams, and batch skip-grams which distributes computation over many CPU nodes.
+It can also perform Word2Vec which consists of creating vector representations of words. This is also called word embedding. It is of use in NLP. BlazingText's Word2Vec supports both Skip-gram and CBOW (Continuous Bag of Words) architectures and doesn’t require maintaining word order. Skip-gram predicts context from words while CBOW predicts a target word based on the context of the surrounding words. Batch skip-grams distributes computation over many CPU nodes.<br>
+BlazingText can leverage both CPUs and GPUs.
 
 Object2vec is an embedding layer, thus it transforms into vectors. Those vectors can be compared and thus evaluated for similarity. Object2vec is more general purpose than word2vec in that it works on arbitrary objects. Thus while word2vec only transforms words, object2vec can transform entire documents. Object2vec can for example be used to compute nearest neighbors of objects, but also to predict genres of music/movies and be used in recommendation systems.<br>
 As instance type only one machine can be used with CPU, GPU or multi-GPU.
@@ -968,7 +971,7 @@ The Neural Topic Model tries to identify what the topic of a document is. It is 
 Can use file or pipe mode.<br>
 The main hyperparameter *Num_topics* defines how many topics you want.<br>
 GPU is recommended for training. CPU is cheaper and can be used for inference/predicting.<br>
-Latent Dirichlet Allocation (LDA) is another topic modeling algorithm. It is also unsupervised but contrary to the Neural Topic Model it doesn't use deep learning. It can also be used for things other than words that are based on unsupervised clustering such as clustering customers based on purchases or performing harmonic analysis of music. Its training is done on single-instance CPU.
+Latent Dirichlet Allocation (LDA) is another topic modeling algorithm. It is also unsupervised but contrary to the Neural Topic Model it doesn't use deep learning. It can also be used for things other than words that are based on unsupervised clustering such as clustering customers based on purchases or performing harmonic analysis of music. Its training is done on single-instance CPU. LDA can use pipe mode with RecordIO format.
 
 K-Nearest-Neighbors (KNN) is a simple classification or regression algorithm. When using this algorithm SageMaker includes a dimensionality reduction stage and builds an index for looking up neighbors faster.<br>
 It can be trained on CPU or GPU instances. For inference/predicting both CPU and GPU can be used. CPU can provide lower latency but GPU provides higher throughput for handling large batches of data all at once.
@@ -1042,7 +1045,7 @@ It can track various entities, one is a trial component such as for example a pr
 Once you have a lineage you can query it using LineageQuery API which is part of SageMaker's SDK for Python. ML Lineage Tracking can also produce visualizations by using an external visualizer helper class.<br> 
 ML Lineage Tracking integrates with AWS Resource Access Manager for cross-account lineage.
 
-SageMaker Data Wrangler is an ETL pipeline baked into SageMaker Studio. Thus it is a visual interface to prepare data for machine learning. It allows importing, visualizing, transformation of data. It has 300+ built-in transformations or you can integrate own transformations using Pandas, PySpark, or PySpark SQL.<br>
+SageMaker Data Wrangler is an ETL pipeline baked into SageMaker Studio. Thus it is a visual interface to prepare data for machine learning. It allows importing, visualizing, transformation of data such as removing outliers. It has 300+ built-in transformations or you can integrate own transformations using Pandas, PySpark, or PySpark SQL.<br>
 Quick Model allows training model with a subset of that data and measure results. This allows experimenting with data processing optimization.<br>
 Data Wrangler lies between data sources and places to send it to.<br>
 ![Screen Shot 2024-06-25 at 18 27 41](https://github.com/artainmo/DevOps/assets/53705599/68de8bbb-88ca-4680-a864-fba3c1a67cc4)<br>
@@ -1067,7 +1070,7 @@ It supports Speech Synthesis Markup Language (SSML) format which is an alternati
 It also supports Speech Marks which encode when a sentence/word starts and ends in the audio stream. This is useful for lip-synching animation.
 
 Amazon Rekognition performs computer vision. Its main purpose is object and scene detection. Own face collection can be used for Rekognition to identify individuals by their name. Else it can perform facial analysis to identify gender, age, emotion, next to celebrity recognition and comparing faces. It can also perform image moderation to flag inappropriate images. It can extract text within an image. Else it can perform video analysis to mark the timeline where an object/individual was detected. People pathing it can do too which refers to detecting the path someone follows in a scene over time.<br>
-Images come from S3 or via the API raw image bites can be sent. Videos must come from Kinesis Video Streams. Lambda can be used to trigger image analysis via Rekognition upon S3 image upload.<br>
+Images come from S3 or via the API raw image bites can be sent. Videos must come from Kinesis Video Streams. Lambda can be used to trigger image analysis via Rekognition upon S3 image upload. Rekognition integrates directly with SNS for notifications.<br>
 Rekognition Custom Labels allows extension of Rekognition's labeling capabilities by providing a small set of labeled images containing labels Rekognition doesn't know yet.
 
 Amazon Forecast is a time series forecasting service using ML. It has 'AutoML' option that chooses best model for time series data. It can be used for inventory planning, financial planning, resource planning.<br>
@@ -1093,7 +1096,7 @@ To maintain relevance of recommendations keep your dataset current, meaning you 
 For security, data is not shared across accounts, KMS can be used for encryption, IAM is used for access control to the service, inappropriate bucket policies in S3 could hinder Personalize from processing its data, monitoring occurs via CloudWatch and CloudTrail.<br>
 For data ingestion you pay per GB. For training per hour. For inference/predicting you pay per TPS-hour (average transactions per seconds over each hour). When using batch instead of real-time recommendations you pay per user or item.
 
-Amazon Textract performs optical character recognition (OCR). An image of text it can turn into text data. It can also handle forms, fields, tables, and structure data automatically.<br>
+Amazon Textract performs optical character recognition (OCR). An image of text it can turn into text data. It can also handle forms, fields, tables, and structure data automatically from scanned documents.<br>
 AWS DeepRacer is a reinforcement learning powered 1/18-scale race car. It is more of an education tool used to play in race car competitions where the best model wins.<br>
 Amazon Lookout comes in three flavors, one for equipment, another for metrics, and lastly vision. It is an industrial application that takes data and detects abnormalities. It will for example detect abnormalities from sensor data to automatically detect equipment issues. When monitoring metrics the associated data can come from S3, RDS, RedShift, other third party apps. Lookout for vision uses computer vision to detect defects and is primarily used for electronics manufacturing.<br>
 Amazon Monitron is an end-to-end system for monitoring industrial equipment and perform predictive maintenance too. Predictive maintenance refers to warning about equipment potentially failing in the future after detecting data abnormalities. Compared to lookout it is self-contained and higher-level. Monitron sensors can be used to capture vibration, temperature, or other metrics and warn about abnormalities via the Monitron app.
@@ -1120,6 +1123,7 @@ The model directory is used for deployment. Here is the structure of a deploymen
 The structure of a docker image that combines training and inference looks like the following image. The possibility also exists to use separate images for training and inference.<br>
 ![Screen Shot 2024-06-27 at 16 30 45](https://github.com/artainmo/DevOps/assets/53705599/a1eab729-50d0-488f-9cee-88d8d77067b8)<br>
 'nginx.conf' is a configuration file for the NGINX web server. 'predictor.py' implements a flask web server for making predictions at runtime. The 'serve' directory contains a program for container hosting. The 'train' directory contains the invoked program for training. 'wsgi.py' is a wrapper for invoking flask application to serve results.<br>
+A script entrypoint is designated by including 'ENV SAGEMAKER_PROGRAM <script_file>' in the Dockerfile.<br>
 Production variance allows testing out multiple models on live traffic. Variant weight indicates how to distribute traffic among them. A new model iteration could start with 10% variant weight and when proven performant the variant weight could be increased.
 
 Examples of edge devices are an embedded computer within your self-driving car, a smart camera like AWS deep lens. SageMaker Neo compiles inference/predicting code to edge devices. It optimizes code for specific edge devices such as ARM, Intel, Nvidia processors. Having the inference model run locally on edge device allows for speed by eliminating web request latency. Neo accepts code writtin in Tensorflow, MXNet, PyTorch, ONNX, or XGBoost.<br>
