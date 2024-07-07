@@ -919,6 +919,7 @@ Data is expected to come from S3. Its ideal format varies with algorithm, often 
 RecordIO format is specifically optimized for high throughput and efficient data serialization. It is ideal for large-scale image datasets in MXNet.<br>
 ORC format is optimized for storing tabular data.<br>
 Parquet is designed for efficient storage of columnar text data, not binary image data.<br>
+Tabular and columnar formats reduce storage costs and improve query performance.<br>
 TFRecord is tailored for TensorFlow applications.
 
 Multiple ways exist to work with SageMaker, the most common one is by using its associated notebook. This notebook runs on an EC2 instance and has access to S3 and thus associated training data. It allows use of scikit_learn, tensorflow, Spark and has access to a wide variety of built-in models that can be accessed via pre-built Docker images. From the notebook you can also launch training instances and endpoints.<br>
