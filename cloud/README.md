@@ -792,7 +792,7 @@ QuickSight is best not used for highly formatted canned reports. Unless when usi
 Elastic MapReduce (EMR) helps create Hadoop clusters to analyze and process vast amounts of data. Those clusters can be made of 100s of EC2 instances with each cluster being called a node. Each node has a role and type. The master/leader node manages the cluster and distributes the data across the other nodes. Core nodes run tasks and store data on the Hadoop Distributive File System (HDFS). Task nodes only run tasks, are not mandatory and don't store data. As a result they are good for spot instances who are not reliable.<br>
 The master node can use as Instance Type an m4.large if having less than 50 nodes, else an m4.xlarge. For core and task nodes m4.large is in general good too. For AI and accelerated computing you may want GPU instances. Spot instances are usually a good choice for task nodes.<br>
 For massive datasets you sometimes need a cluster to process it in parallel.<br>
-HDFS is fast but data is lost when cluster is shut down. EMRFS can use S3 as if it was HDFS to avoid this problem.<br>
+HDFS is fast but data is lost when cluster is shut down. EMRFS can use S3 as if it was HDFS to avoid this problem. By using the 's3://' file prefix, EMRFS provides a transparent way to access S3 objects as if they were stored in HDFS.<br>
 A transient cluster terminates after the defined steps/tasks are all completed while long-running clusters need to be manually terminated.<br>
 It can integrate with EC2, Amazon VPC, S3, IAM, CloudTrail, Data Pipeline.<br>
 EMR Notebooks is similar to Jupyter Notebooks. It runs on an EMR cluster and has several integration points with AWS services.<br>
@@ -827,7 +827,7 @@ Sometimes it is best to remove outliers other times not. The AWS Random Cut Fore
 
 Binning is transforming ranges of numerical values into categorical values. Binning covers up imprecisions in measurements. With quantile binning data is categorized relative to its distribution thus it ensures each bin has an equal amount of samples.<br>
 Data can be transformed to make it more suitable for training. For example exponential data may benefit from a logarithmic transform to make it more linear.<br>
-Sometimes data needs to be encoded in a format required by the ML model. An example is one-hot-encoding where a category gets transformed into a string of 0-1 values, where all categories equal zero besides the category being represented has value 1.<br>
+Sometimes data needs to be encoded in a format required by the ML model. An example is one-hot-encoding where a category gets transformed into a string of 0-1 values, where all categories equal zero besides the category being represented has value 1. Using one-hot-encoding instead of integer representations can also prevent models from inferring ordinal relationships within categorical data.<br>
 Some ML models prefer data to be normally distributed which demands data normalization. Data of one feature can also be scaled to values comparable to other features. All features should be on same scale to avoid some having more weight than others.<br>
 Shuffling can also benefit many ML algorithms by not making data order predictable.
 
@@ -999,6 +999,7 @@ Finding the optimal value for hyperparameters is difficult. Some guidance exists
 Apache Spark is a popular framework for processing data and it also has a powerful MLlib that can perform large scale ML. Spark loads data in DataFrames, then you can distribute the processing of that DataFrame across an entire cluster on Spark.<br>
 AWS allows use of sagemaker-spark library where you can pre-process your data with Apache Spark but afterwards use SageMakerEstimator instead of MLlib which exposes some popular SageMaker algorithms you can use in Spark such as K-means, PCA, XGBoost to produce a SageMakerModel to make inferences/predictions.<br>
 In practice you can take a SageMaker notebook and connect to a remote EMR running Spark. Then pre-process the training DataFrame, and afterwards call *fit* method on SageMakerEstimator to get a SageMakerModel on which you can call *transform* to make inferences. SageMaker itself cannot be deployed on the EMR, Spark only can.<br>
+Alternatively, it is possible to apply Spark on Amazon EMR for data pre-processing and save the refined results in an Amazon S3 bucket, ensuring SageMaker's access for training.<br>
 This allows combining pre-processing big data in Spark with training and inference/predicting in SageMaker to get best of both worlds.
 
 SageMaker Studio is an integrated development environment (IDE) for machine learning. It allows the creation and sharing of Jupyter notebooks. SageMaker Experiments is present in SageMaker Studio and lets you compare and search your notebooks and ML jobs to find model with best performance.
@@ -1131,6 +1132,7 @@ In transit, all traffic supports TLS and SSL. IAM roles can be used to limit Sag
 SageMaker's training jobs run in a VPC. For extra security a private VPC can be used. SageMaker depends on S3 for training data and model artifacts. Within a private VPC you will need VPC endpoints to enable communication with S3.<br>
 SageMaker notebooks are internet-enabled by default which can be a security hole. This can be disabled, but then to access S3, you will need an interface endpoint, also called PrivateLink, or instead a NAT Gateway.<br>
 Training and inference containers are also internet-enabled by default. Network isolation is possible but again it would prevent S3 access.<br>
+For secure data in transit, enable SSL/TLS encryption for data in-transit between SageMaker and VPCs.<br>
 When using IAM on SageMaker you can set the following user permissions: CreateTrainingJob, CreateModel, CreateEndpointConfig, CreateTransformJob, CreateHyperParameterTuningJob, CreateNotebookInstance, UpdateNotebookInstance. IAM predefined policies we can use are: AmazonSageMakerReadOnly, AmazonSageMakerFullAccess, AdministratorAccess, DataScientist.<br>
 Cloudwatch can log, monitor and alarm on endpoint invocations and latency. It can also monitor the node health, CPU and available memory. It can even monitor Ground Truth to see how active human workers are. CloudTrail records actions from users, roles and services within SageMaker. Its log files are delivered to S3 for auditing.
 
@@ -1153,6 +1155,8 @@ A Kubernetes pipeline based ML infrastructure can be integrated in SageMaker usi
 It is possible to have MLOps in SageMaker only, without using Kubernetes, via SageMaker Projects. SageMaker Projects is SageMaker Studio's MLOps solution with CI/CD. Such a pipeline allows building images, process data, train, evaluate, deploy and monitor/update models. For building and deploying ML solutions it will use code repositories and for defining/chaining the steps it will use SageMaker Pipelines.
 
 If EFS's performance metrics indicate an IOPS (input/output operations per second) nearing 100%, it is advised to increase the provisioned throughput of the EFS file system if it is in the provioned mode.
+
+To ensure successful deployment and operation of a custom container on Amazon SageMaker, the container must respond to /invocations and /ping requests on port 8080, and must accept all ping requests under 2 seconds.
 
 ### Generative AI: Transformers, GPT, Self-Attention, and Foundation Models
 RNNs introduced a feedforward loop to propagate information forward. This is useful for modeling sequences such as time series or words forming phrases.<br>
