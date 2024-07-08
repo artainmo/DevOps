@@ -1048,7 +1048,7 @@ Once you have a lineage you can query it using LineageQuery API which is part of
 ML Lineage Tracking integrates with AWS Resource Access Manager for cross-account lineage.
 
 SageMaker Data Wrangler is an ETL pipeline baked into SageMaker Studio. Thus it is a visual interface to prepare data for machine learning. It allows importing, visualizing, transformation of data such as removing outliers. It has 300+ built-in transformations or you can integrate own transformations using Pandas, PySpark, or PySpark SQL.<br>
-Quick Model allows training model with a subset of that data and measure results. This allows experimenting with data processing optimization.<br>
+Quick Model allows training a model with a subset of that data and measure results. This allows experimenting with data processing optimization.<br>
 Data Wrangler lies between data sources and places to send it to.<br>
 ![Screen Shot 2024-06-25 at 18 27 41](https://github.com/artainmo/DevOps/assets/53705599/68de8bbb-88ca-4680-a864-fba3c1a67cc4)<br>
 Data Wrangler isn't doing the transformations of your pipeline itself, it's just generating code to do those transformations in your pipeline. Thus it is more a code generation tool. It will export the code to a notebook for execution. 
